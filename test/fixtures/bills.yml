@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  duedate: 2014-08-27 17:00:08
+  category_id: 
+  url: MyString
+
+two:
+  name: MyString
+  duedate: 2014-08-27 17:00:08
+  category_id: 
+  url: MyString

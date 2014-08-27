@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @reminder.notes %>
+</p>
+
+<p>
+  <strong>Alert:</strong>
+  <%= @reminder.alert %>
+</p>
+
+<p>
+  <strong>Bill:</strong>
+  <%= @reminder.bill %>
+</p>
+
+<%= link_to 'Edit', edit_reminder_path(@reminder) %> |
+<%= link_to 'Back', reminders_path %>
