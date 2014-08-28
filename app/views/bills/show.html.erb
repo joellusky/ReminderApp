@@ -20,19 +20,14 @@
   <%= @bill.url %>
 </p>
 
+		 
+<% @bill.reminders.each do |reminder| %>
+	<h2>Reminder: </h2>
+	<p> Notes: <%= reminder.notes %> </p>
+	<p> Due By: <%= reminder.alert %> </p>
+  <hr>
+<% end %> 
 
-<% if @bill.reminders.nil?  %>
-	
-	<h2> Current Reminders </h2> 
-	<% @bill.reminders.each do |reminder| %>
-		<p> Notes: <%= reminder.notes %> </p>
-		<p> Due By: <%= reminder.alert %> </p>
-	  <hr>
-	<% end %>  
-
-<% else %>
-		<h2> No Current Reminders Set </h2>
-<% end %>
 
 <h2> Create a New Reminder For Your Bill! </h2> 
 
