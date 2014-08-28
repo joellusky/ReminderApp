@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140828190814) do
     t.integer  "category_id"
     t.string   "url"
     t.date     "duedate"
+    t.boolean  "paid"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
