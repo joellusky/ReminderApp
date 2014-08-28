@@ -7,6 +7,7 @@
       <th>Duedate</th>
       <th>Category</th>
       <th>Url</th>
+      <th>Paid</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,8 +17,9 @@
       <tr>
         <td><%= bill.name %></td>
         <td><%= bill.duedate %></td>
-        <td><%= bill.category.name %></td>
+        <td><%= bill.category %></td>
         <td><%= bill.url %></td>
+        <td><%= bill.paid %></td>
         <td><%= link_to 'Show', bill %></td>
         <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>

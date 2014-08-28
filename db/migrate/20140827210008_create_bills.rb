@@ -5,6 +5,7 @@ class CreateBills < ActiveRecord::Migration
       t.references :category, index: true
       t.string :url
       t.date :duedate
+      t.boolean :paid
 
       t.timestamps
     end

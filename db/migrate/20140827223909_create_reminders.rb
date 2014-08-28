@@ -4,8 +4,9 @@ class CreateReminders < ActiveRecord::Migration
       t.text :notes
       t.datetime :alert
       t.references :bill, index: true
-
+      
       t.timestamps
+      
     end
   end
 end

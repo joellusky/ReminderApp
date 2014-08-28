@@ -12,15 +12,20 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @bill.category.name %>
+  <%= @bill.category %>
 </p>
 
 <p>
   <strong>Url:</strong>
   <%= @bill.url %>
 </p>
-
-		 
+<p>
+<strong>Paid:</strong>
+  <%= fields_for(@bill) do |f| %>
+  <%= f.check_box :paid %>
+  <% end %>
+</p>
+     
 <% @bill.reminders.each do |reminder| %>
 	<h2>Reminder: </h2>
 	<p> Notes: <%= reminder.notes %> </p>
