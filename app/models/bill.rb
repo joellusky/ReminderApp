@@ -12,6 +12,7 @@ class Bill < ActiveRecord::Base
 			where('name LIKE ? ', search)
 		else
 			all
+			# where(user_id: current_user.id)
 		end
 	end
 

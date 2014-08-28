@@ -23,6 +23,7 @@
 
   <tbody>
     <% @bills.each do |bill| %>
+    <% if bill.user_id == current_user.id %>
       <tr>
         <td><%= bill.name %></td>
         <td><%= bill.duedate %></td>
@@ -33,6 +34,8 @@
         <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    <% else %>
+    <% end %>
     <% end %>
   </tbody>
 </table>
