@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "bills#show"
+  root 'bills#index'
 
   resources :reminders
 
