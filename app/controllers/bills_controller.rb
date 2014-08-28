@@ -3,10 +3,14 @@ class BillsController < ApplicationController
 
   # GET /bills
   # GET /bills.json
+#index displays current_user bills
   def index
     @bills = Bill.all
     #Added search feature below
     @bills = Bill.search(params[:search])
+
+    @bills = Bill.where(user_id: current_user.id)
+  
   end
 
   # GET /bills/1
@@ -26,9 +30,12 @@ class BillsController < ApplicationController
 
   # POST /bills
   # POST /bills.json
+
   def create
     @bill = Bill.new(bill_params)
-
+    #sets new bill equal to the id of the current user signed in.
+    @bill.user_id = current_user.id
+    
     respond_to do |format|
       if @bill.save
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }

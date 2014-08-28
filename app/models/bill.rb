@@ -1,6 +1,8 @@
 class Bill < ActiveRecord::Base
   belongs_to :category
+  belongs_to :user
   has_many :reminders
+
 
 
   #search method
@@ -12,6 +14,7 @@ class Bill < ActiveRecord::Base
 			all
 		end
 	end
+
 end
 
 

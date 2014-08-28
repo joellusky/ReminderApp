@@ -3,9 +3,11 @@ class RemindersController < ApplicationController
 
   # GET /reminders
   # GET /reminders.json
+#index displays current_user reminders
   def index
-    @reminders = Reminder.all
+    @reminders = Reminder.where(user_id: current_user.id)
   end
+  
 
   # GET /reminders/1
   # GET /reminders/1.json
@@ -25,6 +27,8 @@ class RemindersController < ApplicationController
   # POST /reminders.json
   def create
     @reminder = Reminder.new(reminder_params)
+    #sets new bill equal to the id of the current user signed in.
+    @reminder.user_id = current_user.id
 
     respond_to do |format|
       if @reminder.save
