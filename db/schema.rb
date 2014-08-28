@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828153902) do
+ActiveRecord::Schema.define(version: 20140828190814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 20140828153902) do
     t.boolean  "paid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "bills", ["category_id"], name: "index_bills_on_category_id", using: :btree
+  add_index "bills", ["user_id"], name: "index_bills_on_user_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -40,9 +42,11 @@ ActiveRecord::Schema.define(version: 20140828153902) do
     t.integer  "bill_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "reminders", ["bill_id"], name: "index_reminders_on_bill_id", using: :btree
+  add_index "reminders", ["user_id"], name: "index_reminders_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
