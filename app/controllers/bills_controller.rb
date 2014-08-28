@@ -5,6 +5,8 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills = Bill.all
+    #Added search feature below
+    @bills = Bill.search(params[:search])
   end
 
   # GET /bills/1

@@ -1,4 +1,13 @@
-<h1>Listing bills</h1>
+<h1>Unpaid bills</h1>
+
+
+<!-- Search Bar Functionality -->
+<%= form_tag bills_path, :method => 'get' do %>
+         <%= search_field_tag :search, params[:search]%>
+         <%= submit_tag "Search", class: 'pure-button', name: nil %>
+      <% end %>
+
+
 
 <table>
   <thead>
@@ -25,7 +34,7 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
+
 
 <%= link_to 'New Bill', new_bill_path %>
