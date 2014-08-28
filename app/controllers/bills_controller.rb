@@ -10,6 +10,8 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
+    @reminder = Reminder.new
+    @reminders = Reminder.all
   end
 
   # GET /bills/new

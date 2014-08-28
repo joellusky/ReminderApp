@@ -20,5 +20,23 @@
   <%= @bill.url %>
 </p>
 
+
+<% if @bill.reminders.nil?  %>
+	
+	<h2> Current Reminders </h2> 
+	<% @bill.reminders.each do |reminder| %>
+		<p> Notes: <%= reminder.notes %> </p>
+		<p> Due By: <%= reminder.alert %> </p>
+	  <hr>
+	<% end %>  
+
+<% else %>
+		<h2> No Current Reminders Set </h2>
+<% end %>
+
+<h2> Create a New Reminder For Your Bill! </h2> 
+
+<%= render 'reminders/form' %>
+
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %>

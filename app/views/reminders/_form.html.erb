@@ -19,10 +19,21 @@
     <%= f.label :alert %><br>
     <%= f.datetime_select :alert %>
   </div>
-  <div class="field">
-    <%= f.label :bill_id %><br>
-    <%= f.text_field :bill_id %>
-  </div>
+
+    <% if @bill.nil? %> 
+    <div class="field">
+      <%= f.label :bill_id %><br>
+      <%= f.text_field :bill_id %>
+    </div>
+  <% else %> 
+    <div class="field">
+      <%= f.hidden_field :bill_id, value: @bill.id %>
+    </div>
+  <% end %>
+
+
+
+  
   <div class="actions">
     <%= f.submit %>
   </div>
