@@ -1,4 +1,4 @@
-g<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -12,7 +12,7 @@ g<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Category:</strong>
-  <%= @bill.category %>
+  <%= @bill.category.name %>
 </p>
 
 <p>
@@ -21,11 +21,15 @@ g<p id="notice"><%= notice %></p>
 </p>
 
 <p>
-<strong>Paid:</strong>
-  <%= fields_for(@bill) do |f| %>
-  <%= f.check_box :paid %>
-  <% end %>
-</p>
+<strong>Payment Status: <%= @bill.paid %></strong> 
+<% if @bill.paid == false %> 
+ <%= render 'form' %>
+<% end %>
+
+
+</p> 
+
+
      
 <% @bill.reminders.each do |reminder| %>
 	<h2>Reminder: </h2>

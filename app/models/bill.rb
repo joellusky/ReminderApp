@@ -16,6 +16,8 @@ class Bill < ActiveRecord::Base
 		end
 	end
 
+	
+
 end
 
 

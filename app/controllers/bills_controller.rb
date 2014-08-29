@@ -14,6 +14,7 @@ class BillsController < ApplicationController
   # GET /bills/1.json
   def show
     @reminder = Reminder.new
+    @edit = false
   end
 
   # GET /bills/new
@@ -23,6 +24,7 @@ class BillsController < ApplicationController
 
   # GET /bills/1/edit
   def edit
+    @edit = true
   end
 
   # POST /bills
@@ -78,4 +80,6 @@ class BillsController < ApplicationController
     def bill_params
       params.require(:bill).permit(:name, :duedate, :category_id, :url, :paid)
     end
+
+  
 end
