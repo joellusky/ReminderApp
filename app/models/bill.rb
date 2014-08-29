@@ -6,7 +6,7 @@ class Bill < ActiveRecord::Base
 
 
   #search method
-  def self.search(search)
+def self.search(search)
 		unless search.blank?
 			search = "%#{search}%"
 			where('Name LIKE ? ', search)
@@ -15,9 +15,6 @@ class Bill < ActiveRecord::Base
 			# where(user_id: current_user.id)
 		end
 	end
-
-	
-
 end
 
 
