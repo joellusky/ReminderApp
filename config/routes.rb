@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   
-root  "home#index"
+root "home#index"
 
 
   resources :reminders
@@ -11,6 +11,7 @@ root  "home#index"
   resources :categories
 
   resources :dashboard
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

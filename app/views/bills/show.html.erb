@@ -1,4 +1,4 @@
-g<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -34,8 +34,7 @@ g<p id="notice"><%= notice %></p>
   <hr>
 <% end %> 
 
-
-		 <% if !(@bill.reminders.empty?) %>
+		<% if !(@bill.reminders.empty?) %>
 
 
         <h2> Your Reminders </h2>
@@ -43,8 +42,8 @@ g<p id="notice"><%= notice %></p>
           <% @bill.reminders.each do |reminder| %>
       	<p> Notes: <%= reminder.notes %> </p>
       	<p> Due By: <%= reminder.alert %> </p>
-          <% end %> 
-                <hr>
+    <% end %> 
+      <hr>
       <% else %>
 
       <h2> No Reminders Currently Set  </h2>
