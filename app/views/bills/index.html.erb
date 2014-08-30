@@ -15,7 +15,6 @@
       <th>Name</th>
       <th>Duedate</th>
       <th>Category</th>
-      <th>Url</th>
       <th>Paid</th>
       <th colspan="3"></th>
     </tr>
@@ -27,12 +26,10 @@
       <tr>
         <td><%= bill.name %></td>
         <td><%= bill.duedate %></td>
-        <td><%= bill.category %></td>
-        <td><%= bill.url %></td>
+        <td><%= bill.category.name %></td>
         <td><%= bill.paid %></td>
         <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
-        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
 
     <% end %>
@@ -43,6 +40,37 @@
   </tbody>
 </table>
 <br>
+<hr>
+<!-- 
+<h1>Paid bills</h1>
 
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Category</th>
+      <th>Paid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+    <% if bill.user_id == current_user.id %>
+      <tr>
+        <td><%= bill.name %></td>
+        <td><%= bill.category %></td>
+        <td><%= bill.paid %></td>
+        <td><%= link_to 'Show', bill %></td>
+        <td><%= link_to 'Delete', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+
+
+      <% end %>
+    
+  </tbody>
+</table> -->
 
 <%= link_to 'New Bill', new_bill_path %>

@@ -6,6 +6,7 @@ class users::registrationsController < Devise::registrationsController
   # def create
   #   super
   # end
+<<<<<<< HEAD
   private
 
   def sign_up_params
@@ -15,4 +16,6 @@ class users::registrationsController < Devise::registrationsController
   def account_update_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :cell_phone)
   end
+=======
+>>>>>>> 2cd3fae2e29b9b10f40ba136870bf15f49583005
 end
