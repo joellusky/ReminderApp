@@ -2,9 +2,7 @@ class Bill < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   has_many :reminders
-
-
-  validates :bill, presence: true
+  belongs_to :provider
 
 
 

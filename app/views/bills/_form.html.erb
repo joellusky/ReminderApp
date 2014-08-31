@@ -21,11 +21,14 @@
     <%= f.label :duedate %><br>
     <%= f.date_select :duedate %>
   </div>
+  
   <div class="field">
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
     <%= f.collection_select :category_id, Category.order(:name), :id, :name%>
   </div>
+
+
   <div class="field">
     <%= f.hidden_field :paid, value: false %>
   </div>
@@ -43,10 +46,6 @@
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
     <%= f.collection_select :category_id, Category.order(:name), :id, :name%>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
   </div>
   <div class="field">
     <%= f.check_box :paid%>
