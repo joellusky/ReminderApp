@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :providers
+
   get 'sendtext/index'
 
   devise_for :users
@@ -10,9 +12,13 @@ Rails.application.routes.draw do
 
   resources :bills
 
-  resources :categories
+  resources :categories do
+    resources :providers
+  end
 
   resources :dashboard
+
+  
 
 
   # The priority is based upon order of creation: first created -> highest priority.
