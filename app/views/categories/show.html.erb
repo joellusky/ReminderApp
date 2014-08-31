@@ -7,7 +7,7 @@
 
 
     <% @providers.each do |provider| %>
-    <% if provider.category_id == @category.id %>
+    <% if providers.category_id == @category.id %>
       <strong>Provider:</strong>
         <%= provider.name %>--
         <%= provider.url %>

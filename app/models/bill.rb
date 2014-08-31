@@ -4,17 +4,20 @@ class Bill < ActiveRecord::Base
   has_many :reminders
 
 
+  validates :bill, presence: true
 
-  #search method
-def self.search(search)
-		unless search.blank?
-			search = "%#{search}%"
-			where('Name LIKE ? ', search)
-		else
-			all
-			# where(user_id: current_user.id)
+
+
+	  #search method
+		def self.search(search)
+			unless search.blank?
+				search = "%#{search}%"
+				where('Name LIKE ? ', search)
+			else
+				all
+				# where(user_id: current_user.id)
+			end
 		end
-	end
 end
 
 
