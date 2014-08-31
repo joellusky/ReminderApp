@@ -27,10 +27,6 @@
     <%= f.collection_select :category_id, Category.order(:name), :id, :name%>
   </div>
   <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
     <%= f.hidden_field :paid, value: false %>
   </div>
 
