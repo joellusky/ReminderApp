@@ -1,25 +1,35 @@
-<h1>My Profile</h1>
+<div align="center">
+<h3>Dashboard</h3>
+<h1>Welcome Back <%=current_user.first_name%></h1>
 
-<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
+<button type="button" class="btn btn-default">
+  <%= link_to "Show All Bills", bills_path %>
+</button>
 
-<script type="text/javascript" src="http://voap.weather.com/weather/oap/USGA0028?template=GENXV&par=3000000007&unit=0&key=twciweatherwidget"></script>
+<button type="button" class="btn btn-default">
+<%= link_to "Add a new bill", new_bill_path %>
+</button>
 
+<button type="button" class="btn btn-default">
+<%= link_to "Add a new Reminder", new_reminder_path %>
+</button>
+
+</div>
 
 <% if @current_bills %>
-  <h1>Your bills due today</h1>
+  <h3>Bills Due Today</h3>
 <% else %>
-  <h1>You have no bills :)</h1>
+  <h3>No Bills Due Today</h3>
 <% end %>
 
-<table>
+<table class="table table-hover">
 
   <tbody>
     <% @bills.each do |bill| %>
     <tr>
         <td><%= bill.name %></td>
         <td><%= bill.duedate %></td>
-        <td><%= bill.category %></td>
-        <td><%= bill.url %></td>
+        <td><%= bill.category.name %></td> 
         <td><%= bill.paid %></td>
         <td><%= link_to 'Show', bill %></td>
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,5 +40,7 @@
   </tbody>
 </table>
 <br>
+<hr>
+<br>
+<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>
 
-<%= link_to "Add a new bill", new_bill_path %>

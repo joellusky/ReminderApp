@@ -17,4 +17,5 @@ class ApplicationController < ActionController::Base
 			devise_parameter_sanitizer.for(action).push(:first_name, :last_name, :cell_phone)
 		end
 	end
+
 end
