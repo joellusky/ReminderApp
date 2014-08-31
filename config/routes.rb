@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sendtext/index'
+
   devise_for :users
 
   root "home#index"
