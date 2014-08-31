@@ -29,15 +29,6 @@
 
 </p> 
 
-
-     
-<% @bill.reminders.each do |reminder| %>
-	<h2>Reminder: </h2>
-	<p> Notes: <%= reminder.notes %> </p>
-	<p> Due By: <%= reminder.alert %> </p>
-  <hr>
-<% end %> 
-
 		<% if !(@bill.reminders.empty?) %>
 
 
