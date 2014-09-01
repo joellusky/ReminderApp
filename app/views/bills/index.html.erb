@@ -33,7 +33,10 @@
             <td> Not Paid! </td>
             <%end%>
         <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Delete', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to bill, method: :delete, data: { confirm: 'Are you sure?' } do%>
+           <i class="fa fa-trash-o"></i>
+             <%end%>
+        </td>
       </tr>
 
     <% end %>

@@ -17,8 +17,11 @@
         <td><%= reminder.alert %></td>
         <td><%= reminder.bill %></td>
         <td><%= link_to 'Show', reminder %></td>
-        <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
-        <td><%= link_to 'Destroy', reminder, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_reminder_path(reminder), class: "fa fa-pencil-square-o" %></td>
+        <td><%= link_to reminder, method: :delete, data: { confirm: 'Are you sure?' } do%>
+        <i class="fa fa-trash-o"></i>
+          <%end%>
+        </td>
       </tr>
     <% end %>
   </tbody>
