@@ -65,7 +65,7 @@ class BillsController < ApplicationController
   def destroy
     @bill.destroy
     respond_to do |format|
-      format.html { redirect_to bills_url, notice: 'Bill was successfully destroyed.' }
+      format.html { redirect_to dashboard_index_path, notice: 'Bill was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

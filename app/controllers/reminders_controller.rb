@@ -32,7 +32,7 @@ class RemindersController < ApplicationController
 
     respond_to do |format|
       if @reminder.save
-        format.html { redirect_to @reminder, notice: 'Reminder was successfully created.' }
+        format.html { redirect_to reminders_path, notice: 'Reminder was successfully created.' }
         format.json { render :show, status: :created, location: @reminder }
       else
         format.html { render :new }
@@ -60,7 +60,7 @@ class RemindersController < ApplicationController
   def destroy
     @reminder.destroy
     respond_to do |format|
-      format.html { redirect_to reminders_url, notice: 'Reminder was successfully destroyed.' }
+      format.html { redirect_to dashboard_index_path, notice: 'Reminder was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
