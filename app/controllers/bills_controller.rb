@@ -8,6 +8,7 @@ class BillsController < ApplicationController
     @bills = Bill.all
     #Added search feature below
     @bills = Bill.search(params[:search])
+
   end
 
   # GET /bills/1
