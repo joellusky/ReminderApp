@@ -5,7 +5,7 @@ class Bill < ActiveRecord::Base
   has_many :reminders
   
 
-
+  validates :name, presence: true
 
 	  #search method
 		def self.search(search)

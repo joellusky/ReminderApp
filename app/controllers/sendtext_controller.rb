@@ -3,7 +3,7 @@ class SendtextController < ApplicationController
   end
 
   def send_text_message
-    number_to_send_to = current_user.id.cell_phone
+    number_to_send_to = current_user.cell_phone
  
     twilio_sid = "AC458c66afe8c3be7f362e34e212c63b84"
     twilio_token = "65796c1331a3c329820dd1f22033946e"

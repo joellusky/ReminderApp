@@ -1,4 +1,17 @@
 <!DOCTYPE html>
+<div class="page-header">
+  <ul>
+  <% if user_signed_in? %>
+    <%= current_user.email %></li> |
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+    <% else %>
+      <%= link_to "Sign up", new_user_registration_path %></li> |
+    <%= link_to "Log in", new_user_session_path %></li>
+  <% end %>
+</ul>
+  <h1>ForgetMeNot <small>[Insert Logo]</small></h1>
+</div>
+
 <html>
 <head class="head">
   <title>Reminderapp</title>
@@ -18,18 +31,9 @@
 
 <p class="navbar-text pull-right">
 
-
-<ul>
-  <% if user_signed_in? %>
-    <%= current_user.email %></li> |
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %></li> |
-    <%= link_to "Log in", new_user_session_path %></li>
-  <% end %>
-</ul>
-
 <%= yield %>
 
 </body>
+
 </html>
+

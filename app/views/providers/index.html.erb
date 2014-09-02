@@ -17,8 +17,11 @@
         <td><%= provider.name %></td>
         <td><%= provider.url %></td>
         <td><%= link_to 'Show', provider %></td>
-        <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
-        <td><%= link_to 'Destroy', provider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '', edit_provider_path(provider),class: "fa fa-pencil-square-o" %></td>
+        <td><%= link_to provider, method: :delete, data: { confirm: 'Are you sure?' } do%>
+           <i class="fa fa-trash-o"></i>
+             <%end%>
+        </td>
       </tr>
     <% end %>
   </tbody>
