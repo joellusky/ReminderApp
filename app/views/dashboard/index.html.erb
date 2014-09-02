@@ -1,5 +1,4 @@
 <div align="center">
-<h3>Dashboard</h3>
 <h1>Welcome Back <%=current_user.first_name%></h1>
 
 <button type="button" class="btn btn-default">
@@ -29,7 +28,7 @@
     <tr>
         <td><%= bill.name %></td>
         <td><%= bill.duedate %></td>
-        <td><%= bill.category.name %></td> 
+        <td><%= bill.provider.name %></td> 
             <%= bill.paid %>
             <% if bill.paid == true%>
             <td> Paid! </td>
