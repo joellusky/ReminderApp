@@ -31,7 +31,7 @@ gem 'spring',        group: :development
 gem 'twilio-ruby'
 # Use unicorn as the app server
 # gem 'unicorn'
-
+gem 'whenever', :require => false
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
