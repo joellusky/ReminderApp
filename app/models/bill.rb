@@ -1,8 +1,9 @@
 class Bill < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
-  has_many :reminders
   belongs_to :provider
+  has_many :reminders
+  
 
 
 

@@ -15,6 +15,21 @@
   <%= @bill.category.name %>
 </p>
 
+<p>
+  <strong>Provider:</strong>
+  <% @providers.each do |provider| %>
+    <% if provider.id == @bill.provider_id %>
+    <%= provider.name %>
+    <%end%>
+  <% end %>
+
+</p>
+
+
+
+
+
+
 
 
 <p>
