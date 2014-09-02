@@ -2,7 +2,8 @@ class Bill < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   belongs_to :provider
-  has_many :reminders
+  has_many :reminders,
+  		:dependent => :destroy
   
 
   validates :name, presence: true
