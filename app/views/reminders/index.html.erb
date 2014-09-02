@@ -15,7 +15,7 @@
       <tr>
         <td><%= reminder.notes %></td>
         <td><%= reminder.alert %></td>
-        <td><%= reminder.bill.name %></td>
+        <td><%= reminder.bill %></td>
         <td><%= link_to 'Show', reminder %></td>
         <td><%= link_to '', edit_reminder_path(reminder), class: "fa fa-pencil-square-o" %></td>
         <td><%= link_to reminder, method: :delete, data: { confirm: 'Are you sure?' } do%>
