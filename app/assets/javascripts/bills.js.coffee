@@ -4,8 +4,8 @@
 jQuery -> 
 	$('#bill_provider_id').parent().hide()
 	providers = $('#bill_provider_id').html()
-	$('#bill_category_id').change -> 
-		category = $('#bill_category_id :selected').text()
+	$('#categories').change -> 
+		category = $('#categories :selected').text()
 		options = $(providers).filter("optgroup[label='#{category}']").html()
 		if options 
 			$('#bill_provider_id').html(options)

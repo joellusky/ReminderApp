@@ -26,7 +26,7 @@
   <div class="field">
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, Category.order(:name), :id, :name%>
+    <%= select_tag "categories", options_for_select(Category.order(:name).map(&:name))%>
   </div>
 
   <div class="field">
