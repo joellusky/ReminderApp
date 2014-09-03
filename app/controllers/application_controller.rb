@@ -19,4 +19,19 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
+	def send_text_message
+		number_to_send_to = current_user.cell_phone
+		account_sid = "AC458c66afe8c3be7f362e34e212c63b84"
+		auth_token = "65796c1331a3c329820dd1f22033946e"
+		twilio_phone_number = "(954)-933-5130"
+
+		@twilio_client = Twilio::REST::Client.new account_sid, auth_token
+		@twilio_client.account.sms.messages.create(
+			:from => "+1#{twilio_phone_number}",
+			:to => number_to_send_to,
+			:body => "You have just added a bill!")
+	end
+
+
+
 end

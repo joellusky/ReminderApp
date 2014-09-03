@@ -75,4 +75,5 @@ class RemindersController < ApplicationController
     def reminder_params
       params.require(:reminder).permit(:notes, :alert, :bill_id)
     end
+
 end

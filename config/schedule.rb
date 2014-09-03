@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every :hour do
-	runner ""
-	
+# every :hour do
+# 	runner "bill_controller.reminder_check"
+# end

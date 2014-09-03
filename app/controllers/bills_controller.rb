@@ -3,7 +3,6 @@ class BillsController < ApplicationController
 
   # GET /bills
   # GET /bills.json
-
   def index
     @bills = Bill.all
     #Added search feature below
@@ -39,7 +38,8 @@ class BillsController < ApplicationController
     @bill.user_id = current_user.id
     
     respond_to do |format|
-      if @bill.save
+      if @bill.save 
+        send_text_message
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else
