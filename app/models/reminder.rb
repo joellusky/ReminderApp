@@ -1,5 +1,10 @@
 class Reminder < ActiveRecord::Base
   belongs_to :bill
 
-  #validates :bill, presence: true
+	def reminder_check
+		 if @reminders = Reminder.where(alert: Time.current)
+		  		send_text_message
+		end
+	end
+
 end
