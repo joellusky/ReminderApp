@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+</nav>
 <html>
 <head class="head">
   <title>Reminderapp</title>
@@ -9,15 +9,13 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-inverse" role="navigation">
   <li><%= link_to "Sign up", new_user_registration_path %></li> 
-        <li><%= link_to "Log in", new_user_session_path %></li>
-</nav>
+        <li></li>
+
 	<body class="background">
-<div class="navbar-header">
-	
 	<div class="container">
 		<%= yield  %>
 	</div>
 </body>
+
 </html>

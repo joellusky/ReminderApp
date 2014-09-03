@@ -21,22 +21,20 @@
       </button>
       <a class="navbar-brand" href="#">ForgetMeNot</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Show All Bills", bills_path %></li>
-        <li><%= link_to "Add a new bill", new_bill_path %></li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
+        <% if user_signed_in? %>
+        <ul class="nav navbar-nav">
+          <li class="active"><%= link_to "Show All Bills", bills_path %></li>
+          <li><%= link_to "Add a new bill", new_bill_path %></li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
            <%= form_tag bills_path, :method => 'get' do %>
             <%= text_field_tag :search, params[:search], class:"form-control" %>
             <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
           <% end %>
       </form>
       <ul class="nav navbar-nav navbar-right">
-      
-           <% if user_signed_in? %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
             <%= current_user.email %>
@@ -46,12 +44,17 @@
             <!--  <li><a href="#">Another action</a></li> -->
           </ul>
         </li>
-         <% else %>
+      </ul>
+            <% else %>
+
+      <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Sign up", new_user_registration_path %></li> 
         <li><%= link_to "Log in", new_user_session_path %></li>
-        <% end %>
-
       </ul>
+      <% end %>
+
+
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
