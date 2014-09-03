@@ -16,7 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+var ready
+
+var ready = function(){
   $.simpleWeather({
     location: 'Austin, TX',
     woeid: '',
@@ -33,4 +35,8 @@ $(document).ready(function() {
       $("#weather").html('<p>'+error+'</p>');
     }
   });
-});
+d
+};
+
+
+$(document).on('ready page:ready', ready);
