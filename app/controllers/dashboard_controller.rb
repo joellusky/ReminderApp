@@ -4,7 +4,7 @@ class DashboardController < ApplicationController
  
 	   
 	def index
-		@bills = Bill.where(user_id: current_user.id, duedate: Date.current)
+		@bills = current_user.bills.due_this_week
 		if @bills.empty?
 			@current_bills = nil
 		else
