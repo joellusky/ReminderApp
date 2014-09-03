@@ -1,17 +1,8 @@
-/*
-  = require twitter-bootstrap-static/bootstrap
+// Place all the styles related to the bills controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 
-  Use Font Awesome icons (default)
-  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
-  = require twitter-bootstrap-static/fontawesome
-  */
-
-
-.background {background-color: #c3c3c3;}
-
-.head {color:#6284B5;}
-
-#articles .calendar {
+#bills .calendar {
   border-collapse: collapse;
   width: 100%;
 
@@ -41,7 +32,7 @@
   .today { background-color: #D7F2FF; }
 }
 
-#articles #month {
+#bills #month {
   margin: 0;
   padding-bottom: 10px;
   text-align: center;
@@ -53,7 +44,7 @@
   }
 }
 
-#articles ul {
+#bills ul {
   font-size: 11px;
   padding-left: 20px;
 }

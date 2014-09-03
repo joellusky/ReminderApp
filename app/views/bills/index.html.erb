@@ -1,12 +1,10 @@
-<h1>Unpaid bills</h1>
-
-
 <!-- Search Bar Functionality -->
 <%= form_tag bills_path, :method => 'get' do %>
          <%= search_field_tag :search, params[:search]%>
          <%= submit_tag "Search", class: 'pure-button', name: nil %>
       <% end %>
 
+<<<<<<< HEAD
 
 
 <table class="table table-hover">
@@ -49,37 +47,26 @@
   </tbody>
 </table>
 <br>
+=======
+>>>>>>> c4a8d726cadf079103b2ae0fff8a3796f5858b9b
 <hr>
-<!-- 
-<h1>Paid bills</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Paid</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bills.each do |bill| %>
-    <% if bill.user_id == current_user.id %>
-      <tr>
-        <td><%= bill.name %></td>
-        <td><%= bill.category %></td>
-        <td><%= bill.paid %></td>
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to 'Delete', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-
+<div id="bills">
+  <h2 id="month">
+    <%= link_to "<", date: @date.prev_month %>
+    <%= @date.strftime("%B %Y") %>
+    <%= link_to ">", date: @date.next_month %>
+  </h2>
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @bills_by_date[date] %>
+      <ul>
+        <% @bills_by_date[date].each do |bill| %>
+          <li><%= link_to bill.provider.name, bill %></li>
+        <% end %>
+      </ul>
     <% end %>
+  <% end %>
+</div>
 
-
-      <% end %>
-    
-  </tbody>
-</table> -->
 
 <%= link_to 'New Bill', new_bill_path %>

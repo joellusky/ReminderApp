@@ -12,15 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require twitter/bootstrap
-//= require turbolinks
 //= require_tree .
 
 var ready
 
 var ready = function(){
   $.simpleWeather({
-    location: 'Austin, TX',
+    location: 'Miami, FL',
     woeid: '',
     unit: 'f',
     success: function(weather) {
@@ -35,7 +35,6 @@ var ready = function(){
       $("#weather").html('<p>'+error+'</p>');
     }
   });
-d
 };
 
 
