@@ -41,3 +41,4 @@ gem 'whenever', :require => false
 gem 'devise'
 
 gem "twitter-bootstrap-rails"
+
