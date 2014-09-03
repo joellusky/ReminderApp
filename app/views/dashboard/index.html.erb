@@ -29,6 +29,7 @@
         <td><%= bill.name %></td>
         <td><%= bill.duedate %></td>
         <td><%= bill.provider.name %></td> 
+        <td><%= link_to "Pay Now", bill.provider.url %></td>
             <%= bill.paid %>
             <% if bill.paid == true%>
             <td> Paid! </td>
@@ -36,7 +37,7 @@
             <td> Not Paid! </td>
             <%end%>
         <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to bill, method: :delete, data: { confirm: 'Are you sure?' } do%>
+        <td><%= link_to bill, method: :delete do%>
           <i class="fa fa-trash-o"></i>
           <% end %>
         </td>
