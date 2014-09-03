@@ -13,3 +13,6 @@ jQuery ->
 		else
 			$('#bill_provider_id').empty()
 			$('#bill_provider_id').parent().hide()
+	
+	$('#bill_duedate').datepicker
+		dateFormat: 'yy-mm-dd'

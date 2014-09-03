@@ -42,3 +42,4 @@ gem 'devise'
 
 gem "twitter-bootstrap-rails"
 
+gem 'jquery-ui-rails'
