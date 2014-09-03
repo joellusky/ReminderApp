@@ -11,7 +11,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @bill.provider.category.name %>
+  <%= @bill.category.name %>
 </p>
 
 <p>
@@ -25,33 +25,11 @@
 </p>
 
 <p>
-<strong>Payment Status: <%= @bill.paid %></strong> 
-<% if @bill.paid == false %> 
- <%= render 'form' %>
-<% end %>
-
-
+  <strong>Payment Status: <%= @bill.paid %></strong> 
+    <% if @bill.paid == false %> 
+      <%= render 'form' %>
+  <% end %>
 </p> 
-
-		<% if !(@bill.reminders.empty?) %>
-
-
-        <h2> Your Reminders </h2>
-        <hr>
-          <% @bill.reminders.each do |reminder| %>
-      	<p> Notes: <%= reminder.notes %> </p>
-      	<p> Due By: <%= reminder.alert %> </p>
-    <% end %> 
-      <hr>
-      <% else %>
-
-      <h2> No Reminders Currently Set  </h2>
-
-      <% end %>
-
-<h2> Create a New Reminder For Your Bill! </h2> 
-
-<%= render 'reminders/form' %>
-
+	
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', root_path %>

@@ -8,8 +8,6 @@ Rails.application.routes.draw do
   root "home#index"
 
 
-  resources :reminders
-
   resources :bills
 
   resources :categories do

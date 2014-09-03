@@ -1,5 +1,7 @@
+<div id="weather"></div>
+
 <div align="center">
-<h1>Welcome Back <%=current_user.first_name%></h1>
+<h1>Welcome Back <%= current_user.first_name%></h1>
 
 <button type="button" class="btn btn-default">
   <%= link_to "Show All Bills", bills_path %>
@@ -7,10 +9,6 @@
 
 <button type="button" class="btn btn-default">
 <%= link_to "Add a new bill", new_bill_path %>
-</button>
-
-<button type="button" class="btn btn-default">
-<%= link_to "Add a new Reminder", new_reminder_path %>
 </button>
 
 </div>
@@ -38,7 +36,7 @@
             <%end%>
         <td><%= link_to 'Show', bill %></td>
         <td><%= link_to bill, method: :delete do%>
-          <i class="fa fa-trash-o"></i>
+          <span class="fa fa-trash-o"></span>
           <% end %>
         </td>
        </tr>
