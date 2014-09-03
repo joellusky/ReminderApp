@@ -3,14 +3,6 @@
 <div align="center">
 <h1>Welcome Back <%= current_user.first_name%></h1>
 
-<button type="button" class="btn btn-default">
-  <%= link_to "Show All Bills", bills_path %>
-</button>
-
-<button type="button" class="btn btn-default">
-<%= link_to "Add a new bill", new_bill_path %>
-</button>
-
 </div>
 
 <% if @current_bills %>
