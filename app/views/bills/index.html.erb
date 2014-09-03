@@ -16,7 +16,6 @@
       <th>Duedate</th>
       <th>Category</th>
       <th>Paid</th>
-      <th>Scheduled Reminder</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -34,13 +33,7 @@
             <%else%>
               <td> Not Paid! </td>
           <%end%>
-
-         <% bill.reminders.each do |r| %>
-           <td><%= r.alert %></td>
-                <% end %>
-        
             
-       
         <td><%= link_to 'Show', bill %></td>
         <td><%= link_to bill, method: :delete, data: { confirm: 'Are you sure?' } do%>
            <i class="fa fa-trash-o"></i>
