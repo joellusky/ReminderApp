@@ -43,7 +43,7 @@
 #weather i {
   color: #fff;
   font-family: weather;
-  font-size: 150px;
+  font-size: 50px;
   font-weight: normal;
   font-style: normal;
   line-height: 1.0;
@@ -101,7 +101,7 @@
 #weather h2 {
   margin: 0 0 8px;
   color: #fff;
-  font-size: 100px;
+  font-size: 25px;
   font-weight: 300;
   text-align: center;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
