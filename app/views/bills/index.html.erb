@@ -8,13 +8,13 @@
   </h2>
   <%= calendar @date do |date| %>
     <%= date.day %>
-    <% if @bills_by_date[date] %>
+    <% if @bills_by_date[date]%>
       <ul>
         <% @bills_by_date[date].each do |bill| %>
           <li><%= link_to bill.provider.name, bill %></li>
         <% end %>
       </ul>
-    <% end %>
+    <% end %> 
   <% end %>
 </div>
 

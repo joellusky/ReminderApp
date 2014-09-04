@@ -4,7 +4,7 @@ class BillsController < ApplicationController
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Bill.all
+    @bills = current_user.bills
     @bills_by_date = @bills.group_by(&:duedate)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     #Added search feature below
