@@ -48,16 +48,17 @@
     <%= f.label :duedate %><br>
     <%= f.text_field :duedate %>
   </div>
-    <div class="field">
+
+  <div class="field">
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, Category.order(:name), :id, :name%>
+    <%= select_tag "categories", options_for_select(Category.order(:name).map(&:name))%>
   </div>
 
   <div class="field">
     <!-- Drop Down menu for providers -->
     <%= f.label :provider %><br>
-    <%= f.collection_select :provider_id, Provider.order(:name), :id, :name%>
+    <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
   </div>
   <div class="field">
     <%= f.check_box :paid%>
