@@ -15,25 +15,22 @@
 
   <tbody>
     <% @bills.each do |bill| %>
-    <tr>
-        <td><%= bill.name %></td>
-        <td><%= bill.duedate %></td>
-        <td><%= bill.provider.name %></td> 
-        <td><%= link_to "Pay Now", bill.provider.url %></td>
-            <%= bill.paid %>
-            <% if bill.paid == true%>
-            <td> Paid! </td>
-            <%else%>
-            <td> Not Paid! </td>
-            <%end%>
-        <td><%= link_to 'Show', bill %></td>
-        <td><%= link_to bill, method: :delete do%>
+        <tr onclick='location.href="<%= bill_path(bill) %>"'>          
+          <td><%= bill.name %></td>
+          <td><%= bill.duedate %></td>
+          <td><%= bill.provider.name %></td> 
+          <td><%= link_to "Pay Now", bill.provider.url %></td>
+              <%= bill.paid %>
+              <% if bill.paid == true%>
+              <td> Paid! </td>
+              <%else%>
+              <td> Not Paid! </td>
+          <td><%= link_to bill, method: :delete do%>
           <span class="fa fa-trash-o"></span>
           <% end %>
-        </td>
-       </tr>
-  
+       </tr>    
       <% end %>
+    <% end %>
     
   </tbody>
 </table>
