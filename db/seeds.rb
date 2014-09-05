@@ -5,3 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+	categories = Category.create([
+		{name: "Water"},
+		{name: "Electric"},
+		{name: "Mortgage/Rent"},
+		{name: "Creditcard"},
+		{name: "Cellphone"},
+		{name: "Insurance"},
+		{name: "Car Payment"},
+		{name: "Internet/TV"}
+		])
+
+	# providers =Provider.create([
+	# 	{name: "",
+	# 	 category_id: 1},
+	# 	{name: "",
+	# 	 category_id: 1}
+	# 	])

@@ -3,13 +3,12 @@ class Bill < ActiveRecord::Base
   belongs_to :user
   belongs_to :provider
   has_one :event_recurrence
+
+
   after_create :event_recurrence
 
   validates :name, presence: true
   validates :duedate, presence: true
-
-
-  attr_accessor :start_date, :end_date, :every
 
 
   scope :due_this_week, -> do
@@ -32,6 +31,7 @@ class Bill < ActiveRecord::Base
     event_recurrence.bill_id = self.id
     event_recurrence.start_date = Time.now
     event_recurrence.end_date = 1.year.from_now
+    event_recurrence.every = self.every
     event_recurrence.save
   end
 end

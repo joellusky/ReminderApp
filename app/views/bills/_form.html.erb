@@ -34,6 +34,10 @@
     <%= f.label :provider %><br>
     <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
   </div>
+  <%= f.label :Repeat %><br>
+ <%= f.text_field :every %>
+<%= render 'bills/recurrence_form' %>
+
   
   <div class="field">
     <%= f.hidden_field :paid, value: false %>
@@ -61,11 +65,11 @@
     <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
   </div>
   <div class="field">
-    <%= f.check_box :paid%>
+    <%= f.check_box :paid %>
   </div>
-
+ 
   <% else %>
-    <% if @bill.paid == false%>
+    <% if @bill.paid == false %>
      <div class="field">
       <%= f.check_box :paid %> Not Paid
     </div>
