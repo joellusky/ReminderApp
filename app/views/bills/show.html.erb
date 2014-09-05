@@ -32,4 +32,7 @@
 </p> 
 	
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', root_path %> |
+<%= link_to @bill, method: :delete do%>
+  <span class="fa fa-trash-o"></span>
+          <% end %>
