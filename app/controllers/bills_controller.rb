@@ -1,6 +1,7 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
   # GET /bills
   # GET /bills.json
   def index
@@ -22,7 +23,6 @@ class BillsController < ApplicationController
   # GET /bills/new
   def new
     @bill = Bill.new
-    
   end
 
   # GET /bills/1/edit
@@ -34,9 +34,11 @@ class BillsController < ApplicationController
   # POST /bills.json
 
   def create
+     @event_recurrence = EventRecurrence.new
     @bill = Bill.new(bill_params)
     #sets new bill equal to the id of the current user signed in.
     @bill.user_id = current_user.id
+   
     
     respond_to do |format|
       if @bill.save 
@@ -82,6 +84,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:name, :duedate, :category_id, :provider_id, :paid)
+      params.require(:bill).permit(:name, :duedate, :category_id, :provider_id, :paid, :start_date)
     end
 end

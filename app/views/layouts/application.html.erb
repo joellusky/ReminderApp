@@ -32,6 +32,7 @@
               <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-sm">
                   <div class="modal-content">
+                    <% @event_recurrence = EventRecurrence.new %>
                     <% @bill = Bill.new %>
                     <%= render 'bills/form' %>
                   </div>
@@ -52,9 +53,9 @@
             <%= current_user.email %>
            <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            
              <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-
+              <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
             <!--  <li><a href="#">Another action</a></li> -->
           </ul>
         </li>

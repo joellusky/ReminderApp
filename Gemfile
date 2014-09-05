@@ -32,10 +32,10 @@ gem 'twilio-ruby'
 
 # Use unicorn as the app server
 # gem 'unicorn'
-gem 'whenever', :require => false
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'recurrence'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem 'devise'
@@ -43,3 +43,4 @@ gem 'devise'
 gem "twitter-bootstrap-rails"
 
 gem 'jquery-ui-rails'
+

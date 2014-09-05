@@ -2,10 +2,15 @@ class Bill < ActiveRecord::Base
   has_one :category, through: :provider
   belongs_to :user
   belongs_to :provider
-  
+  has_one :event_recurrence
+  after_create :event_recurrence
 
   validates :name, presence: true
   validates :duedate, presence: true
+
+
+  attr_accessor :start_date, :end_date, :every
+
 
   scope :due_this_week, -> do
     where duedate: (Time.now.beginning_of_week(:sunday)..Time.now.end_of_week(:sunday))
@@ -21,6 +26,14 @@ class Bill < ActiveRecord::Base
   		# where(user_id: current_user.id)
   	end
 	end
+
+  def event_recurrence
+    event_recurrence = EventRecurrence.new
+    event_recurrence.bill_id = self.id
+    event_recurrence.start_date = Time.now
+    event_recurrence.end_date = 1.year.from_now
+    event_recurrence.save
+  end
 end
 
 
