@@ -1,4 +1,5 @@
 class EventRecurrence < ActiveRecord::Base
+
   belongs_to :bill
 
 	def dates(options={})
@@ -13,5 +14,4 @@ class EventRecurrence < ActiveRecord::Base
 	    end
 	    Recurrence.new(options).events
   	end
-
 end

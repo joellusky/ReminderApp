@@ -34,7 +34,6 @@ class BillsController < ApplicationController
   # POST /bills.json
 
   def create
-     @event_recurrence = EventRecurrence.new
     @bill = Bill.new(bill_params)
     #sets new bill equal to the id of the current user signed in.
     @bill.user_id = current_user.id
