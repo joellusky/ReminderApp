@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902231354) do
+ActiveRecord::Schema.define(version: 20140905153307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,14 @@ ActiveRecord::Schema.define(version: 20140902231354) do
     t.datetime "updated_at"
   end
 
+  create_table "event_recurrences", force: true do |t|
+    t.integer  "bill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "event_recurrences", ["bill_id"], name: "index_event_recurrences_on_bill_id", using: :btree
+
   create_table "providers", force: true do |t|
     t.integer  "category_id"
     t.string   "name"
@@ -44,16 +52,6 @@ ActiveRecord::Schema.define(version: 20140902231354) do
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
-
-  create_table "reminders", force: true do |t|
-    t.text     "notes"
-    t.datetime "alert"
-    t.integer  "bill_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "reminders", ["bill_id"], name: "index_reminders_on_bill_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
