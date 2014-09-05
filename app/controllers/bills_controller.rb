@@ -6,7 +6,14 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills = current_user.bills
-    @bills_by_date = @bills.group_by(&:duedate)
+    @bill_occurrences = @bills.map { |bill|
+      bill.dates.map { |date|
+        bill_occurrence = bill.clone
+        bill_occurrence.date = date
+        bill_occurrence
+      }
+    }.flatten
+    @bills_by_date = @bill_occurrences.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     #Added search feature below
     @bills = Bill.search(params[:search])
