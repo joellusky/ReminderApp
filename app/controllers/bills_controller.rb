@@ -84,6 +84,4 @@ class BillsController < ApplicationController
     def bill_params
       params.require(:bill).permit(:name, :duedate, :category_id, :provider_id, :paid)
     end
-
-  
 end
