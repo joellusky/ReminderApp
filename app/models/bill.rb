@@ -5,6 +5,7 @@ class Bill < ActiveRecord::Base
   
 
   validates :name, presence: true
+  validates :duedate, presence: true
 
   scope :due_this_week, -> do
     where duedate: (Time.now.beginning_of_week(:sunday)..Time.now.end_of_week(:sunday))
