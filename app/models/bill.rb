@@ -37,16 +37,17 @@ class Bill < ActiveRecord::Base
     event_recurrence.bill_id = self.id
     event_recurrence.end_date = 1.year.from_now
     event_recurrence.every = self.every
+    start = self.duedate
     # recurrence doesn't count now in the time period
     event_recurrence.start_date = case self.every
       when 'year'
-         Time.now.last_year
+        start.last_year
       when 'month'
-        Time.now.last_month
+        start.last_month
       when 'week'
-        Time.now.last_week
+        start.last_week
       when 'day'
-        Time.now.yesterday
+        start.yesterday
       end
     event_recurrence.save
   end

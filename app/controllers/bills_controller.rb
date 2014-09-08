@@ -48,7 +48,7 @@ class BillsController < ApplicationController
     
     respond_to do |format|
       if @bill.save 
-        send_text_message
+        # send_text_message
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else
