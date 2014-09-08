@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-
+<!-- Brand New Bill Form -->
 <% if @bill.id.nil? %>
   <div class="field">
     <%= f.label :name %><br>
@@ -21,28 +21,25 @@
     <%= f.label :duedate %><br>
     <%= f.text_field :duedate %>
   </div>
-
-
   <div class="field">
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
     <%= select_tag "categories", options_for_select(Category.order(:name).map(&:name))%>
   </div>
-
   <div class="field">
     <!-- Drop Down menu for providers -->
     <%= f.label :provider %><br>
     <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
   </div>
-  <%= f.label :Repeat %><br>
- <%= f.text_field :every %>
-<%= render 'bills/recurrence_form' %>
-
-  
+  <div class="field">
+    <!-- Drop Down menu for recurrence options -->
+    <%= f.label :Repeat %><br>
+    <%= f.select :every, [["Monthly", "month"],["Yearly", "year"]] %>
+  </div>
   <div class="field">
     <%= f.hidden_field :paid, value: false %>
   </div>
-
+<!-- Form for editing bills -->
   <% elsif @edit == true %>
     <div class="field">
     <%= f.label :name %><br>
@@ -52,29 +49,32 @@
     <%= f.label :duedate %><br>
     <%= f.text_field :duedate %>
   </div>
-
   <div class="field">
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
     <%= select_tag "categories", options_for_select(Category.order(:name).map(&:name))%>
   </div>
-
   <div class="field">
     <!-- Drop Down menu for providers -->
     <%= f.label :provider %><br>
     <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
   </div>
   <div class="field">
+    <!-- Drop Down menu for recurrence options -->
+    <%= f.label :Repeat %><br>
+    <%= f.select :every, [["Monthly", "month"],["Yearly", "year"]] %>
+  </div>
+  <div class="field">
+    <%= f.label "Paid Status" %>
     <%= f.check_box :paid %>
   </div>
  
   <% else %>
+  <!-- Paid checkbox when showing bill to mark as paid -->
     <% if @bill.paid == false %>
      <div class="field">
-      <%= f.check_box :paid %> Not Paid
+      <%= f.check_box :paid %> Pay Now
     </div>
-    <% else %>
-    <p> Your Bill is paid for this month! </p>
     <% end %>
   <% end %>
   <div class="actions">
