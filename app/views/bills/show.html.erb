@@ -21,12 +21,13 @@
     <%= provider.name %>
     <%end%>
   <% end %>
-
 </p>
-
 <p>
-  <strong>Payment Status: <%= @bill.paid %></strong> 
-    <% if @bill.paid == false %> 
+  <strong>Payment Status:</strong> 
+    <% if @bill.paid %>
+      <%= "Paid" %>
+    <% else %>
+      <%= "Not Paid" %>
       <%= render 'form' %>
   <% end %>
 </p> 
