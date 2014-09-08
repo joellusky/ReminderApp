@@ -11,7 +11,7 @@
     <% if @bills_by_date[date]%>
       <ul>
         <% @bills_by_date[date].each do |bill| %>
-          <li><%= link_to bill.provider.name, bill %></li>
+          <li><%= link_to bill.provider.name, bill_path(bill, date: date) %></li>
         <% end %>
       </ul>
     <% end %> 
@@ -19,4 +19,3 @@
 </div>
 
 
-<%= link_to 'New Bill', new_bill_path %>

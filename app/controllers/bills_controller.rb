@@ -23,6 +23,7 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
+    @date = params[:date]
     @providers = Provider.all
     @edit = false
   end

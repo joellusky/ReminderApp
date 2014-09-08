@@ -6,7 +6,7 @@
 
 <p>
   <strong>Duedate:</strong>
-  <%= @bill.duedate %>
+  <%= @date %>
 </p>
 
 <p>
@@ -21,18 +21,19 @@
     <%= provider.name %>
     <%end%>
   <% end %>
-
 </p>
-
 <p>
-  <strong>Payment Status: <%= @bill.paid %></strong> 
-    <% if @bill.paid == false %> 
+  <strong>Payment Status:</strong> 
+    <% if @bill.paid %>
+      <%= "Paid" %>
+    <% else %>
+      <%= "Not Paid" %>
       <%= render 'form' %>
   <% end %>
 </p> 
 	
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
-<%= link_to 'Back', root_path %> |
+<%= link_to 'Back', bills_path %> |
 <%= link_to @bill, method: :delete do%>
   <span class="fa fa-trash-o"></span>
           <% end %>
