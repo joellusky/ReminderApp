@@ -23,6 +23,7 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
+    @date = params[:date]
     @providers = Provider.all
     @edit = false
   end
@@ -48,7 +49,7 @@ class BillsController < ApplicationController
     
     respond_to do |format|
       if @bill.save 
-        send_text_message
+        # send_text_message
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else

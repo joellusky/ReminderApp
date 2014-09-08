@@ -17,9 +17,15 @@
 		{name: "Internet/TV"}
 		])
 
-	# providers =Provider.create([
-	# 	{name: "",
-	# 	 category_id: 1},
-	# 	{name: "",
-	# 	 category_id: 1}
-	# 	])
+	providers =Provider.create([
+	 	{name: "Miami-Dade County",
+	 	 category_id: 1,
+	 	 url: "http://www.miamidade.gov/water/pay-bill.asp"
+	 	 },
+	])
+	([
+	 	{name: "FPL",
+	 	 category_id: 1,
+	 	 url: ""
+	 	 },
+	])

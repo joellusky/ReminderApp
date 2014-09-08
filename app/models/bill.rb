@@ -6,6 +6,8 @@ class Bill < ActiveRecord::Base
 
 
   after_create :create_event_recurrence
+  after_create :send_text_message
+
 
   validates :name, presence: true
   validates :duedate, presence: true
@@ -13,15 +15,22 @@ class Bill < ActiveRecord::Base
   attr_accessor :date
 
 
-  scope :due_this_week, -> do
-    where duedate: (Time.now.beginning_of_week(:sunday)..Time.now.end_of_week(:sunday))
+  # scope :due_this_week, -> do
+  #   where duedate: (Time.now.beginning_of_week(:sunday)..Time.now.end_of_week(:sunday))
+  # end
+
+  def self.due_this_week
+    all_week = Date.current.all_week.to_a
+    Bill.all.select { |bill| 
+      (bill.dates & all_week).any?
+    }
   end
 
   # def self.due_this_week
   #   where(duedate: (Time.now.beginning_of_week(:sunday)..Time.now.end_of_week(:sunday)))
   # end
 
-	  #search method
+  #search method
 	def self.search(search)
   	unless search.blank?
   		search = "%#{search}%"
@@ -42,7 +51,7 @@ class Bill < ActiveRecord::Base
       when 'year'
          Time.now.last_year
       when 'month'
-        Time.now.last_month
+        Time.now.last_month 
       when 'week'
         Time.now.last_week
       when 'day'
@@ -51,12 +60,10 @@ class Bill < ActiveRecord::Base
     event_recurrence.save
   end
 
-  def dates
-    self.event_recurrence.dates
+  def dates(options={})
+    self.event_recurrence.dates(options)
   end
 end
 
 
-# OR Category LIKE ?
-#enable search bar to search through categories as well
 
