@@ -5,16 +5,26 @@ class BillsController < ApplicationController
   # GET /bills
   # GET /bills.json
   def index
-    @bills = current_user.bills
-    @bill_occurrences = @bills.map { |bill|
+    # turn user's list of bills:
+    # [bill1, bill2, bill3]
+    # into this list of bill occurrences (combo of bill and date):
+    # [[bill1_date1, bill1_date2, bill1_date3], [bill2_date1, bill2_date2, bill2_date3], [bill3_date1, bill3_date2, bill3_date3]]
+    # flattened:
+    # [bill1_date1, bill1_date2, bill1_date3, bill2_date1, bill2_date2, bill3_date3, bill3_date1, bill3_date2, bill3_date3]
+    @bill_occurrences = current_user.bills.map { |bill|
+      # bill = each user's bill
       bill.dates.map { |date|
+        # date = an occurrence date for a bill
         bill_occurrence = bill.clone
         bill_occurrence.date = date
+        # bill_occurrence = the occurrence of a bill
         bill_occurrence
       }
     }.flatten
     @bills_by_date = @bill_occurrences.group_by(&:date)
+
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+
     #Added search feature below
     @bills = Bill.search(params[:search])
 
@@ -49,7 +59,7 @@ class BillsController < ApplicationController
     
     respond_to do |format|
       if @bill.save 
-        # send_text_message
+        send_text_message
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else

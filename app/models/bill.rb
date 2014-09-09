@@ -6,7 +6,7 @@ class Bill < ActiveRecord::Base
 
 
   after_create :create_event_recurrence
-  after_create :send_text_message
+  
 
 
   validates :name, presence: true
