@@ -24,7 +24,7 @@ namespace :remind do
     Bill.all.each do |bill|
       bill.dates.each do |duedate|
         if duedate == tomorrow
-          message = "Hello #{bill.user.first_name}! This is a friendly reminder that your #{bill.provider.name}, #{bill.category.name} bill is due tomorrow."
+          message = "Hello #{bill.user.first_name}! This is a friendly reminder that your #{bill.provider.name}, #{bill.category.name} bill is due tomorrow.Goodbye!"
          bill.user.get_twilio do |twilio, number_from, number_to|
            url = "http://twimlets.com/voicemail?Message=#{URI::encode message}"
            twilio.account.calls.create(
