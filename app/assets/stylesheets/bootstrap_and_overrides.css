@@ -6,6 +6,10 @@
   = require twitter-bootstrap-static/fontawesome
   */
 
+.navbar {
+  border-radius: 0px;
+}
+
 .modal-content {
   border-style: solid;
   border-width: 10px;
