@@ -4,11 +4,14 @@ namespace :remind do
   	tomorrow = Date.tomorrow
   	Bill.all.each do |bill|
   		bill.dates.each do |duedate|
-  			puts bill, duedate
-  			puts "Email this guy: #{bill.user.email}" if duedate == tomorrow
-  			bill.user.get_twilio do |twilio|
-  				p twilio
-  			end if duedate == tomorrow
+  			if duedate == tomorrow
+        bill.user.get_twilio do |twilio, number_from, number_to|
+  				twilio.account.sms.messages.create(
+          :from => number_from,
+          :to => number_to,
+          :body => "Hello #{bill.user.first_name}! This is a friendly reminder that your #{bill.provider.name}, #{bill.category.name} bill is due tomorrow.")
+        end
+  			end 
   		end
   	end
   end
