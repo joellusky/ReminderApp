@@ -9,7 +9,7 @@
 categories = [
 	"Water",
 	"Electric",
-	"Mortgage/Rent",
+	"Mortgage / Rent",
 	"Credit Card",
 	"Cell Phone",
 	"Insurance",
