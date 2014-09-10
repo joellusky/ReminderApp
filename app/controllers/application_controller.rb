@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def phone_call_reminder
-		url = "http://twimlets.com/message?Message%5B0%5D=Hello!%20%20%20%20%20%20%20%20%20%20This%20is%20a%20reminder%20that%20your%20#{@bill.name}%20#{@bill.category.name}%20is%20due%20tomorrow!%20Good%20bye!&"
+		url = "http://twimlets.com/voicemail?Message=Hello%2C%20%20%20%20%20%20%20this%20is%20a%20reminder%20that%20you%20have%20a%20bill%20due%20tomorrow.%20Good%20Bye.&"
 		
 		current_user.get_twilio do |twilio, number_from, number_to|
 			twilio.account.calls.create(

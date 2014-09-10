@@ -6,26 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-	categories = Category.create([
-		{name: "Water"},
-		{name: "Electric"},
-		{name: "Mortgage/Rent"},
-		{name: "Creditcard"},
-		{name: "Cellphone"},
-		{name: "Insurance"},
-		{name: "Car Payment"},
-		{name: "Internet/TV"}
-		])
-
-	providers =Provider.create([
-	 	{name: "Miami-Dade County",
-	 	 category_id: 1,
-	 	 url: "http://www.miamidade.gov/water/pay-bill.asp"
-	 	 },
-	])
-	([
-	 	{name: "FPL",
-	 	 category_id: 1,
-	 	 url: ""
-	 	 },
-	])
+categories = [
+	"Water",
+	"Electric",
+	"Mortgage/Rent",
+	"Creditcard",
+	"Cellphone",
+	"Insurance",
+	"Car Payment",
+	"Internet/TV",
+	].map do |cat|
+		Category.find_or_create_by name: cat
+	end.inject({}) { |mem, var| mem[var.name] = var; mem }
+	
+Provider.find_or_create_by(name: 'FPL').update_attributes(category: categories['Electric'], url: 'http://fpl.com')
