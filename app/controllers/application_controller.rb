@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 			twilio.account.sms.messages.create(
 				:from => number_from,
 				:to => number_to,
-				:body => "You have just added your #{@bill.name} #{@bill.category.name} bill!")
+				:body => "You have just added your #{@bill.provider.name} #{@bill.category.name} Bill!")
 		end
 	end
 

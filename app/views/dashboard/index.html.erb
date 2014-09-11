@@ -15,7 +15,6 @@
   <tbody>
     <% @bills.each do |bill| %>
         <tr onclick='location.href="<%= bill_path(bill) %>"'>          
-          <td><%= bill.name %></td>
           <td><%= bill.duedate %></td>
           <td><%= bill.provider.name %></td> 
           <td><%= link_to "Pay Now", bill.provider.url %></td>
