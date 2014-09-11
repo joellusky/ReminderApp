@@ -1,13 +1,13 @@
 
 <div align="center">
-<h1>Hello, <%= current_user.first_name%>...</h1>
-
+<h1>Hello, <%= current_user.first_name%></h1>
 </div>
+
 
 <% if @bills.empty? %>
   <h4>You Have No Bills Due This Week</h4>
 <% else %>
-  <h3>Bills Due This Week</h3>
+  <h4>Bills Due This Week</h4>
 <% end %>
 
 <table class="table table-hover">
@@ -15,7 +15,6 @@
   <tbody>
     <% @bills.each do |bill| %>
         <tr onclick='location.href="<%= bill_path(bill) %>"'>          
-          <td><%= bill.duedate %></td>
           <td><%= bill.provider.name %></td> 
           <td><%= link_to "Pay Now", bill.provider.url %></td>
           <% if bill.paid %>
@@ -31,10 +30,40 @@
       <% end %>
     <% end %>
     
+
   </tbody>
 </table>
 <br>
-<hr>
-<br>
+
+
+
+<%if @bills_past.any? %>
+
+<h3> Overdue Bills </h3>
+<table class="table table-hover">
+  <tbody>
+<% @bills_past.each do |bill| %>
+
+    <tr onclick='location.href="<%= bill_path(bill) %>"'>          
+      <td><%= bill.provider.name %></td> 
+      <td><%= link_to "Pay Now", bill.provider.url %></td>
+      <% if bill.paid %>
+      <td> Paid! </td>
+      <% else %>
+      <td> Not Paid! </td>
+      <td>
+        <%= link_to bill, method: :delete do %>
+        <span class="fa fa-trash-o"></span>
+        <% end %>
+      </td>
+    </tr>   
+
+    <% end %>
+  <% end %>
+<% end %>
+
+  </tbody>
+</table>
+
 
 
