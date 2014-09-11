@@ -13,14 +13,7 @@
 
 <!-- Brand New Bill Form -->
 <% if @bill.id.nil? %>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :duedate %><br>
-    <%= f.text_field :duedate %>
-  </div>
+  
   <div class="field">
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
@@ -30,6 +23,10 @@
     <!-- Drop Down menu for providers -->
     <%= f.label :provider %><br>
     <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
+  </div>
+   <div class="field">
+    <%= f.label :duedate %><br>
+    <%= f.text_field :duedate %>
   </div>
   <div class="field">
     <!-- Drop Down menu for recurrence options -->
@@ -41,10 +38,7 @@
   </div>
 <!-- Form for editing bills -->
   <% elsif @edit == true %>
-    <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+    
   <div class="field">
     <%= f.label :duedate %><br>
     <%= f.text_field :duedate %>

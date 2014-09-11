@@ -8,8 +8,6 @@ class Bill < ActiveRecord::Base
   after_create :create_event_recurrence
   
 
-
-  validates :name, presence: true
   validates :duedate, presence: true
 
   attr_accessor :date
