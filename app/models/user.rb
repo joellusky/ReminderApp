@@ -31,4 +31,23 @@ class User < ActiveRecord::Base
 
 		yield(client, twilio_phone_number, number_to_send_to)
 	end
+
+	def bills_due_this_week
+	    all_week = Date.current.all_week.to_a
+	    bills.select { |bill| 
+	      (bill.dates & all_week).any?
+	    }
+  	end
+
+  	def bills_due_last_week
+	    last_week = Date.current.last_week.all_week.to_a
+	    bills.select { |bill| 	
+	    	if !bill.paid
+	    		(bill.dates & last_week).any?
+	    	end
+	    }
+  	end
+  
+
+
 end

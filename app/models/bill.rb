@@ -64,6 +64,12 @@ class Bill < ActiveRecord::Base
   def dates(options={})
     self.event_recurrence.dates(options)
   end
+
+  # def self.date_past
+  #   last_week = Date.current.last_week.all_week.to_a
+  #   Bill.all.select { |bill| (bill.dates & last_week).any?}
+  # end
+
 end
 
 
