@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
 	# Setup accessible (or protected) attributes for your model
 	has_many :bills
 
+	validates :cell_phone, presence: true
+	validates :cell_phone, length: { is: 10 }
+	validates :first_name, presence: true
+	validates :last_name, presence: true
+
+
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable,
