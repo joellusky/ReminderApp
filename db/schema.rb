@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911003120) do
+ActiveRecord::Schema.define(version: 20140911205430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140911003120) do
     t.integer  "user_id"
     t.integer  "provider_id"
     t.string   "every"
+    t.string   "contact_method"
   end
 
   add_index "bills", ["provider_id"], name: "index_bills_on_provider_id", using: :btree

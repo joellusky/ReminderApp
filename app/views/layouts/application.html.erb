@@ -24,12 +24,13 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if user_signed_in? %>
         <ul class="nav navbar-nav">
-
+          <li><%= link_to "How It Works", bills_path %></li>
+          <li><%= link_to "About Us", bills_path %></li>
           <li><%= link_to "Show All Bills", bills_path %></li>
 
           <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Add New Bill</a> </li>
               <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm">
+                <div class="modal-dialog modal-md">
                   <div class="modal-content">
                     <% @event_recurrence = EventRecurrence.new %>
                     <% @bill = Bill.new %>
@@ -38,12 +39,12 @@
                 </div>
               </div>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
+<!--         <form class="navbar-form navbar-left" role="search">
            <%= form_tag bills_path, :method => 'get' do %>
             <%= text_field_tag :search, params[:search], class:"form-control" %>
             <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
           <% end %>
-      </form>
+      </form> -->
       <ul class="nav navbar-nav navbar-right">
         <p class="navbar-text"></p>
         <li class="dropdown">

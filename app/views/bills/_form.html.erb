@@ -34,6 +34,11 @@
     <%= f.select :every, [["Monthly", "month"],["Yearly", "year"]] %>
   </div>
   <div class="field">
+    <!-- Drop Down menu for recurrence options -->
+    <%= f.label :contact_method %><br>
+    <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Both", "both"]] %>
+  </div>
+  <div class="field">
     <%= f.hidden_field :paid, value: false %>
   </div>
 <!-- Form for editing bills -->
@@ -58,6 +63,11 @@
     <%= f.label :Repeat %><br>
     <%= f.select :every, [["Monthly", "month"],["Yearly", "year"]] %>
   </div>
+  <div class="field">
+    <!-- Drop Down menu for recurrence options -->
+    <%= f.label :contact_method %><br>
+    <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Both", "both"]] %>
+  </div><br>
   <div class="field">
     <%= f.label "Paid Status" %>
     <%= f.check_box :paid %>
