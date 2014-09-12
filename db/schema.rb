@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20140911205430) do
     t.integer  "user_id"
     t.integer  "provider_id"
     t.string   "every"
-    t.string   "contact_method"
     t.string   "interval"
+    t.string   "contact_method"
   end
 
   add_index "bills", ["provider_id"], name: "index_bills_on_provider_id", using: :btree

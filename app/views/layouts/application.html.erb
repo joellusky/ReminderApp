@@ -24,8 +24,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <% if user_signed_in? %>
         <ul class="nav navbar-nav">
-          <li><%= link_to "How It Works", bills_path %></li>
-          <li><%= link_to "About Us", bills_path %></li>
+          <li><%= link_to "How It Works", about_howitworks_path %></li>
+          <li><%= link_to "About Us", about_aboutus_path %></li>
           <li><%= link_to "Show All Bills", bills_path %></li>
 
           <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-sm">Add New Bill</a> </li>
@@ -39,12 +39,7 @@
                 </div>
               </div>
         </ul>
-<!--         <form class="navbar-form navbar-left" role="search">
-           <%= form_tag bills_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search], class:"form-control" %>
-            <%= submit_tag "Search", :name => nil, class:"btn btn-default" %>
-          <% end %>
-      </form> -->
+
       <ul class="nav navbar-nav navbar-right">
         <p class="navbar-text"></p>
         <li class="dropdown">
