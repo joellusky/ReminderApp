@@ -48,6 +48,8 @@ gem 'jquery-ui-rails'
 
 gem 'html5_validators'
 
+gem 'rails_12factor'
+
 group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
