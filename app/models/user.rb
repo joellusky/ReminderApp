@@ -4,9 +4,13 @@ class User < ActiveRecord::Base
 
 	validates :cell_phone, presence: true
 	validates :cell_phone, length: { is: 10 }
+	validates :cell_phone, :numericality => {:only_integer => true}
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 
+	validates_acceptance_of :terms
+
+	
 
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
