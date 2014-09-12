@@ -13,21 +13,6 @@ class Bill < ActiveRecord::Base
   attr_accessor :date
 
 
-  # scope :due_this_week, -> do
-  #   where duedate: (Time.now.beginning_of_week(:sunday)..Time.now.end_of_week(:sunday))
-  # end
-
-  def self.due_this_week
-    all_week = Date.current.all_week.to_a
-    Bill.all.select { |bill| 
-      (bill.dates & all_week).any?
-    }
-  end
-
-  # def self.due_this_week
-  #   where(duedate: (Time.now.beginning_of_week(:sunday)..Time.now.end_of_week(:sunday)))
-  # end
-
   #search method
 	def self.search(search)
   	unless search.blank?
