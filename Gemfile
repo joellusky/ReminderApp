@@ -30,7 +30,7 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 gem 'twilio-ruby'
 
-gem 'pry-rails'
+#gem 'pry-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'

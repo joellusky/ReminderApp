@@ -59,7 +59,7 @@ class BillsController < ApplicationController
     
     respond_to do |format|
       if @bill.save 
-        send_text_message
+        # send_text_message
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else
@@ -101,6 +101,10 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
+<<<<<<< HEAD
       params.require(:bill).permit(:name, :duedate, :category_id, :provider_id, :paid, :every, :contact_method)
+=======
+      params.require(:bill).permit(:name, :duedate, :category_id, :provider_id, :paid, :every, :interval)
+>>>>>>> 0e1aeb574f4aa01364b9d0c81c7b58d221f8b39b
     end
 end

@@ -34,3 +34,4 @@ Provider.find_or_create_by(name: "Progressive").update_attributes(category: cate
 Provider.find_or_create_by(name: "Comcast").update_attributes(category: categories["Internet / TV"], url: "http://www.comcast.com")
 Provider.find_or_create_by(name: "HotWire Communications").update_attributes(category: categories["Internet / TV"], url: "http://gethotwired.com/my-account/first-visit")
 Provider.find_or_create_by(name: "Rent Payment").update_attributes(category: categories["Mortgage / Rent"], url: "http://www.rentpayment.com/")
+Provider.find_or_create_by(name: "Ford").update_attributes(category: categories["Car Payment"], url: "https://credit.ford.com/how-to-pay")
