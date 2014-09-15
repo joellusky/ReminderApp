@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140915161113) do
     t.string   "every"
     t.string   "interval"
     t.string   "contact_method"
-    t.boolean  "terms"
+    t.boolean  "terms",          default: false
   end
 
   add_index "bills", ["provider_id"], name: "index_bills_on_provider_id", using: :btree

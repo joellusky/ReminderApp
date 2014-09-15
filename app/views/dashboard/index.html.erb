@@ -8,7 +8,7 @@
 
 <%if @bills_past.any? %>
 
-<h4> Overdue Bills </h4>
+<h3> Overdue Bills </h3>
 <table class="table table-hover">
   <tbody>
 <% @bills_past.each do |bill| %>
@@ -16,7 +16,7 @@
       <td class="danger"><%= bill.provider.name %></td> 
       <td class="danger"><%= link_to "Pay Now", bill.provider.url %></td>
       <% if bill.paid %>
-      <td> Paid! </td>
+      <td class="danger"> Paid! </td>
       <% else %>
       <td class="danger"> Not Paid! </td>
       <td class="danger">
@@ -33,8 +33,6 @@
 
   </tbody>
 </table>
-
-
 <% if @bills.empty? %>
   <h4>You Have No Bills Due This Week</h4>
 <% else %>
@@ -42,7 +40,6 @@
 <% end %>
 
 <table class="table table-hover">
-
   <tbody>
     <% @bills.each do |bill| %>
         <tr onclick='location.href="<%= bill_path(bill) %>"'>          
@@ -64,7 +61,6 @@
 
   </tbody>
 </table>
-<br>
 
 
 
