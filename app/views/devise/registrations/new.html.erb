@@ -36,6 +36,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control',placeholder:'Password Confirmation*', :required => true %>
   </div>
 
+  <div class="form-group">
+    <%= f.check_box :terms%>
+    I have read and agreed the User Terms and Conditions
+  </div>
+
 
   <div><i class="icon-heart"></i></div>
     <%= f.submit 'Sign up', class:'btn btn-primary btn-block' %>  
