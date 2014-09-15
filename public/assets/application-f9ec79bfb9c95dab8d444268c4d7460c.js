@@ -15089,6 +15089,10 @@ return $.datepicker;
 
 
 (function() {
+
+
+}).call(this);
+(function() {
   jQuery(function() {
     var providers, setProviderCategory;
     providers = $('#bill_provider_id').html();
