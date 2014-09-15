@@ -80,9 +80,25 @@
         <%= yield %>
       </div>
 
+    <div class="navbar navbar-default navbar-fixed-bottom">
+      <div class="container">
+        <p class="navbar-text pull-left">Copyright&#169 2014. ForgetMeNot</p>
+        
+        <a href= "http://www.twitter.com"class="navbar-button btn btn-info pull-right">Follow Us on Twitter</a>
+   
+        <a href= "http://www.facebook.com"class="navbar-button btn btn-info pull-right">Join Us on Facebook</a>
+
+        <ul class="navbar-button btn btn-default pull-left">
+            <a><%= link_to "About Us", about_aboutus_path %></a>
+        </ul>
+
+
+      </div>
+    </div>
 
 
     </body>
+
 
     </html>
 
