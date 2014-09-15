@@ -7,8 +7,9 @@
   */
 
 
-h1, h4 {color:white;}
-h3 {color:red;}
+h1 {color:#f6f6f6;}
+h4 {color:#fafafa;}
+h3 {color:#e50000;}
 .danger {color:red;}
 
 .navbar {
@@ -23,6 +24,9 @@ h3 {color:red;}
   height: ;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
 .background {background-color: #004080;}
 
@@ -33,7 +37,7 @@ h3 {color:red;}
   width: 100%;
 
   td, th {
-    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    /*font-family: "Lucida Grande", arial, helvetica, sans-serif;*/
     font-size: 10px;
     padding: 6px;
     border: 1px solid #999;
