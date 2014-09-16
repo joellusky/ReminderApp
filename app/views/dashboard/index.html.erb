@@ -9,7 +9,7 @@
 <%if @bills_past.any? %>
 
 <h3> Overdue Bills </h3>
-<table class="table table-hover">
+<table class="table table-hover ">
   <tbody>
 <% @bills_past.each do |bill| %>
     <tr onclick='location.href="<%= bill_path(bill) %>"'>        
