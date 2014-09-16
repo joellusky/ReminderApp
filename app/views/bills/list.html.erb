@@ -11,7 +11,7 @@
     </tr>
   </thead>
 <tr>
-<% @bills.each do |bill| %>
+<% current_user.bills.each do |bill| %>
 <td><%= bill.provider.name %></td>
 <td><%= bill.provider.category.name %></td>
 <td><%= bill.paid %></td>
