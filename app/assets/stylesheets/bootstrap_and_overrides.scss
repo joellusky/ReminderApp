@@ -32,7 +32,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.background {background-color: #3498db;}
+.background {background-color: #bbd19f;}
 
 .head {color:#6284B5;}
 
@@ -91,16 +91,16 @@ body {
 
 
 .navbar-fmn {
-    background-color: #3498db;
+    background-color: #172934;
 /*    border-color: #FFFFFF
 */}
 
 .navbar-fmn .navbar-brand {
-    color: #f1c40f;
+    color: #e89719;
 }
 
 .navbar-fmn .navbar-brand:hover,.navbar-fmn .navbar-brand:focus {
-    color: #2ca02c;
+    color: white;
     background-color: transparent
 }
 
@@ -113,7 +113,7 @@ body {
 }
 
 .navbar-fmn .navbar-nav>li>a:hover,.navbar-fmn .navbar-nav>li>a:focus {
-    color: gold;
+    color: #e89719;
     background-color: transparent
 }
 
@@ -132,7 +132,7 @@ body {
 }
 
 .navbar-fmn .navbar-toggle:hover,.navbar-fmn .navbar-toggle:focus {
-    background-color: gold
+    background-color: #e89719
 }
 
 .navbar-fmn .navbar-toggle .icon-bar {
@@ -145,7 +145,7 @@ body {
 
 .navbar-fmn .navbar-nav>.open>a,.navbar-fmn .navbar-nav>.open>a:hover,.navbar-fmn .navbar-nav>.open>a:focus {
     background-color: transparent;
-    color: #2ca02c;
+    color: white;
 }
 
 @media (max-width: 767px) {
@@ -162,7 +162,7 @@ body {
     }
 
     .navbar-fmn .navbar-nav .open .dropdown-menu>li>a:hover,.navbar-fmn .navbar-nav .open .dropdown-menu>li>a:focus {
-        color: gold;
+        color: #e89719;
         background-color: transparent;
     }
 
@@ -200,7 +200,7 @@ body {
 /*footer*/
 
 .navbar-fmn-footer {
-    background-color: white;
+    background-color: #172934;
     border-color: #FFFFFF
 }
 
@@ -209,7 +209,7 @@ body {
 }
 
 .navbar-fmn-footer .navbar-brand:hover,.navbar-fmn-footer .navbar-brand:focus {
-    color: #2ca02c;
+    color: white;
     background-color: transparent
 }
 
@@ -218,11 +218,11 @@ body {
 }
 
 .navbar-fmn-footer .navbar-nav>li>a {
-    color: gold;
+    color: #e89719;
 }
 
 .navbar-fmn-footer .navbar-nav>li>a:hover,.navbar-fmn-footer .navbar-nav>li>a:focus {
-    color: #2ca02c;
+    color: white;
     background-color: transparent
 }
 
@@ -254,7 +254,7 @@ body {
 
 .navbar-fmn-footer .navbar-nav>.open>a,.navbar-fmn-footer .navbar-nav>.open>a:hover,.navbar-fmn-footer .navbar-nav>.open>a:focus {
     background-color: transparent;
-    color: #2ca02c;
+    color: white;
 }
 
 @media (max-width: 767px) {
