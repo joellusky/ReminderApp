@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  get 'bills/list'
+
   resources :bills
 
   resources :categories do
