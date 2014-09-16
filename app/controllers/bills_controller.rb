@@ -30,6 +30,10 @@ class BillsController < ApplicationController
 
   end
 
+  def list
+      @bills = Bill.search(params[:search])
+  end
+
   # GET /bills/1
   # GET /bills/1.json
   def show
