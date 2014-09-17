@@ -15,3 +15,21 @@
 //= require jquery-ui/datepicker
 //= require twitter/bootstrap
 //= require_tree 
+
+
+function ready (){
+		
+	$('#user_password').strength({
+		strengthClass: 'strength',
+		strengthMeterClass: 'strength_meter',
+		strengthButtonClass: 'button_strength',
+		strengthButtonText: 'Show Password',
+		strengthButtonTextToggle: 'Hide Password'
+  });
+}
+
+$(document).ready(ready)
+
+$(document).on("page:load", ready() );
+
+
