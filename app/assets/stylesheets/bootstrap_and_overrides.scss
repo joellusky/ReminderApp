@@ -8,9 +8,9 @@
 
 
 
-$primary-color: #3498db;
-$secondary-color: #f1c40f;
-$container-color: #FCFCFC;
+$primary-color: #222930;
+$secondary-color: #222930;
+$container-color: #FAFAED;
 
 
 
@@ -25,7 +25,7 @@ p{color:black;}
 .modal-content {
   border-style: solid;
   border-width: 10px;
-  border-color: gold; 
+  border-color: white; 
 /*  width: ;
   height: ;*/
 }
@@ -100,32 +100,33 @@ body {
 
 
 .navbar-fmn {
-    background-color: $primary-color;
+    background-color: $container-color;
     font-size: 1.20em;
 
   }
 
 .navbar-fmn .navbar-brand {
-    color: #e89719;
+    color: #222930;
     font-size: 1.50em;
+    font-family: arial;
 
 }
 
 .navbar-fmn .navbar-brand:hover,.navbar-fmn .navbar-brand:focus {
-    color: white;
+    color: #222930;
     background-color: transparent;
 }
 
 .navbar-fmn .navbar-text {
-    color: #969696
+    color: #222930;
 }
 
 .navbar-fmn .navbar-nav>li>a {
-    color: white;
+    color: #222930;
 }
 
 .navbar-fmn .navbar-nav>li>a:hover,.navbar-fmn .navbar-nav>li>a:focus {
-    color: #e89719;
+    color: white;
     background-color: transparent
 }
 
@@ -217,7 +218,7 @@ footer.navbar{
 }
 
 .navbar-fmn-footer {
-  background-color: $primary-color;
+  background-color: $secondary-color;
   right: 0;
   left: 0;
   bottom: 0;
