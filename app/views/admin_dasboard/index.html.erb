@@ -1,2 +1,32 @@
 <h1>Administrator Dashboard</h1>
 
+<table class="table table-hover table-striped">
+ <tbody>
+  <thead>
+    <tr>
+	  <th>Bill User</th>
+      <th>Provider</th>
+      <th>Category</th>
+      <th>Payment Status</th>
+      <th>Recurrence</th>
+      <th>Reminder Method</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+<tr>
+<% @bills.each do |bill| %>
+<td><%= bill.user.email %></td>
+<td><%= bill.provider.name %></td>
+<td><%= bill.provider.category.name %></td>
+<td><%= bill.paid %></td>
+<td><%= bill.every %></td>
+<td><%= bill.contact_method %></td>
+<td><%= link_to bill, method: :delete do%>
+  <span class="fa fa-trash-o"></span>
+  <% end %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+			
+		
