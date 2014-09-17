@@ -29,7 +29,7 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
+<% if f.object.encrypted_password.present? %>
   <div class="form-group">
     <% if @validatable %><i></i><% end %>
     <%= f.password_field :password, autocomplete: "off", class:'form-control',placeholder:"Change Password" %>
@@ -42,7 +42,12 @@
   <div class="form-group">
     <%= f.label :current_password %> 
     <%= f.password_field :current_password, autocomplete: "off", class:'form-control', placeholder:"We need your password to confirm your changes." %></div>
+<% end %>
 
+<div class="form-group">
+    <%= f.check_box :terms%>
+    I have read and agreed the User Terms and Conditions
+  </div>
   <div><i class="icon-heart"></i></div>
     <%= f.submit 'Update', class:'btn btn-primary btn-block' %>  
       
