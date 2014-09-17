@@ -26,7 +26,7 @@ en:
 en:
   unauthorized:
     manage:
-      all: "Not authorized to %{action} %{subject}."
-      user: "Not allowed to manage other user accounts."
+      all: "You dont have access to the %{subject} page."
+      user: "You only have access to your account."
     update:
-      project: "Not allowed to update this project."
+      bill: "Not allowed to update this bill."

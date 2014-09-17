@@ -18,6 +18,14 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
 	:recoverable, :rememberable, :trackable, :validatable
 
+
+	def ability
+    @ability ||= Ability.new(self)
+  	end
+
+  	delegate :can?, :cannot?, :to => :ability
+
+
 	def bill_occurences
 		# for each bill
 		self.bills.map { |bill|
