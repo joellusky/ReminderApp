@@ -55,4 +55,4 @@ group :development do
 	gem 'binding_of_caller'
 end
 
-
+gem 'cancancan', '~> 1.9'
