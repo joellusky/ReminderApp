@@ -46,8 +46,7 @@
 <% end %>
 
 <div class="form-group">
-    <%= f.check_box :terms%>
-    I have read and agreed the User Terms and Conditions
+    <%= f.hidden_field :terms, :value => '1' %>
   </div>
   <div><i class="icon-heart"></i>
     <%= f.submit 'Update', class:'btn btn-primary btn-block' %>  

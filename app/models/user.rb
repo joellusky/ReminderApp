@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
 	validates :last_name, presence: true
 	validates :terms, presence: true
 
-	validates_acceptance_of :terms
 
 	
 
