@@ -50,9 +50,12 @@ gem 'html5_validators'
 
 gem 'rails_12factor'
 
+gem 'omniauth-twitter' 
+gem 'omniauth-facebook'
+
 group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
 end
 
-
+gem 'cancancan', '~> 1.9'

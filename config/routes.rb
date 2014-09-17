@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  get 'admin_dasboard/index'
+
   get 'about/howitworks'
 
   get 'about/aboutus'
@@ -7,7 +10,8 @@ Rails.application.routes.draw do
 
   get 'sendtext/index'
 
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
 
   root "home#index"
 

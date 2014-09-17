@@ -21,3 +21,12 @@
 
 en:
   hello: "Hello world"
+
+
+en:
+  unauthorized:
+    manage:
+      all: "You dont have access to the %{subject} page."
+      user: "You only have access to your account."
+    update:
+      bill: "Not allowed to update this bill."
