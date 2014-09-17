@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get 'sendtext/index'
 
-  devise_for :users
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
 
   root "home#index"
 
