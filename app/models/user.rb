@@ -26,6 +26,8 @@ class User < ActiveRecord::Base
 
   	delegate :can?, :cannot?, :to => :ability
 
+  	
+
 	def self.from_omniauth(auth)
 		where(auth.slice(:sprovider, :uid)).first_or_create do |user|
 			user.sprovider = auth.sprovider
