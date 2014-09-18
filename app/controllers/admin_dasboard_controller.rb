@@ -1,5 +1,6 @@
 class AdminDasboardController < ApplicationController
 	before_action :set_twilio
+	authorize_resource :class => false
 
   def index
 
