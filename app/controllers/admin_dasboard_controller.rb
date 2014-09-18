@@ -8,6 +8,8 @@ class AdminDasboardController < ApplicationController
   	 	# Loop over records and print out a property for each one
 		@client.account.usage.records.last_month.list.each do |record|
 	    puts record.count
+
+	    @users = User.all
 		end
   end
 
