@@ -1,37 +1,9 @@
-<h1>Administrator Dashboard</h1>
+<h1 class="admin">Administrator Dashboard</h1>
 
-<table class="table table-hover table-striped">
- <tbody>
-  <thead>
-    <tr>
-	  <th>Bill User</th>
-      <th>Provider</th>
-      <th>Category</th>
-      <th>Payment Status</th>
-      <th>Recurrence</th>
-      <th>Reminder Method</th>
-      <th>Delete</th>
-    </tr>
-  </thead>
-<tr>
-  <% unless @bills.empty? %>
-<% @bills.each do |bill| %>
-<td><%= bill.user.email %></td>
-<td><%= bill.provider.name %></td>
-<td><%= bill.provider.category.name %></td>
-<td><%= bill.paid %></td>
-<td><%= bill.every %></td>
-<td><%= bill.contact_method %></td>
-<td><%= link_to bill, method: :delete do%>
-  <span class="fa fa-trash-o"></span>
-  <% end %></td>
-   <% end %>
-</tr>
-<% end %>
-</tbody>
-</table>
-			
-		<table class="table table-hover table-striped">
+
+
+<h2>All Users</h2>
+      <table border="2" >
  <tbody>
   <thead>
     <tr>
@@ -39,7 +11,7 @@
       <th>Last Name</th>
       <th>Cell Phone</th>
       <th>Social Media Login?</th>
-      <th>Delete</th>
+      <th></th>
     </tr>
   </thead>
 <tr>
@@ -51,7 +23,42 @@
 <td><%= link_to user_registration_path, data: {confirm: "Are you sure?"}, method: :delete do%>
   <span class="fa fa-trash-o"></span>
   <% end %></td>
-</tr>
-<% end %>
-</tbody>
+  </tr>
+    <% end %>
+  </tbody>
 </table>
+<br>
+   <br>
+
+<h2>All Bills</h2>
+      <table border="2" >
+ <tbody>
+  <thead>
+    <tr>
+    <th>Bill User</th>
+      <th>Provider</th>
+      <th>Category</th>
+      <th>Recurrence</th>
+      <th>Option</th>
+      <th></th>
+    </tr>
+  </thead>
+<tr>
+  <% unless @bills.empty? %>
+<% @bills.each do |bill| %>
+<td><%= bill.user.email %></td>
+<td><%= bill.provider.name %></td>
+<td><%= bill.provider.category.name %></td>
+<td><%= bill.every %></td>
+<td><%= bill.contact_method %></td>
+<td><%= link_to bill, method: :delete do%>
+  <span class="fa fa-trash-o"></span>
+  <% end %></td>
+   <% end %>
+  </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+
+  
