@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'about/terms'
 
+  get 'admin_dashboard/all_bills'
+
+  get 'admin_dashboard/all_users'
+
   resources :providers
 
   get 'sendtext/index'

@@ -14,6 +14,15 @@ class AdminDashboardController < ApplicationController
 		end
   end
 
+  def all_users
+  	@users = User.all
+  end
+
+  def all_bills
+  	@bills = Bill.search(params[:search])
+  end
+
+
 
 
 
