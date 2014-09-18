@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'about/aboutus'
 
+  get 'about/terms'
+
   resources :providers
 
   get 'sendtext/index'

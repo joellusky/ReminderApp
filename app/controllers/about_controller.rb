@@ -4,4 +4,7 @@ class AboutController < ApplicationController
 
   def aboutus
   end
+
+  def terms
+  end
 end
