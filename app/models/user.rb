@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	# Setup accessible (or protected) attributes for your model
-	has_many :bills
+	has_many :bills, :dependent => :destroy
 
 	validates :cell_phone, presence: true
 	validates :cell_phone, length: { is: 10 }
