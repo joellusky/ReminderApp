@@ -1,5 +1,6 @@
-class AdminDasboardController < ApplicationController
+class AdminDashboardController < ApplicationController
 	before_action :set_twilio
+	authorize_resource :class => false
 
   def index
 
@@ -12,6 +13,15 @@ class AdminDasboardController < ApplicationController
 	    @users = User.all
 		end
   end
+
+  def all_users
+  	@users = User.all
+  end
+
+  def all_bills
+  	@bills = Bill.search(params[:search])
+  end
+
 
 
 

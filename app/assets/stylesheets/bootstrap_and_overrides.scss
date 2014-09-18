@@ -12,7 +12,19 @@ $primary-color: #222930;
 $secondary-color: #222930;
 $container-color: #e5e5e5;
 
+.admin {text-align: center;}
+.background_admin {background-color:#e5e5e5;}
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  > .container_admin  {
+    background-color: pink;
+    padding-bottom: 80px;
+    border-radius: 10px 10px;
+    min-height: 70vh;
+
+  }
+}
 
 h1 {color:black;}
 h4 {color:black;}
@@ -40,7 +52,6 @@ body {
 
   }
 }
-
 .background {background-color: $primary-color ;}
 
 .head {color:#6284B5;}

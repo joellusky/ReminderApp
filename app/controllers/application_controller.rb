@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for(user)
 		if user.admin
-			admin_dasboard_index_path
+			admin_dashboard_index_path
 		else
 			dashboard_index_path
 		end

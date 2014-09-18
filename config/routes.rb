@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
   
-  get 'admin_dasboard/index'
+  get 'admin_dashboard/index'
 
   get 'about/howitworks'
 
   get 'about/aboutus'
+
+  get 'about/terms'
+
+  get 'admin_dashboard/all_bills'
+
+  get 'admin_dashboard/all_users'
 
   resources :providers
 
