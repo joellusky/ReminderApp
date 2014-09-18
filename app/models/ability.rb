@@ -13,6 +13,7 @@ class Ability
     else
       cannot :crud, Category      
       cannot :crud, Provider
+      cannot :crud, User
       can :manage, Bill
     end
     
