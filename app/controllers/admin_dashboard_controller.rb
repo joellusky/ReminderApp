@@ -1,4 +1,4 @@
-class AdminDasboardController < ApplicationController
+class AdminDashboardController < ApplicationController
 	before_action :set_twilio
 	authorize_resource :class => false
 

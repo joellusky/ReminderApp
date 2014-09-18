@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'admin_dasboard/index'
+  get 'admin_dashboard/index'
 
   get 'about/howitworks'
 
