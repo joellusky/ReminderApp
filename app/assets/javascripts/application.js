@@ -19,7 +19,7 @@
 
 function ready (){
 		
-	$('#user_password').strength({
+	$('#myPassword').strength({
 		strengthClass: 'strength',
 		strengthMeterClass: 'strength_meter',
 		strengthButtonClass: 'button_strength',

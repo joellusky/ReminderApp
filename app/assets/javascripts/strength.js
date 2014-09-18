@@ -59,17 +59,17 @@
                   var thismeter = $('div[data-meter="'+thisid+'"]');
                     if (total <= 1) {
                    thismeter.removeClass();
-                   thismeter.addClass('veryweak').html('very week');
+                   thismeter.addClass('veryweak').html('Very Weak');
                 } else if (total == 2){
                     thismeter.removeClass();
-                   thismeter.addClass('weak').html('week');
+                   thismeter.addClass('weak').html('Weak');
                 } else if(total == 3){
                     thismeter.removeClass();
-                   thismeter.addClass('medium').html('medium');
+                   thismeter.addClass('medium').html('Medium');
 
                 } else {
                      thismeter.removeClass();
-                   thismeter.addClass('strong').html('strong');
+                   thismeter.addClass('strong').html('Strong');
                 }
             }
 
