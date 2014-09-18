@@ -87,32 +87,10 @@
   <p class="alert alert-danger"><%= alert %></p>
   <% end %>
 
-  <div class="container_admin">
+  <div class="container">
     <%= yield %>
   </div>
 
-<!-- footer -->
 
-  <footer class="navbar navbar-fmn-footer">
-    <div class="container">
-      <p class="navbar-text pull-left">Copyright&#169 2014. ForgetMeNot</p>
-
-      <%= link_to "http://www.facebook.com" do %>
-      <%= image_tag "fb.png", size: '40'%> 
-      <% end %>
-      <%= link_to "http://www.twitter.com" do %>
-      <%= image_tag "twitter.png", size: '40'%> 
-      <% end %>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "About Us", about_aboutus_path %></li>
-      </ul>
-
-    </div>
-  </footer>
-
-  
-</body>
-</html>
 
 
