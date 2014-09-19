@@ -1,15 +1,14 @@
 
-<p>
-  <%= @date %>
-</p>
-
-<p>
+<p class = "billshow">
   <strong>Category:</strong>
   <%= @bill.category.name %>
 </p>
 
-<p>
- 
+<p class = "billshow">
+  <%= @date %>
+</p>
+
+<p class = "billshow">
   <% if @bill.notes.nil? %>
   <% else %>
    <strong>Notes:</strong>
@@ -17,7 +16,7 @@
 </p>
 <% end %>
 
-<p>
+<p class = "billshow">
   <strong>Provider:</strong>
   <% @providers.each do |provider| %>
     <% if provider.id == @bill.provider_id %>
@@ -25,18 +24,19 @@
     <%end%>
   <% end %>
 </p>
-<p>
+<p class = "billshow">
   <strong>Payment Status:</strong> 
     <% if @bill.paid %>
       <%= "Paid" %>
     <% else %>
       <%= "Not Paid" %>
-      <%= render 'form' %>
+     <div class = "billshow"> <%= render 'form' %></div>
   <% end %>
 </p> 
-	
+<p class = "billshow">
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %> |
 <%= link_to @bill, method: :delete do%>
   <span class="fa fa-trash-o"></span>
           <% end %>
+</p>
