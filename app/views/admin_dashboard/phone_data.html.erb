@@ -4,15 +4,36 @@
  <tbody>
   <thead>
     <tr>
-      <th>Price</th>
-      <th>Record</th>
+      <th>Total SMS Messages Sent</th>
+      <th>Total Cost</th>
     </tr>
   </thead>
 <tr>
-<% @client.account.usage.records.last_month.list.each do |record| %>
+<% @client.account.usage.records.list({:category => "sms"}).each do |record| %>
+<td><%= record.count %></td>
 <td>$<%= record.price %></td>
-<td><%= record %></td>
 </tr>
 	<% end %>
 		</tbody>
 			</table>
+
+
+
+	<table class="table table-striped">
+ <tbody>
+  <thead>
+    <tr>
+      <th>Total Outbound Phone Call Reminders</th>
+      <th>Total Cost</th>
+    </tr>
+  </thead>
+<tr>
+<% @client.account.usage.records.list({:category => "calls-outbound"}).each do |record| %>
+<td><%= record.count %></td>
+<td>$<%= record.price %></td>
+</tr>
+	<% end %>
+		</tbody>
+			</table>
+
+
