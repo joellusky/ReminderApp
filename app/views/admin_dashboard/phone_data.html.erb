@@ -6,12 +6,14 @@
     <tr>
       <th>Total SMS Messages Sent</th>
       <th>Total Cost</th>
+      <th>Total Cost</th>
     </tr>
   </thead>
 <tr>
 <% @client.account.usage.records.list({:category => "sms"}).each do |record| %>
 <td><%= record.count %></td>
 <td>$<%= record.price %></td>
+
 </tr>
 	<% end %>
 		</tbody>
