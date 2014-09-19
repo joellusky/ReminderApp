@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140919195805) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,7 +82,6 @@ ActiveRecord::Schema.define(version: 20140919195805) do
     t.boolean  "admin"
     t.string   "country"
     t.string   "avatar"
-
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
