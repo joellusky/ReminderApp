@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 	validates :terms, presence: true
-	attr_accessible :last_sign_in_ip, :latitude, :longtitude
+
 	geocoded_by :last_sign_in_ip
 	after_create :geocode
 
