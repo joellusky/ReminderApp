@@ -21,8 +21,10 @@ background-color:black;
 }
 
 .billshow {text-align: center;
-           font-family: sans-serif;
-           font-size: 20px; }
+          font-family: sans-serif;
+          font-size: 15px; }
+          
+.billshowcolor {color:#428bca;}
 
 h1 {color:black;}
 h4 {color:black;}
@@ -52,7 +54,7 @@ body {
 }
 .background {background-color: $primary-color ;}
 
-.head {color:#6284B5;}
+.head {color:#6284B5  ;}
 
 #articles .calendar {
   border-collapse: collapse;
@@ -81,7 +83,7 @@ body {
   }
 
   .notmonth, .notmonth a { color: #CCC; }
-  .today { background-color: #D7F2FF; }
+  .today { background-color: #D7F2FF  ; }
 }
 
 #articles #month {
@@ -107,12 +109,15 @@ body {
 
 
 
-
 .navbar-fmn {
     background-color: $container-color;
     font-size: 1.20em;
     border-radius: 0;
   }
+
+.navbar-inverse {
+  border-radius: 0;
+}
 
 .navbar-fmn .navbar-brand {
     color: #222930;
