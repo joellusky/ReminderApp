@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
 	def self.from_omniauth(auth)
 		where(auth.slice(:sprovider, :uid)).first_or_create do |user|
-			user.sprovider = auth.provider
+			user.sprovider = auth.provider || "devise"
 			user.uid = auth.uid
 			user.first_name = auth.info.first_name
 			user.last_name = auth.info.last_name

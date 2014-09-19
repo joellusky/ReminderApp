@@ -11,6 +11,7 @@ class AdminDashboardController < ApplicationController
 	    puts record.count
 
 	    @users = User.all
+      @providers = Provider.all
 		end
   end
 
@@ -23,7 +24,9 @@ class AdminDashboardController < ApplicationController
   end
 
 
-
+  def users_per_day
+    render json: @users.group_by_day(:created_at, format: "%B %d, %Y").count
+  end
 
 
   private
