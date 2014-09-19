@@ -38,6 +38,10 @@
     <%= f.label :contact_method %><br>
     <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Both", "both"]] %>
   </div>
+   <div class="field">
+    <%= f.label :"Add notes to your bill(Optional)" %><br>
+    <%= f.text_field :notes %>
+  </div>
   <div class="field">
     <%= f.hidden_field :paid, value: false %>
   </div>
@@ -82,7 +86,7 @@
     <% end %>
   <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create", class: 'btn btn-large btn-primary'%>
   </div>
 <% end %>
 
