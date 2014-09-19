@@ -80,8 +80,8 @@ ActiveRecord::Schema.define(version: 20140919195805) do
     t.string   "sprovider"
     t.string   "uid"
     t.boolean  "admin"
-    t.string   "country"
     t.string   "avatar"
+    t.string   "country"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
