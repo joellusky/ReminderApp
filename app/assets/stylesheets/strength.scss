@@ -31,10 +31,10 @@
 		width:100%;
 	}
 
-	#user_password input[type="password"]:focus,#user_password input[type="text"]:focus{
-		outline:0;
+	#myPassword input[type="password"]:focus,#myPassword input[type="text"]:focus{
+		outline:0;myPassword
 	}
-	#user_password{
+	#myPassword{
 		width: 500px;
 		margin: 0 auto;
 		position: relative;
