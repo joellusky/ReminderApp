@@ -58,6 +58,7 @@ GEM
     execjs (2.2.1)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    geocoder (1.2.5)
     groupdate (2.1.1)
       activerecord (>= 3.0.0)
     hashie (3.3.1)
@@ -190,6 +191,7 @@ DEPENDENCIES
   chartkick (~> 1.2.4)
   coffee-rails (~> 4.0.0)
   devise
+  geocoder
   groupdate (~> 2.1.1)
   html5_validators
   jbuilder (~> 2.0)
