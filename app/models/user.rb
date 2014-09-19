@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 	validates :terms, presence: true
 
 	geocoded_by :last_sign_in_ip
-	after_create :geocode
+	after_validation :geocode
 
 
 	# Include default devise modules. Others available are:
