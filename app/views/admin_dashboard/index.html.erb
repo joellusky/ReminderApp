@@ -1,4 +1,6 @@
 <h2 class='admin'>Admin Dashboard</h2>
 
+<%= pie_chart @bills.group_by_day(:created_at).count %>
+<%= line_chart @users.group_by_day(:created_at).count %>
 
   
