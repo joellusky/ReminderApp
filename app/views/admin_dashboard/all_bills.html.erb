@@ -3,7 +3,7 @@
    <tbody>
     <thead>
       <tr>
-      <th>Bill User</th>
+        <th>Bill User</th>
         <th>Provider</th>
         <th>Category</th>
         <th>Recurrence</th>
@@ -12,7 +12,7 @@
       </tr>
     </thead>
   <tr>
-    <% unless @bills.empty? %>
+  <% unless @bills.empty? %>
   <% @bills.each do |bill| %>
   <td><%= bill.user.email %></td>
   <td><%= bill.provider.name %></td>
@@ -21,9 +21,9 @@
   <td><%= bill.contact_method %></td>
   <td><%= link_to bill, method: :delete do%>
     <span class="fa fa-trash-o"></span>
-    <% end %></td>
-     <% end %>
-    </tr>
-        <% end %>
+  <% end %></td>
+</tr>
+  <% end %>
+    <% end %>
       </tbody>
-    </table>
+       </table>
