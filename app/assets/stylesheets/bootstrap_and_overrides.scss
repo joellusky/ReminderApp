@@ -13,18 +13,18 @@ $secondary-color: #222930;
 $container-color: #e5e5e5;
 
 .admin {text-align: center;}
-.background_admin {background-color:#e5e5e5;}
+.background_admin {background-color:teal;}
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  > .container_admin  {
-    background-color: pink;
-    padding-bottom: 80px;
-    border-radius: 10px 10px;
-    min-height: 70vh;
-
-  }
+.btn-primary {
+border-color: white;
+background-color:black;
 }
+
+.billshow {text-align: center;
+          font-family: sans-serif;
+          font-size: 15px; }
+          
+.billshowcolor {color:#428bca;}
 
 h1 {color:black;}
 h4 {color:black;}
@@ -54,7 +54,7 @@ body {
 }
 .background {background-color: $primary-color ;}
 
-.head {color:#6284B5;}
+.head {color:#6284B5  ;}
 
 #articles .calendar {
   border-collapse: collapse;
@@ -83,7 +83,7 @@ body {
   }
 
   .notmonth, .notmonth a { color: #CCC; }
-  .today { background-color: #D7F2FF; }
+  .today { background-color: #D7F2FF  ; }
 }
 
 #articles #month {
@@ -106,7 +106,6 @@ body {
 .sign_in {
   margin-top: 100px;
 }
-
 
 
 
