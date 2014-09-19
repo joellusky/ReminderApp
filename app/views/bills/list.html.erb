@@ -1,3 +1,10 @@
+
+<% if current_user.bills.empty? %>
+
+<h2 class="center_bill_list_h">You have not added any bills</h2>
+
+<% else %>
+
 <h1>All Bills</h1>
 <table class="table table-hover table-striped">
   <tbody>
@@ -19,5 +26,7 @@
 <td><%= bill.contact_method %></td>
 </tr>
 <% end %>
-</tbody>
-</table>
+  </tbody>
+    </table>
+
+<% end %>
