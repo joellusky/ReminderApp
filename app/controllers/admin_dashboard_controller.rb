@@ -7,7 +7,7 @@ class AdminDashboardController < ApplicationController
   	 	@bills = Bill.search(params[:search])
 
   	 	# Loop over records and print out a property for each one
-		@client.account.usage.records.last_month.list.each do |record|
+		  @client.account.usage.records.last_month.list.each do |record|
 	    puts record.count
 
 	    @users = User.all
@@ -20,6 +20,13 @@ class AdminDashboardController < ApplicationController
 
   def all_bills
   	@bills = Bill.search(params[:search])
+  end
+
+  def phone_data
+      # Loop over records and print out a property for each one
+      @client.account.usage.records.last_month.list.each do |record|
+      puts record.count
+      end
   end
 
 

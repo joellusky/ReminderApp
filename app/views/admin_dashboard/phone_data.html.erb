@@ -1,0 +1,18 @@
+<h2 class='admin'>Phone Data</h2>
+
+	<table class="table table-striped">
+ <tbody>
+  <thead>
+    <tr>
+      <th>Price</th>
+      <th>Record</th>
+    </tr>
+  </thead>
+<tr>
+<% @client.account.usage.records.last_month.list.each do |record| %>
+<td>$<%= record.price %></td>
+<td><%= record %></td>
+</tr>
+	<% end %>
+		</tbody>
+			</table>

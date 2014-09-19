@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'admin_dashboard/all_users'
 
+  get 'admin_dashboard/phone_data'
+
   resources :providers
 
   get 'sendtext/index'
