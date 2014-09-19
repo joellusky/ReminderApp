@@ -3,7 +3,14 @@
 <h4> Users Created By Day</h4>
 <%= line_chart @users.group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
 <br>
-<h4> Social Media Providers </h4>
+<h4> Sign In Methods </h4>
+<% @users.each do |user| %>
+	<% if user.sprovider.nil?%>
+	<% user.sprovider = "devise"%>
+	<% user.save %>
+	<% end %>
+<%end %>
 <%= pie_chart @users.group(:sprovider).count %>
+
 
   
