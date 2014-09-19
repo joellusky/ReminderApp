@@ -1,6 +1,6 @@
 
 <p class = "billshow">
-  <strong>Category:</strong>
+  <strong class = "billshowcolor">Category</strong>
   <%= @bill.category.name %>
 </p>
 
@@ -9,15 +9,15 @@
 </p>
 
 <p class = "billshow">
-  <% if @bill.notes.nil? %>
+  <% if @bill.notes.empty? %>
   <% else %>
-   <strong>Notes:</strong>
-  <%= @bill.notes %>
-</p>
-<% end %>
+      <strong class = "billshowcolor">Notes</strong>
+      <%= @bill.notes %>
+        </p>
+          <% end %>
 
 <p class = "billshow">
-  <strong>Provider:</strong>
+  <strong class = "billshowcolor">Provider</strong>
   <% @providers.each do |provider| %>
     <% if provider.id == @bill.provider_id %>
     <%= provider.name %>
@@ -25,7 +25,7 @@
   <% end %>
 </p>
 <p class = "billshow">
-  <strong>Payment Status:</strong> 
+  <strong class = "billshowcolor">Payment Status</strong> 
     <% if @bill.paid %>
       <%= "Paid" %>
     <% else %>
