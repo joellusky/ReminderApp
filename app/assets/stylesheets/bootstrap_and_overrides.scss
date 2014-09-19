@@ -13,14 +13,18 @@ $secondary-color: #222930;
 $container-color: #e5e5e5;
 
 .admin {text-align: center;}
-.background_admin {background-color:teal;}
+.background_admin {background-color:#e5e5e5;}
 
-.btn-primary {
-border-color: white;
-background-color:black;
+body {
+  font-family: 'Open Sans', sans-serif;
+  > .container_admin  {
+    background-color: pink;
+    padding-bottom: 80px;
+    border-radius: 10px 10px;
+    min-height: 70vh;
+
+  }
 }
-
-
 
 h1 {color:black;}
 h4 {color:black;}
@@ -111,6 +115,10 @@ body {
     font-size: 1.20em;
     border-radius: 0;
   }
+
+.navbar-inverse {
+  border-radius: 0;
+}
 
 .navbar-fmn .navbar-brand {
     color: #222930;

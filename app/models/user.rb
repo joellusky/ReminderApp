@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
 	validates :terms, presence: true
 
 
-	
-
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, :omniauthable,
@@ -35,6 +33,7 @@ class User < ActiveRecord::Base
 			user.last_name = auth.info.last_name
 			user.email = auth.info.email
 			user.cell_phone = auth.info.cell_phone
+			user.avatar = auth.info.image
   		end
 	end
 
