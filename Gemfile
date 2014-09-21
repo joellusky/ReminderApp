@@ -64,3 +64,4 @@ group :development do
 end
 
 gem 'cancancan', '~> 1.9'
+gem 'unirest'

@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
 	validates :last_name, presence: true
 	validates :terms, presence: true
 
-	geocoded_by :last_sign_in_ip
-	after_validation :geocode
+	after_validation :get_location
 
 
 	# Include default devise modules. Others available are:
@@ -51,7 +50,16 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def get_location
+		ip = self.last_sign_in_ip
+		response = Unirest.get "http://api.netimpact.com/qv1.php?key=yvnBK1wYiEwrmCHC&qt=geoip&d=json&q=#{ip}&qt=geoip",
+		headers:{:X => "L90l5rQA7smshIUnQLnW4YYUc3kzp1VZhEZjsnUq2OaaQJwhol"}
 
+		location = response.body
+
+		self.country = location[0][2]
+
+	end
 
 	def bill_occurences
 		# for each bill
