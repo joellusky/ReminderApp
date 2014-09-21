@@ -10,7 +10,11 @@
 	<% user.save %>
 	<% end %>
 <%end %>
+<h4> Log In </h4>
 <%= pie_chart @users.group(:sprovider).count %>
+<br>
+<h4> Location </h4>
+<%= geo_chart @users.group(:country).count %>
 
 
   
