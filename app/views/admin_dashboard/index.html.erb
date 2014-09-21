@@ -3,17 +3,16 @@
 <h4> Users Created By Day</h4>
 <%= line_chart @users.group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
 <br>
-<h4> Sign In Methods </h4>
 <% @users.each do |user| %>
 	<% if user.sprovider.nil?%>
 	<% user.sprovider = "devise"%>
 	<% user.save %>
 	<% end %>
 <%end %>
-<h4> Log In </h4>
+<h4> Sign Up Provider</h4>
 <%= pie_chart @users.group(:sprovider).count %>
 <br>
-<h4> Location </h4>
+<h4> User Location </h4>
 <%= geo_chart @users.group(:country).count %>
 
 
