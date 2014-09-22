@@ -19,6 +19,7 @@
   </thead>
 <tr>
 <% current_user.bills.each do |bill| %>
+<tr onclick='location.href="<%= bill_path(bill) %>"'>
 <td><%= bill.provider.name %></td>
 <td><%= bill.provider.category.name %></td>
 <td><%= bill.paid %></td>
