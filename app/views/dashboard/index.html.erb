@@ -64,5 +64,16 @@
 
 
 
+<% @bills_next.each do |bill| %>
+  <% if bill.paid %>
+    <% bill.paid = false %>
+    <% bill.save %>
+  <% end %>
+  <%= bill.provider.name %>
+<% end %>
+    
+
+
+
 
 

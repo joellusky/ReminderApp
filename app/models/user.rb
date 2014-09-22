@@ -102,7 +102,7 @@ class User < ActiveRecord::Base
 	    }
   	end
 
-  	def bill_due_next_week
+  	def bills_due_next_week
   		next_week = Date.current.next_week.all_week.to_a
   		bills.select { |bill|
   			if bill.paid
