@@ -104,7 +104,10 @@
       <% end %>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "About Us", about_aboutus_path %></li>
+            <% if user_signed_in? && current_user.admin? %>
+            <li><%= link_to "Admin", admin_dashboard_index_path %></li>
+            <% end %>
+          <li><%= link_to "About Us", about_aboutus_path %></li>
           <li><%= link_to "How It Works", about_howitworks_path %></li>
       </ul>
 
