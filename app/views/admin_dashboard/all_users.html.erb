@@ -17,7 +17,7 @@
 <td><%= user.last_name %></td>
 <td><%= user.cell_phone %></td>
 <td><%= user.sprovider %></td>
-<td><%= link_to user_registration_path, data: {confirm: "Are you sure?"}, method: :delete do%>
+<td><%= link_to user_path(user), data: {confirm: "Are you sure?"}, method: :delete do %>
   <span class="fa fa-trash-o"></span>
   <% end %></td>
 </tr>

@@ -1,24 +1,26 @@
 Rails.application.routes.draw do
+
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
+  resources :users
   
-  get 'admin_dashboard/index'
+    get 'admin_dashboard/index'
 
-  get 'about/howitworks'
+    get 'about/howitworks'
 
-  get 'about/aboutus'
+    get 'about/aboutus'
 
-  get 'about/terms'
+    get 'about/terms'
 
-  get 'admin_dashboard/all_bills'
+    get 'admin_dashboard/all_bills'
 
-  get 'admin_dashboard/all_users'
+    get 'admin_dashboard/all_users'
 
-  get 'admin_dashboard/phone_data'
+    get 'admin_dashboard/phone_data'
 
   resources :providers
 
   get 'sendtext/index'
-
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
 
   root "home#index"
@@ -30,6 +32,7 @@ Rails.application.routes.draw do
   resources :categories do
     resources :providers
   end
+  
 
   resources :dashboard
 
