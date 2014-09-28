@@ -31,7 +31,7 @@ gem 'spring',        group: :development
 gem 'twilio-ruby'
 
 #gem 'pry-rails'
-
+gem 'faker'
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -52,6 +52,7 @@ gem 'rails_12factor'
 
 gem 'omniauth-twitter' 
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 
 gem 'chartkick', '~> 1.2.4'
 gem 'groupdate', '~> 2.1.1'
