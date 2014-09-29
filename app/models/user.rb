@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 	validates :last_name, presence: true
 	validates :terms, presence: true
 
-	after_validation :get_location
+	#keep commented out, to avoid country getting set to nil on localhost
+	#after_validation :get_location
 
 
 	# Include default devise modules. Others available are:
