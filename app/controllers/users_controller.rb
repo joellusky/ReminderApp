@@ -5,5 +5,6 @@ class UsersController < ApplicationController
 	  flash[:success] = "User destroyed."
 	  redirect_to admin_dashboard_all_users_path
 	end
+
 end
 
