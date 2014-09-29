@@ -32,11 +32,40 @@ task :fake => :environment do
 				terms: true,
 				country: country_choice,
 				sprovider: sprovider)
-	Bill.create(user: user,
 
+	Bill.create(user: user,
 				duedate: Time.now.strftime("%Y-%m-%d"),
 				every: every_choice,
 				contact_method: contact_choice,
 				provider_id: provider_choice)
 	end
 end
+
+
+task :admin => :environment do
+	1.times do
+user = User.create(first_name: "Joel",
+				last_name: "Lusky",
+				email: "joelzlusky@gmail.com",
+				cell_phone: "3057615259",
+				password:  "12345678",
+				terms: true,
+				country: "United States",
+				sprovider: "devise",
+				admin: true)
+	end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
