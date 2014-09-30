@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
 	:recoverable, :rememberable, :trackable, :validatable
 
 
-
-
 	def ability
     @ability ||= Ability.new(self)
   	end
