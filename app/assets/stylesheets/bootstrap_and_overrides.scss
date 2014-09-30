@@ -12,14 +12,21 @@ $primary-color: #222930;
 $secondary-color: #222930;
 $container-color: #e5e5e5;
 
+
 .errors {color:red;}
 
 .admin {text-align: center;}
+
 .background_admin {background-color:teal;}
 
 .btn-primary {
 border-color: white;
-background-color:black;
+background-color:teal;
+}
+
+.btn-primary:hover {
+  background-color: teal;
+  border-color: teal;
 }
 
 .billshow {text-align: center;
@@ -31,11 +38,19 @@ background-color:black;
 .center_bill_list_h {text-align:center;}
 
 h1 {color:black;}
+
 h4 {color:black;}
+
 h3 {color:#e50000;}
+
 .danger {color:red;}
+
 p{color:black;}
 
+a{color:teal;}
+
+a:hover{color:white;
+text-decoration:none}
 
 
 .modal-content {

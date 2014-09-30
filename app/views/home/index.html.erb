@@ -1,3 +1,7 @@
+  <%= link_to user_omniauth_authorize_path(:facebook) do %>
+    <%= image_tag "facebook-login-button.png", width: '200', height: '40'%> 
+      <% end %>
+     
 <div class="row sign_in">
   <div class="col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
   	<%= form_for(:user, :url => session_path(:user)) do |f| %>
@@ -11,11 +15,11 @@
   </div>
   <div><i class="icon-heart"></i></div>
     <%= f.submit 'Sign in', class:'btn btn-primary btn-block' %>
-    <%= link_to "Sign in with facebook", user_omniauth_authorize_path(:facebook), class:'btn btn-primary btn-block' %>
     <br>  
   	<div align="center"> 
     <%= link_to "Forgot your password?", new_password_path(:user) %>
   </div>
+  
 <% end %>
   </div>
 
