@@ -19,6 +19,8 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
+
 en:
   hello: "Hello world"
 
@@ -30,3 +32,4 @@ en:
       user: "You only have access to your account."
     update:
       bill: "Not allowed to update this bill."
+

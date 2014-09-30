@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 
+
 	#keep commented out, to avoid country getting set to nil on localhost
 	#after_validation :get_location
 
@@ -16,6 +17,7 @@ class User < ActiveRecord::Base
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, :omniauthable,
 	:recoverable, :rememberable, :trackable, :validatable
+
 
 
 

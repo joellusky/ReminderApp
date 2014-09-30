@@ -85,5 +85,19 @@ describe 'Signing up' do
 		click_button ('Sign up')
 		expect(page).to have_no_content('You Have No Bills Due This Week')
 	end
+
+	it 'should not permit signup if password and password confirmation do not match' do
+		visit "/"
+		expect(page).to have_content('Forgot your password?')
+		click_on("Sign up")
+		find(:css, "input[id$='user_first_name']").set("Joel")
+		find(:css, "input[id$='user_last_name']").set("Lusky")
+		find(:css, "input[id$='user_cell_phone']").set("1234567890")
+		find(:css, "input[id$='user_email']").set("joel@gmail.com")
+		find(:css, "input[id$='myPassword']").set("12345678")
+		find(:css, "input[id$='user_password_confirmation']").set("abcdefghijk")
+		click_button ('Sign up')
+		expect(page).to have_no_content('You Have No Bills Due This Week')
+	end
 end
 
