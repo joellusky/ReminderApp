@@ -66,3 +66,6 @@ end
 
 gem 'cancancan', '~> 1.9'
 gem 'unirest'
+
+gem 'rspec-rails'
+gem 'capybara'
