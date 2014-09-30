@@ -7,8 +7,11 @@ class Bill < ActiveRecord::Base
 
   after_create :create_event_recurrence
   
-
+  validates :every, presence: true
+  validates :provider_id, presence: true
+  validates :user_id, presence: true
   validates :duedate, presence: true
+  validates :contact_method, presence: true
 
   attr_accessor :date
 
