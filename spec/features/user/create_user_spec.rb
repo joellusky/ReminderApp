@@ -101,3 +101,72 @@ describe 'Signing up' do
 	end
 end
 
+describe "Signing in" do
+
+	before :each do
+	    User.create(first_name: "Alfonso", last_name: "Pintos", cell_phone: 7865467647, email: "Alfonsopintos@gmail.com", password: "12345678", password_confirmation: "12345678")
+	end
+
+	it "should redirect to dashboard upon succesful sign in" do
+		visit "/"
+		expect(page).to have_content('Forgot your password?')
+		find(:css, "input[id$='user_email']").set("alfonsopintos@gmail.com")
+		find(:css, "input[id$='user_password']").set("12345678")
+		click_button("Sign in")
+		expect(page).to have_content("Hello")
+	end
+
+	it "should display error when incorrect email submission" do
+		visit "/"
+		expect(page).to have_content('Forgot your password?')
+		find(:css, "input[id$='user_email']").set("alfonso@gmail.com")
+		find(:css, "input[id$='user_password']").set("12345678")
+		click_button("Sign in")
+		expect(page).to have_content("Forgot your password?")
+	end
+
+	it "should display error when incorrect password submission" do
+		visit "/"
+		expect(page).to have_content('Forgot your password?')
+		find(:css, "input[id$='user_email']").set("alfonsopintos@gmail.com")
+		find(:css, "input[id$='user_password']").set("1234")
+		click_button("Sign in")
+		expect(page).to have_content("Forgot your password?")
+	end
+
+end
+
+describe "User sign in" do 
+	before :each do
+	    User.create(first_name: "Alfonso", last_name: "Pintos", cell_phone: 7865467647, email: "Alfonsopintos@gmail.com", password: "12345678", password_confirmation: "12345678", admin: true)
+	end
+
+	it "should redirect to admin dashboard upon succesful sign in" do
+		visit "/"
+		expect(page).to have_content('Forgot your password?')
+		find(:css, "input[id$='user_email']").set("alfonsopintos@gmail.com")
+		find(:css, "input[id$='user_password']").set("12345678")
+		click_button("Sign in")
+		expect(page).to have_content("Admin Dashboard")
+	end
+
+	it "should display error when incorrect email submission" do
+		visit "/"
+		expect(page).to have_content('Forgot your password?')
+		find(:css, "input[id$='user_email']").set("alfonso@gmail.com")
+		find(:css, "input[id$='user_password']").set("12345678")
+		click_button("Sign in")
+		expect(page).to have_content("Forgot your password?")
+	end
+
+	it "should display error when incorrect password submission" do
+		visit "/"
+		expect(page).to have_content('Forgot your password?')
+		find(:css, "input[id$='user_email']").set("alfonsopintos@gmail.com")
+		find(:css, "input[id$='user_password']").set("1234")
+		click_button("Sign in")
+		expect(page).to have_content("Forgot your password?")
+	end
+	
+end
+
