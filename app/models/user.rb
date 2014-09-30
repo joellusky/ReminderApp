@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 	validates :cell_phone, :numericality => {:only_integer => true}
 	validates :first_name, presence: true
 	validates :last_name, presence: true
-	validates :terms, presence: true
 
 	#keep commented out, to avoid country getting set to nil on localhost
 	#after_validation :get_location
