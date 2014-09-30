@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-describe Provider do
+context 'When creating a provider' do
 
-	it "should not save when no category_id provided" do
+	it "it should not save without a category id" do
 		provider = Provider.new
 		provider.category_id = nil
 		provider.save
 		expect(Provider.count).to eq(0)
 	end
 
-	it "should not save when no name provided" do
+	it "should not save without a name" do
 		provider = Provider.new
 		provider.name = nil
 		provider.save
