@@ -29,7 +29,6 @@ task :fake => :environment do
 				email: Faker::Internet.email,
 				cell_phone: Faker::Number.number(10),
 				password:  "password",
-				terms: true,
 				country: country_choice,
 				sprovider: sprovider)
 
