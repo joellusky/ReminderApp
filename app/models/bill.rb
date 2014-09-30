@@ -13,16 +13,16 @@ class Bill < ActiveRecord::Base
   attr_accessor :date
 
 
-  #search method
-	def self.search(search)
-  	unless search.blank?
-  		search = "%#{search}%"
-  		where('Name LIKE ? ', search)
-  	else
-  		all
-  		# where(user_id: current_user.id)
-  	end
-	end
+ #  #search method
+	# def self.search(search)
+ #  	unless search.blank?
+ #  		search = "%#{search}%"
+ #  		where('Name LIKE ? ', search)
+ #  	else
+ #  		all
+ #  		# where(user_id: current_user.id)
+ #  	end
+	# end
 
   def create_event_recurrence
     event_recurrence = EventRecurrence.new
