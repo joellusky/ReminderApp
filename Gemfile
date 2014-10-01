@@ -69,3 +69,4 @@ gem 'unirest'
 
 gem 'rspec-rails'
 gem 'capybara'
+
