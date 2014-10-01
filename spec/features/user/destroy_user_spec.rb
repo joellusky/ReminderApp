@@ -17,7 +17,7 @@ describe 'deleting a user' do
     visit "/users/edit"
     click_button("Cancel my account")
     
-    # page.evaluate_script('window.confirm = function() { return true; }')
+    # javascript alert defaults to true, therefore you dont have to click_button("Ok")
     expect(page).to have_content("Bye! Your account has been successfully cancelled. We hope to see you again soon.")
   end
 end
