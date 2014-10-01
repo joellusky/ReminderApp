@@ -41,7 +41,7 @@
                 }
 
                 function check_strength(thisval,thisid){
-                     if (thisval.length > 8) { characters = 1; } else { characters = 0; };
+                    if (thisval.length > 8) { characters = 1; } else { characters = 0; };
                     if (thisval.match(upperCase)) { capitalletters = 1} else { capitalletters = 0; };
                     if (thisval.match(lowerCase)) { loweletters = 1}  else { loweletters = 0; };
                     if (thisval.match(numbers)) { number = 1}  else { number = 0; };
@@ -54,23 +54,26 @@
                     get_total(total,thisid);
                 }
 
-            function get_total(total,thisid){
+           function get_total(total,thisid){
 
                   var thismeter = $('div[data-meter="'+thisid+'"]');
-                    if (total <= 1) {
+                if(total == 0){
+                      thismeter.removeClass().html('');
+                }else if (total <= 1) {
                    thismeter.removeClass();
-                   thismeter.addClass('veryweak').html('Very Weak');
+                   thismeter.addClass('veryweak').html('<p>Strength: Very Weak</p>');
                 } else if (total == 2){
                     thismeter.removeClass();
-                   thismeter.addClass('weak').html('Weak');
+                   thismeter.addClass('weak').html('<p>Strength: Weak</p>');
                 } else if(total == 3){
                     thismeter.removeClass();
-                   thismeter.addClass('medium').html('Medium');
+                   thismeter.addClass('medium').html('<p>Strength: Medium</p>');
 
                 } else {
                      thismeter.removeClass();
-                   thismeter.addClass('strong').html('Strong');
-                }
+                   thismeter.addClass('strong').html('<p>Strength: Strong</p>');
+                } 
+                console.log(total);
             }
 
 
@@ -84,7 +87,7 @@
 
             thisid = this.$elem.attr('id');
 
-            this.$elem.addClass(this.options.strengthClass).attr('data-password',thisid).after('<input style="display:none" class="'+this.options.strengthClass+'" data-password="'+thisid+'" type="text" name="" value=""><a data-password-button="'+thisid+'" href="" class="'+this.options.strengthButtonClass+'">'+this.options.strengthButtonText+'</a><div class="'+this.options.strengthMeterClass+'"><div data-meter="'+thisid+'">Strength</div></div>');
+            this.$elem.addClass(this.options.strengthClass).attr('data-password',thisid).after('<input style="display:none" class="'+this.options.strengthClass+'" data-password="'+thisid+'" type="text" name="" value=""><a data-password-button="'+thisid+'" href="" class="'+this.options.strengthButtonClass+'">'+this.options.strengthButtonText+'</a><div class="'+this.options.strengthMeterClass+'"><div data-meter="'+thisid+'"><p></p></div></div>');
              
             this.$elem.bind('keyup keydown', function(event) {
                 thisval = $('#'+thisid).val();
