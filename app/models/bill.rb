@@ -6,11 +6,8 @@ class Bill < ActiveRecord::Base
 
 
   after_create :create_event_recurrence
-<<<<<<< HEAD
-  # after_destroy :delete_recurrence
-=======
   after_destroy :delete_recurrence
->>>>>>> 4e769759e554500dc2aa0baed85961e0e9a60d59
+
   
   validates :every, presence: true
   validates :provider_id, presence: true
