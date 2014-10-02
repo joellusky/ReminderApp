@@ -6,7 +6,11 @@ class Bill < ActiveRecord::Base
 
 
   after_create :create_event_recurrence
+<<<<<<< HEAD
   # after_destroy :delete_recurrence
+=======
+  after_destroy :delete_recurrence
+>>>>>>> 4e769759e554500dc2aa0baed85961e0e9a60d59
   
   validates :every, presence: true
   validates :provider_id, presence: true
@@ -80,6 +84,32 @@ class Bill < ActiveRecord::Base
     
   end
 
+  def delete_recurrence
+    response = HTTParty.get("http://localhost:8080/event_recurrences.json")
+    puts "----------"
+    # a is an array of hashes. each hash being an event recurrence. 
+    a = JSON.parse(response.body)
+    # a.each iterates over every hash in the response array.
+    a.each do |hash|
+      # if the hash has a key 'bill_id' whos value is equal to that of self.id
+      if hash['bill_id'] == self.id.to_s
+        # @match represents the hash of the event recurrence that needs to be deleted on reminderService, when a bill is deleted in ReminderApp
+        @match = hash
+      end
+    end
+  
+
+    #initiaes a delete request and interpolates the value of key[ID], and does converts it to integer.
+    HTTParty.delete("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
+    :body => {'bill_id' => self.id,
+    'end_date' => 1.year.from_now,
+    'every' => self.every,
+    'start_date' => self.duedate,
+    'interval' => self.interval }.to_json, 
+
+    :headers => { 'Content-Type' => 'application/json',
+    'Accept' => "application/json" } )
+  end
 end
 
 
