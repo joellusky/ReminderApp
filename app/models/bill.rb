@@ -6,7 +6,7 @@ class Bill < ActiveRecord::Base
 
 
   after_create :create_event_recurrence
-  after_create :delete_recurrence
+  after_destroy :delete_recurrence
   
   validates :every, presence: true
   validates :provider_id, presence: true
@@ -85,23 +85,23 @@ class Bill < ActiveRecord::Base
     puts "----------"
     # puts response.body.class
     a = JSON.parse(response.body)
-    a.where(bill_id: self.id)
+    a.each do |hash|
+     if hash['bill_id'] == self.id.to_s
+      puts hash
+      end
+    end
+  end
 
-    # a.each do |n|
-    # puts a[0]
-    # puts "----------"
     # puts response.body.select {|a| a["id"] == self.id }
-  #   HTTParty.delete("http://localhost:8080/event_recurrences/31.json", 
-  #       :body => {'bill_id' => self.id,
-  #         'end_date' => 1.year.from_now,
-  #          'every' => self.every,
-  #           'start_date' => self.duedate,
-  #           'interval' => self.interval }.to_json, 
+    #   HTTParty.delete("http://localhost:8080/event_recurrences/31.json", 
+    #       :body => {'bill_id' => self.id,
+    #         'end_date' => 1.year.from_now,
+    #          'every' => self.every,
+    #           'start_date' => self.duedate,
+    #           'interval' => self.interval }.to_json, 
         
   #       :headers => { 'Content-Type' => 'application/json',
   #        'Accept' => "application/json" } )
-  end
-
 end
 
 
