@@ -87,21 +87,22 @@ class Bill < ActiveRecord::Base
     a = JSON.parse(response.body)
     a.each do |hash|
      if hash['bill_id'] == self.id.to_s
-      puts hash
+      @match = hash
       end
     end
-  end
+  
 
-    # puts response.body.select {|a| a["id"] == self.id }
-    #   HTTParty.delete("http://localhost:8080/event_recurrences/31.json", 
-    #       :body => {'bill_id' => self.id,
-    #         'end_date' => 1.year.from_now,
-    #          'every' => self.every,
-    #           'start_date' => self.duedate,
-    #           'interval' => self.interval }.to_json, 
-        
-  #       :headers => { 'Content-Type' => 'application/json',
-  #        'Accept' => "application/json" } )
+    
+    HTTParty.delete("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
+    :body => {'bill_id' => self.id,
+    'end_date' => 1.year.from_now,
+    'every' => self.every,
+    'start_date' => self.duedate,
+    'interval' => self.interval }.to_json, 
+
+    :headers => { 'Content-Type' => 'application/json',
+    'Accept' => "application/json" } )
+  end
 end
 
 
