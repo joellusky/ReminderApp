@@ -13,8 +13,8 @@
   <% else %>
       <strong class = "billshowcolor">Notes</strong>
       <%= @bill.notes %>
-        </p>
-          <% end %>
+</p>
+  <% end %>
 
 <p class = "billshow">
   <strong class = "billshowcolor">Provider</strong>
@@ -30,13 +30,22 @@
       <%= "Paid" %>
     <% else %>
       <%= "Not Paid" %>
-     <div class = "billshow"> <%= render 'form' %></div>
-  <% end %>
+     <div class = "billshow"> <%= render 'form_paid' %></div>
+  <% end %> 
 </p> 
+
 <p class = "billshow">
-<%= link_to 'Edit', edit_bill_path(@bill) %> |
+  <a data-toggle="modal" data-target=".bs-example-modal-sm">Edit</a> 
+  </p>
+         <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+            <%= render 'edit'%>
+            </div>
+          </div>
+        </div>
+
 <%= link_to 'Back', bills_path %> |
 <%= link_to @bill, method: :delete do%>
   <span class="fa fa-trash-o"></span>
           <% end %>
-</p>

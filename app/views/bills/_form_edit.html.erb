@@ -10,8 +10,11 @@
       </ul>
     </div>
   <% end %>
-
-<!-- Brand New Bill Form -->
+  <!-- Form for editing bills -->
+  <div class="field">
+    <%= f.label :duedate %><br>
+    <%= f.text_field :duedate %>
+  </div>
   <div class="field">
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
@@ -22,30 +25,25 @@
     <%= f.label :provider %><br>
     <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
   </div>
-   <div class="field">
-    <%= f.label :duedate %><br>
-    <%= f.text_field :duedate %>
-  </div>
   <div class="field">
     <!-- Drop Down menu for recurrence options -->
     <%= f.label :Repeat %><br>
-    <%= f.select :every, [["Monthly", "month"],["Yearly", "year"],["Every Two Weeks","every two weeks"],["Twice A Year","twice a year"]] %>
+    <%= f.select :every, [["Monthly", "month"],["Yearly", "year"]] %>
   </div>
   <div class="field">
     <!-- Drop Down menu for recurrence options -->
     <%= f.label :contact_method %><br>
     <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Both", "both"]] %>
-  </div>
-   <div class="field">
-    <%= f.label :"Add notes to your bill(Optional)" %><br>
-    <%= f.text_field :notes %>
-  </div>
+  </div><br>
   <div class="field">
-    <%= f.hidden_field :paid, value: false %>
+    <%= f.label "Paid Status" %>
+    <%= f.check_box :paid %>
   </div>
-    <div class="actions">
-    <%= f.submit "Create", class: 'btn btn-large btn-primary'%>
-  </div> 
-  <% end %>
+  <div class="actions">
+    <%= f.submit "Update", class: 'btn btn-large btn-primary'%>
+  </div>
+<% end %>
+
+
 
 

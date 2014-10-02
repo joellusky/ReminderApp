@@ -1,0 +1,22 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <!-- Paid checkbox when showing bill to mark as paid -->
+  <% if @bill.paid == false %>
+     <div class="field">
+      <%= f.check_box :paid %> Pay Now
+    </div>
+     <div class="actions">
+    <%= f.submit "Update", class: 'btn btn-large btn-primary'%>
+    </div>
+    <% end %>
+  <% end %>

@@ -11,16 +11,16 @@ class BillsController < ApplicationController
     # [[bill1_date1, bill1_date2, bill1_date3], [bill2_date1, bill2_date2, bill2_date3], [bill3_date1, bill3_date2, bill3_date3]]
     # flattened:
     # [bill1_date1, bill1_date2, bill1_date3, bill2_date1, bill2_date2, bill3_date3, bill3_date1, bill3_date2, bill3_date3]
-    @bill_occurrences = current_user.bills.map { |bill|
+    @bill_occurrences = current_user.bills.map do |bill|
       # bill = each user's bill
-      bill.dates.map { |date|
+      bill.dates.map do |date|
         # date = an occurrence date for a bill
         bill_occurrence = bill.clone
         bill_occurrence.date = date
         # bill_occurrence = the occurrence of a bill
         bill_occurrence
-      }
-    }.flatten
+      end
+    end.flatten
     @bills_by_date = @bill_occurrences.group_by(&:date)
 
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
@@ -39,7 +39,6 @@ class BillsController < ApplicationController
   def show
     @date = params[:date]
     @providers = Provider.all
-    @edit = false
   end
 
   # GET /bills/new
@@ -49,7 +48,6 @@ class BillsController < ApplicationController
 
   # GET /bills/1/edit
   def edit
-    @edit = true
   end
 
   # POST /bills
