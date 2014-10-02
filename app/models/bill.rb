@@ -57,7 +57,7 @@ class Bill < ActiveRecord::Base
       end
 
       event_recurrence.save
-      
+
       send_recurrence
   end
 
@@ -71,7 +71,8 @@ class Bill < ActiveRecord::Base
         :body => {'bill_id' => self.id,
           'end_date' => 1.year.from_now,
            'every' => self.every,
-            'start_date' => self.duedate }.to_json, 
+            'start_date' => self.duedate,
+            'interval' => self.interval }.to_json, 
         
         :headers => { 'Content-Type' => 'application/json',
          'Accept' => "application/json" } )
