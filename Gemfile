@@ -70,3 +70,5 @@ gem 'unirest'
 gem 'rspec-rails'
 gem 'capybara'
 
+gem 'httparty'
+

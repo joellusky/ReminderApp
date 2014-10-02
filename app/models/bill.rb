@@ -56,11 +56,26 @@ class Bill < ActiveRecord::Base
            6 #weeks 
       end
 
-    event_recurrence.save
+      event_recurrence.save
+      
+      send_recurrence
   end
 
   def dates(options={})
     self.event_recurrence.dates(options)
+  end
+
+  def send_recurrence
+
+    HTTParty.post("http://localhost:8080/event_recurrences.json", 
+        :body => {'bill_id' => self.id,
+          'end_date' => 1.year.from_now,
+           'every' => self.every,
+            'start_date' => self.duedate }.to_json, 
+        
+        :headers => { 'Content-Type' => 'application/json',
+         'Accept' => "application/json" } )
+    
   end
 
 end
