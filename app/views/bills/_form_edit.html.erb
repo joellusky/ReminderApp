@@ -10,36 +10,37 @@
       </ul>
     </div>
   <% end %>
+
   <!-- Form for editing bills -->
-  <div class="field">
+  <div class="admin" class="field" id="coffee">
     <%= f.label :duedate %><br>
     <%= f.text_field :duedate %>
   </div>
-  <div class="field">
+  <div class="admin" class="field" id="cat">
     <!-- Drop Down menu for categories -->
     <%= f.label :category_id %><br>
     <%= select_tag "categories", options_for_select(Category.order(:name).map(&:name))%>
   </div>
-  <div class="field">
+  <div class="admin" class="field" id="pro">
     <!-- Drop Down menu for providers -->
     <%= f.label :provider %><br>
     <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
   </div>
-  <div class="field">
+  <div class="admin" class="field">
     <!-- Drop Down menu for recurrence options -->
     <%= f.label :Repeat %><br>
     <%= f.select :every, [["Monthly", "month"],["Yearly", "year"]] %>
   </div>
-  <div class="field">
+  <div class="admin" class="field">
     <!-- Drop Down menu for recurrence options -->
     <%= f.label :contact_method %><br>
     <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Both", "both"]] %>
   </div><br>
-  <div class="field">
+  <div class="admin" class="field">
     <%= f.label "Paid Status" %>
     <%= f.check_box :paid %>
   </div>
-  <div class="actions">
+  <div class="admin" class="actions">
     <%= f.submit "Update", class: 'btn btn-large btn-primary'%>
   </div>
 <% end %>
