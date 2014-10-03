@@ -15,5 +15,5 @@ jQuery ->
 	$('#categories').change setProviderCategory
 	setProviderCategory()
 	
-	$('#bill_duedate').datepicker
+	$('#coffee #bill_duedate, #bill_duedate').datepicker
 		dateFormat: 'yy-mm-dd'
