@@ -69,7 +69,7 @@ class Bill < ActiveRecord::Base
   end
 
   def send_recurrence
-
+    begin
     HTTParty.post("http://localhost:8080/event_recurrences.json", 
         :body => {'bill_id' => self.id,
           'end_date' => 1.year.from_now,
@@ -79,10 +79,13 @@ class Bill < ActiveRecord::Base
         
         :headers => { 'Content-Type' => 'application/json',
          'Accept' => "application/json" } )
+    rescue Exception => e
+    end
     
   end
 
   def delete_recurrence
+    begin
     response = HTTParty.get("http://localhost:8080/event_recurrences.json")
     # a is an array of hashes. each hash being an event recurrence. 
     a = JSON.parse(response.body)
@@ -106,9 +109,12 @@ class Bill < ActiveRecord::Base
 
     :headers => { 'Content-Type' => 'application/json',
     'Accept' => "application/json" } )
+    rescue Exception => e
+    end
   end
 
   def update_recurrence
+    begin
     response = HTTParty.get("http://localhost:8080/event_recurrences.json")
     a = JSON.parse(response.body)
     a.each do |hash|
@@ -122,6 +128,7 @@ class Bill < ActiveRecord::Base
         # end
 
       end
+
     end
     
     HTTParty.patch("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
@@ -134,7 +141,8 @@ class Bill < ActiveRecord::Base
     :headers => { 'Content-Type' => 'application/json',
     'Accept' => "application/json" } )  
   end
-
+    rescue Exception => e
+    end
 end
 
 
