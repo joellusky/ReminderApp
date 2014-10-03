@@ -69,19 +69,24 @@ class Bill < ActiveRecord::Base
   end
 
   def send_recurrence
-    begin
+    # begin
     HTTParty.post("http://localhost:8080/event_recurrences.json", 
         :body => {'bill_id' => self.id,
           'end_date' => 1.year.from_now,
            'every' => self.every,
             'start_date' => self.duedate,
-            'interval' => self.interval }.to_json, 
+            'interval' => self.interval,
+            'first_name' => self.user.first_name,
+            'cell_phone' => self.user.cell_phone,
+            'email' => self.user.email,
+            'provider_name' => self.provider.name,
+            'category_name' => self.category.name,
+            'contact_method' => self.contact_method }.to_json, 
         
         :headers => { 'Content-Type' => 'application/json',
          'Accept' => "application/json" } )
-    rescue Exception => e
-    end
-    
+    # rescue Exception => e
+    # end
   end
 
   def delete_recurrence
