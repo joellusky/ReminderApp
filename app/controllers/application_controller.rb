@@ -29,26 +29,26 @@ class ApplicationController < ActionController::Base
 		end
 	end
 
-	def send_text_message
-		current_user.get_twilio do |twilio, number_from, number_to|
-			twilio.account.sms.messages.create(
-				:from => number_from,
-				:to => number_to,
-				:body => "You have just added your #{@bill.provider.name} #{@bill.category.name} Bill!")
-		end
-	end
+	# def send_text_message
+	# 	current_user.get_twilio do |twilio, number_from, number_to|
+	# 		twilio.account.sms.messages.create(
+	# 			:from => number_from,
+	# 			:to => number_to,
+	# 			:body => "You have just added your #{@bill.provider.name} #{@bill.category.name} Bill!")
+	# 	end
+	# end
 
-	def phone_call_reminder
-		url = "http://twimlets.com/voicemail?Message=Hello%2C%20%20%20%20%20%20%20this%20is%20a%20reminder%20that%20you%20have%20a%20bill%20due%20tomorrow.%20Good%20Bye.&"
+	# def phone_call_reminder
+	# 	url = "http://twimlets.com/voicemail?Message=Hello%2C%20%20%20%20%20%20%20this%20is%20a%20reminder%20that%20you%20have%20a%20bill%20due%20tomorrow.%20Good%20Bye.&"
 		
-		current_user.get_twilio do |twilio, number_from, number_to|
-			twilio.account.calls.create(
-				:from => number_from,
-				:to => number_to,
-				:url => URI::encode(url)
-				)
-		end
-	end
+	# 	current_user.get_twilio do |twilio, number_from, number_to|
+	# 		twilio.account.calls.create(
+	# 			:from => number_from,
+	# 			:to => number_to,
+	# 			:url => URI::encode(url)
+	# 			)
+	# 	end
+	# end
 
 
 end
