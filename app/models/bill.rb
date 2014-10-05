@@ -125,13 +125,6 @@ class Bill < ActiveRecord::Base
     a.each do |hash|
       if hash['bill_id'] == self.id.to_s
         @match = hash
-        
-        # if self.duedate == @match['duedate']
-            
-        # else
-        #   new_date = self.duedate
-        # end
-
       end
 
     end
@@ -141,13 +134,20 @@ class Bill < ActiveRecord::Base
     'end_date' => self.duedate + 1.year,
     'every' => self.every,
     'start_date' => self.duedate,
-    'interval' => self.interval }.to_json, 
+    'interval' => self.interval, 
+    'first_name' => self.user.first_name,
+    'cell_phone' => self.user.cell_phone,
+    'email' => self.user.email,
+    'provider_name' => self.provider.name,
+    'category_name' => self.category.name,
+    'contact_method' => self.contact_method }.to_json, 
 
     :headers => { 'Content-Type' => 'application/json',
     'Accept' => "application/json" } )  
   end
     rescue Exception => e
-    end
+  end
+
 end
 
 
