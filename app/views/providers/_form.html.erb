@@ -1,30 +1,30 @@
 <%= form_for(@provider) do |f| %>
-  <% if @provider.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
+<% if @provider.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@provider.errors.count, "error") %> prohibited this provider from being saved:</h2>
 
-      <ul>
-      <% @provider.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @provider.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <!-- Drop Down menu for categories -->
-    <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, Category.order(:name), :id, :name%>
-  </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="field">
+  <!-- Drop Down menu for categories -->
+  <%= f.label :category_id %><br>
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name%>
+</div>
+<div class="field">
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+<div class="field">
+  <%= f.label :url %><br>
+  <%= f.text_field :url %>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

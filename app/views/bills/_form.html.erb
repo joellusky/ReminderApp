@@ -1,51 +1,51 @@
 <%= form_for(@bill) do |f| %>
-  <% if @bill.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+<% if @bill.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
 
-      <ul>
-      <% @bill.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @bill.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
 <!-- Brand New Bill Form -->
-  <div class="field">
-    <!-- Drop Down menu for categories -->
-    <%= f.label :category_id %><br>
-    <%= select_tag "categories", options_for_select(Category.order(:name).map(&:name))%>
-  </div>
-  <div class="field">
-    <!-- Drop Down menu for providers -->
-    <%= f.label :provider %><br>
-    <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
-  </div>
-   <div class="field">
-    <%= f.label :duedate %><br>
-    <%= f.text_field :duedate %>
-  </div>
-  <div class="field">
-    <!-- Drop Down menu for recurrence options -->
-    <%= f.label :Repeat %><br>
-    <%= f.select :every, [["Monthly", "month"],["Yearly", "year"],["Every Two Weeks","every two weeks"],["Twice A Year","twice a year"]] %>
-  </div>
-  <div class="field">
-    <!-- Drop Down menu for recurrence options -->
-    <%= f.label :contact_method %><br>
-    <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Both", "both"]] %>
-  </div>
-   <div class="field">
-    <%= f.label :"Add notes to your bill(Optional)" %><br>
-    <%= f.text_field :notes %>
-  </div>
-  <div class="field">
-    <%= f.hidden_field :paid, value: false %>
-  </div>
-    <div class="actions">
-    <%= f.submit "Create", class: 'btn btn-large btn-primary'%>
-  </div> 
-  <% end %>
+<div class="field">
+  <!-- Drop Down menu for categories -->
+  <%= f.label :category_id %><br>
+  <%= select_tag "categories", options_for_select(Category.order(:name).map(&:name))%>
+</div>
+<div class="field">
+  <!-- Drop Down menu for providers -->
+  <%= f.label :provider %><br>
+  <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
+</div>
+<div class="field">
+  <%= f.label :duedate %><br>
+  <%= f.text_field :duedate %>
+</div>
+<div class="field">
+  <!-- Drop Down menu for recurrence options -->
+  <%= f.label :Repeat %><br>
+  <%= f.select :every, [["Monthly", "month"],["Yearly", "year"],["Every Two Weeks","every two weeks"],["Twice A Year","twice a year"]] %>
+</div>
+<div class="field">
+  <!-- Drop Down menu for recurrence options -->
+  <%= f.label :contact_method %><br>
+  <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Email", "email"],["Both", "both"]] %>
+</div>
+<div class="field">
+  <%= f.label :"Add notes to your bill(Optional)" %><br>
+  <%= f.text_field :notes %>
+</div>
+<div class="field">
+  <%= f.hidden_field :paid, value: false %>
+</div>
+<div class="actions">
+  <%= f.submit "Create", class: 'btn btn-large btn-primary'%>
+</div> 
+<% end %>
 
 
