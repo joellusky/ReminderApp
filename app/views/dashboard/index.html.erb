@@ -1,10 +1,7 @@
 
 <div align="center">
-  <h1>Hello, <%= current_user.first_name%></h1>
+  <h1><%= image_tag avatar_url(current_user), class:'img-circle' %> Hello, <%= current_user.first_name%></h1>
 </div>
-
-
-
 
 <%if @bills_past.any? %>
 
@@ -28,13 +25,13 @@
 
 
     <% end %>
-    <% end %>
-    <% end %>
+  <% end %>
+<% end %>
 
   </tbody>
 </table>
 <% if @bills.empty? %>
-<h4>You Have No Bills Due This Week</h4>
+<h4 align="center" >You Have No Bills Due This Week</h4>
 <% else %>
 <h4>Bills Due This Week</h4>
 <% end %>

@@ -8,20 +8,20 @@
 
 
 
-$primary-color: #222930;
-$secondary-color: #222930;
-$container-color: #e5e5e5;
+$primary-color: #009cde;
+$secondary-color: #1a2937;
+$container-color: #f8f8f8;
 
 
 .errors {color:red;}
 
 .admin {text-align: center;}
 
-.background_admin {background-color:teal;}
+.background_admin {background-color: $primary-color;}
 
 .btn-primary {
 border-color: white;
-background-color:teal;
+background-color: #68ff68;
 }
 
 .btn-primary:hover {
@@ -29,9 +29,10 @@ background-color:teal;
   border-color: teal;
 }
 
-.billshow {text-align: center;
-          font-family: sans-serif;
-          font-size: 15px; }
+.billshow {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 15px; }
           
 .billshowcolor {color:#428bca;}
 
@@ -123,7 +124,7 @@ body {
 }
 
 .sign_in {
-  margin-top: 100px;
+  margin-top: 150px;
 }
 
 
@@ -146,7 +147,7 @@ body {
 }
 
 .navbar-fmn .navbar-brand:hover,.navbar-fmn .navbar-brand:focus {
-    color: #222930;
+    color: $primary-color;
     background-color: transparent;
 }
 
@@ -159,7 +160,7 @@ body {
 }
 
 .navbar-fmn .navbar-nav>li>a:hover,.navbar-fmn .navbar-nav>li>a:focus {
-    color: white;
+    color: $primary-color;
     background-color: transparent
 }
 
@@ -191,7 +192,7 @@ body {
 
 .navbar-fmn .navbar-nav>.open>a,.navbar-fmn .navbar-nav>.open>a:hover,.navbar-fmn .navbar-nav>.open>a:focus {
     background-color: transparent;
-    color: white;
+    color: $primary-color;
 }
 
 @media (max-width: 767px) {
@@ -251,7 +252,7 @@ footer.navbar{
 }
 
 .navbar-fmn-footer {
-  background-color: $secondary-color;
+  background-color: transparent;
   right: 0;
   left: 0;
   bottom: 0;

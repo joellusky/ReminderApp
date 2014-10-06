@@ -4,7 +4,7 @@ module ApplicationHelper
 			current_user.avatar
 		else
 			gravatar_id = Digest::MD5.hexdigest(current_user.email.downcase)
-			"http://gravatar.com/avatar/#{gravatar_id}.png?s=48&d=mm"
+			"http://gravatar.com/avatar/#{gravatar_id}.png?s=50&d=mm"
 		end
 	end
 end
