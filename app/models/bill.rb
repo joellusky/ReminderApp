@@ -81,7 +81,8 @@ class Bill < ActiveRecord::Base
             'email' => self.user.email,
             'contact_method' => self.contact_method,
             'initial' => "Hello #{self.user.first_name}, You have just added your #{self.provider.name} #{self.category.name} Bill!", 
-            'reminder' => "Hello #{self.user.first_name}! This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow.",
+            'text_reminder' => "This is a reminder that your #{self.provider.name} bill is due tomorrow. #{self.provider.url}",
+            'call_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not. GoodBye!",
             'url' => self.provider.url }.to_json, 
         
         :headers => { 'Content-Type' => 'application/json',
