@@ -1,6 +1,6 @@
 
 <div align="center">
-<h1>Hello, <%= current_user.first_name%></h1>
+  <h1>Hello, <%= current_user.first_name%></h1>
 </div>
 
 
@@ -11,7 +11,7 @@
 <h3> Overdue Bills </h3>
 <table class="table table-hover ">
   <tbody>
-<% @bills_past.each do |bill| %>
+    <% @bills_past.each do |bill| %>
     <tr onclick='location.href="<%= bill_path(bill) %>"'>        
       <td class="danger"><%= bill.provider.name %></td> 
       <td class="danger"><%= link_to "Pay Now", bill.provider.url %></td>
@@ -28,36 +28,36 @@
 
 
     <% end %>
-  <% end %>
-<% end %>
+    <% end %>
+    <% end %>
 
   </tbody>
 </table>
 <% if @bills.empty? %>
-  <h4>You Have No Bills Due This Week</h4>
+<h4>You Have No Bills Due This Week</h4>
 <% else %>
-  <h4>Bills Due This Week</h4>
+<h4>Bills Due This Week</h4>
 <% end %>
 
 <table class="table table-hover">
   <tbody>
     <% @bills.each do |bill| %>
-        <tr onclick='location.href="<%= bill_path(bill) %>"'>          
-          <td><%= bill.provider.name %></td> 
-          <td><%= link_to "Pay Now", bill.provider.url %></td>
-          <% if bill.paid %>
-            <td> Paid! </td>
-          <% else %>
-            <td> Not Paid! </td>
-            <td>
-              <%= link_to bill, method: :delete do %>
-                <span class="fa fa-trash-o"></span>
-              <% end %>
-            </td>
-        </tr>    
-      <% end %>
+    <tr onclick='location.href="<%= bill_path(bill) %>"'>          
+      <td><%= bill.provider.name %></td> 
+      <td><%= link_to "Pay Now", bill.provider.url %></td>
+      <% if bill.paid %>
+      <td> Paid! </td>
+      <% else %>
+      <td> Not Paid! </td>
+      <td>
+        <%= link_to bill, method: :delete do %>
+        <span class="fa fa-trash-o"></span>
+        <% end %>
+      </td>
+    </tr>    
     <% end %>
-    
+    <% end %>
+
 
   </tbody>
 </table>
@@ -65,13 +65,13 @@
 
 
 <% @bills_next.each do |bill| %>
-  <% if bill.paid %>
-    <% bill.paid = false %>
-    <% bill.save %>
-  <% end %>
-  <%= bill.provider.name %>
+<% if bill.paid %>
+<% bill.paid = false %>
+<% bill.save %>
 <% end %>
-    
+<%= bill.provider.name %>
+<% end %>
+
 
 
 
