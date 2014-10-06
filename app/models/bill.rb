@@ -79,9 +79,9 @@ class Bill < ActiveRecord::Base
             'first_name' => self.user.first_name,
             'cell_phone' => self.user.cell_phone,
             'email' => self.user.email,
-            'provider_name' => self.provider.name,
-            'category_name' => self.category.name,
-            'contact_method' => self.contact_method }.to_json, 
+            'contact_method' => self.contact_method,
+            'initial' => "Hello #{self.user.first_name}, You have just added your #{self.provider.name} #{self.category.name} Bill!", 
+            'reminder' => "Hello #{self.user.first_name}! This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow." }.to_json, 
         
         :headers => { 'Content-Type' => 'application/json',
          'Accept' => "application/json" } )
@@ -138,8 +138,6 @@ class Bill < ActiveRecord::Base
     'first_name' => self.user.first_name,
     'cell_phone' => self.user.cell_phone,
     'email' => self.user.email,
-    'provider_name' => self.provider.name,
-    'category_name' => self.category.name,
     'contact_method' => self.contact_method }.to_json, 
 
     :headers => { 'Content-Type' => 'application/json',
