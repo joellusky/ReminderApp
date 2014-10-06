@@ -135,7 +135,6 @@ class Bill < ActiveRecord::Base
     'every' => self.every,
     'start_date' => self.duedate,
     'interval' => self.interval, 
-    'first_name' => self.user.first_name,
     'cell_phone' => self.user.cell_phone,
     'email' => self.user.email,
     'contact_method' => self.contact_method }.to_json, 
