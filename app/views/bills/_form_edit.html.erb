@@ -23,7 +23,7 @@
   <div class="admin" class="field">
     <!-- Drop Down menu for recurrence options -->
     <%= f.label :contact_method %><br>
-    <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Email", "email"]] %>
+    <%= f.select :every, [["Once a Month", "month"],["Once a year", "year"],["Every Two Weeks","every two weeks"],["Every six Months","twice a year"]] %>
   </div><br>
   <div class="admin" class="field">
     <%= f.label "Paid Status" %>
