@@ -70,20 +70,19 @@ class Bill < ActiveRecord::Base
 
   def send_recurrence
     # begin
-    HTTParty.post("http://localhost:8080/event_recurrences.json", 
-        :body => {'bill_id' => self.id,
-          'end_date' => 1.year.from_now,
-           'every' => self.every,
+    HTTParty.post("http://localhost:8080/texts.json", 
+        :body => {
+          'event_recurrence' => {
+            'object_id' => self.id,
+            'end_date' => 1.year.from_now,
+            'every' => self.every,
             'start_date' => self.duedate,
-            'interval' => self.interval,
-            'first_name' => self.user.first_name,
+            'interval' => self.interval}, 
+          'text' => { 
             'cell_phone' => self.user.cell_phone,
-            'email' => self.user.email,
-            'contact_method' => self.contact_method,
-            'initial' => "Hello #{self.user.first_name}, You have just added your #{self.provider.name} #{self.category.name} Bill!", 
-            'text_reminder' => "This is a reminder that your #{self.provider.name} bill is due tomorrow. #{self.provider.url}",
-            'call_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not. GoodBye!",
-            'url' => self.provider.url }.to_json, 
+            'text_reminder' => "This is a reminder that your #{self.provider.name} bill is due tomorrow. #{self.provider.url}"
+          }
+           }.to_json, 
         
         :headers => { 'Content-Type' => 'application/json',
          'Accept' => "application/json" } )
