@@ -55,9 +55,9 @@ class Bill < ActiveRecord::Base
     event_recurrence.interval = 
       case self.every
         when 'every two weeks'
-           2 #months
+           2 #weeks
         when 'twice a year'
-           6 #weeks 
+           6 #months 
       end
 
       event_recurrence.save
