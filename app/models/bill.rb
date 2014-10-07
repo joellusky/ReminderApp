@@ -143,11 +143,7 @@ class Bill < ActiveRecord::Base
 
     #initiaes a delete request and interpolates the value of key[ID], and does converts it to integer.
     HTTParty.delete("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
-    :body => {'object_id' => self.id,
-    'end_date' => 1.year.from_now,
-    'every' => self.every,
-    'start_date' => self.duedate,
-    'interval' => self.interval }.to_json, 
+    :body => {'object_id' => self.id }.to_json, 
 
     :headers => { 'Content-Type' => 'application/json',
     'Accept' => "application/json" } )
