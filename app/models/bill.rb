@@ -119,7 +119,9 @@ class Bill < ActiveRecord::Base
             'start_date' => self.duedate,
             'interval' => self.interval}, 
           'email' => { 
-            'email' => self.user.email
+            'email' => self.user.email,
+            'email_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not"
+
           }
            }.to_json, 
         
