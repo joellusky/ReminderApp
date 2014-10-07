@@ -12,7 +12,7 @@
 
 #myPassword[type="password"],#myPassword input[type="text"] {
   background-color: transparent;
-  border: 2px solid #fff;
+  border: 1px solid #ccc;
   color: #777;
   font-family: "Lato", sans-serif;
   font-size: 14px;
@@ -47,7 +47,7 @@ input#myPassword[type="password"]:focus,#myPassword input[type="text"]:focus {
 
   .button_strength {
     text-decoration: none;
-    color: #FFF;
+    color: #428bca;
     font-size: 13px;
   }
 
@@ -80,7 +80,7 @@ input#myPassword[type="password"]:focus,#myPassword input[type="text"]:focus {
     position: absolute;
     top: 32px;
     right: 0px;
-    color: #FFF;
+    color: #428bca;
     font-size:13px;
   }
 
