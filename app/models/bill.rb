@@ -8,6 +8,7 @@ class Bill < ActiveRecord::Base
   after_create :create_event_recurrence
   after_destroy :delete_recurrence
   after_update :update_recurrence
+  after_update :update_contact_method, :if => :contact_method_changed? 
 
   
   validates :every, presence: true
@@ -166,11 +167,84 @@ class Bill < ActiveRecord::Base
     'start_date' => self.duedate,
     'interval' => self.interval, 
     'cell_phone' => self.user.cell_phone,
-    'email' => self.user.email,
-    'contact_method' => self.contact_method }.to_json, 
+    'email' => self.user.email }.to_json, 
 
     :headers => { 'Content-Type' => 'application/json',
     'Accept' => "application/json" } )  
+  end
+
+  def update_contact_method
+    response = HTTParty.get("http://localhost:8080/event_recurrences.json")
+    a = JSON.parse(response.body)
+    a.each do |hash|
+      if hash['object_id'] == self.id.to_s
+        @match = hash
+      end
+    end
+  
+    HTTParty.delete("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
+    :body => {'object_id' => self.id }.to_json, 
+
+    :headers => { 'Content-Type' => 'application/json',
+    'Accept' => "application/json" } )
+
+    if self.contact_method == 'text'
+    
+    HTTParty.post("http://localhost:8080/texts.json", 
+        :body => {
+          'event_recurrence' => {
+            'object_id' => self.id,
+            'end_date' => 1.year.from_now,
+            'every' => self.every,
+            'start_date' => self.duedate,
+            'interval' => self.interval}, 
+          'text' => { 
+            'cell_phone' => self.user.cell_phone,
+            'text_reminder' => "This is a reminder that your #{self.provider.name} bill is due tomorrow. #{self.provider.url}"
+          }
+           }.to_json, 
+        
+        :headers => { 'Content-Type' => 'application/json',
+         'Accept' => "application/json" } )
+   
+    elsif self.contact_method == 'phone call'
+
+      HTTParty.post("http://localhost:8080/calls.json", 
+        :body => {
+          'event_recurrence' => {
+            'object_id' => self.id,
+            'end_date' => 1.year.from_now,
+            'every' => self.every,
+            'start_date' => self.duedate,
+            'interval' => self.interval}, 
+          'call' => { 
+            'cell_phone' => self.user.cell_phone,
+            'call_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not. GoodBye!"
+          }
+           }.to_json, 
+        
+        :headers => { 'Content-Type' => 'application/json',
+         'Accept' => "application/json" } )
+
+    elsif self.contact_method == 'email'
+
+      HTTParty.post("http://localhost:8080/emails.json", 
+        :body => {
+          'event_recurrence' => {
+            'object_id' => self.id,
+            'end_date' => 1.year.from_now,
+            'every' => self.every,
+            'start_date' => self.duedate,
+            'interval' => self.interval}, 
+          'email' => { 
+            'email' => self.user.email
+          }
+           }.to_json, 
+        
+        :headers => { 'Content-Type' => 'application/json',
+         'Accept' => "application/json" } )
+
+    end
   end
 end
 
