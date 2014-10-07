@@ -86,8 +86,10 @@ class Bill < ActiveRecord::Base
           }
            }.to_json, 
         
-        :headers => { 'Content-Type' => 'application/json',
-         'Accept' => "application/json" } )
+        :headers => { 
+          'Authorization' => "Token token=88fff1555ee3277d82cf3f116f7be3b8",
+          'Content-Type' => 'application/json',
+          'Accept' => "application/json" } )
    
     elsif self.contact_method == 'phone call'
 
@@ -105,8 +107,10 @@ class Bill < ActiveRecord::Base
           }
            }.to_json, 
         
-        :headers => { 'Content-Type' => 'application/json',
-         'Accept' => "application/json" } )
+        :headers => { 
+          'Authorization' => "Token token=88fff1555ee3277d82cf3f116f7be3b8",
+          'Content-Type' => 'application/json',
+          'Accept' => "application/json" } )
 
     elsif self.contact_method == 'email'
 
@@ -125,8 +129,10 @@ class Bill < ActiveRecord::Base
           }
            }.to_json, 
         
-        :headers => { 'Content-Type' => 'application/json',
-         'Accept' => "application/json" } )
+        :headers => { 
+          'Authorization' => "Token token=88fff1555ee3277d82cf3f116f7be3b8",
+          'Content-Type' => 'application/json',
+          'Accept' => "application/json" } )
     end
   end
 
@@ -148,8 +154,10 @@ class Bill < ActiveRecord::Base
     HTTParty.delete("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
     :body => {'object_id' => self.id }.to_json, 
 
-    :headers => { 'Content-Type' => 'application/json',
-    'Accept' => "application/json" } )
+    :headers => { 
+          'Authorization' => "Token token=88fff1555ee3277d82cf3f116f7be3b8",
+          'Content-Type' => 'application/json',
+          'Accept' => "application/json" } )
   end
 
   def update_recurrence
@@ -171,8 +179,10 @@ class Bill < ActiveRecord::Base
     'cell_phone' => self.user.cell_phone,
     'email' => self.user.email }.to_json, 
 
-    :headers => { 'Content-Type' => 'application/json',
-    'Accept' => "application/json" } )  
+    :headers => { 
+          'Authorization' => "Token token=88fff1555ee3277d82cf3f116f7be3b8",
+          'Content-Type' => 'application/json',
+          'Accept' => "application/json" } )
   end
 
   def update_contact_method
