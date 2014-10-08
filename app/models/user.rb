@@ -21,9 +21,9 @@ class User < ActiveRecord::Base
 
 	def ability
     @ability ||= Ability.new(self)
-  	end
+  end
 
-  	delegate :can?, :cannot?, :to => :ability
+  delegate :can?, :cannot?, :to => :ability
 
   	
 
