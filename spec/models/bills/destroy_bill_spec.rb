@@ -3,7 +3,6 @@ require 'rails_helper'
 describe Bill do 
 
 	before :each do
-
       User.create(first_name: "Joel", last_name: "Lusky", cell_phone: 1234567890, email: "joel@gmail.com", password: "12345678", password_confirmation: "12345678")
       Category.create(name: "Electric")
       Provider.create(category_id: 1, name: "FPL", url: "http://www.fpl.com")

@@ -13,7 +13,7 @@ describe 'permissions' do
     find(:css, "input[id$='user_email']").set("joel@gmail.com")
     find(:css, "input[id$='user_password']").set("12345678")
     click_button("Sign in")
-    expect(page).to have_content("Hello")
+    expect(page).to have_content("Hi again,")
     visit "/providers"
     expect(page).to have_content("You dont have access to the provider page.")
   end
@@ -24,7 +24,7 @@ describe 'permissions' do
     find(:css, "input[id$='user_email']").set("joel@gmail.com")
     find(:css, "input[id$='user_password']").set("12345678")
     click_button("Sign in")
-    expect(page).to have_content("Hello")
+    expect(page).to have_content("Hi again,")
     visit "/categories"
     expect(page).to have_content("You dont have access to the category page")
   end
