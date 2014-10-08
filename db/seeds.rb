@@ -19,15 +19,22 @@ categories = [
 		Category.find_or_create_by name: cat
 	end.inject({}) { |mem, var| mem[var.name] = var; mem }
 	
-Provider.find_or_create_by(name: "FPL").update_attributes(category: categories["Electric"], url: "http://www.fpl.com")
+Provider.find_or_create_by(name: "FPL").update_attributes(category: categories["Electric"], url: "https://app.fpl.com/eca/EcaController")
 Provider.find_or_create_by(name: "Miami-Dade-County").update_attributes(category: categories["Water"], url: "http://www.miamidade.gov/water/pay-bill.asp")
 Provider.find_or_create_by(name: "Verizon").update_attributes(category: categories["Cell Phone"], url: "https://www.verizon.com/foryourhome/MyAccount/ngen/upr/nlogin.aspx")
 Provider.find_or_create_by(name: "AT&T").update_attributes(category: categories["Cell Phone"], url: "https://www.att.com/olam/loginAction.olamexecute")
-Provider.find_or_create_by(name: "Sprint").update_attributes(category: categories["Cell Phone"], url: "https://www.sprint.com")
+Provider.find_or_create_by(name: "Sprint").update_attributes(category: categories["Cell Phone"], url: "https://mysprint.sprint.com/mysprint/pages/sl/global/login.jsp?targetPage=https%253A%252F%252Fmysprint.sprint.com%252Fmysprint%252Fpages%252Fsecure%252Fmyaccount%252FlandingPage.jsp")
 Provider.find_or_create_by(name: "Metro PCS").update_attributes(category: categories["Cell Phone"], url: "https://www.metropcs.com/bill-pay.html")
 Provider.find_or_create_by(name: "Boost Mobile").update_attributes(category: categories["Cell Phone"], url: "https://www.boostmobile.com")
-Provider.find_or_create_by(name: "Capital One").update_attributes(category: categories["Credit Card"], url: "https://www.americanexpress.com/")
-Provider.find_or_create_by(name: "Chase").update_attributes(category: categories["Credit Card"], url: "www.chasebank.com")
+Provider.find_or_create_by(name: "Cricket").update_attributes(category: categories["Cell Phone"], url: "https://www.cricketwireless.com/my-account.html")
+Provider.find_or_create_by(name: "T-Mobile").update_attributes(category: categories["Cell Phone"], url: "https://my.t-mobile.com/Login/?rc=&dest=https%3a%2f%2fmy.t-mobile.com%3a443%2fbilling%2fonetimepaysignup.aspx")
+Provider.find_or_create_by(name: "Virgin Mobile").update_attributes(category: categories["Cell Phone"], url: "https://www2.virginmobileusa.com/myaccount/home.do")
+Provider.find_or_create_by(name: "American Express").update_attributes(category: categories["Credit Card"], url: "https://www.americanexpress.com/")
+
+Provider.find_or_create_by(name: "Discover").update_attributes(category: categories["Credit Card"], url: "http://www.discovercard.com")
+
+
+
 Provider.find_or_create_by(name: "Discover").update_attributes(category: categories["Credit Card"], url: "http://www.discovercard.com")
 Provider.find_or_create_by(name: "Geico").update_attributes(category: categories["Insurance"], url: "http://www.geico.com")
 Provider.find_or_create_by(name: "Progressive").update_attributes(category: categories["Insurance"], url: "http:www.progressive.com")
