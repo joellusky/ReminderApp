@@ -87,7 +87,7 @@ class Bill < ActiveRecord::Base
            }.to_json, 
         
         :headers => { 
-          'Authorization' => "Token token=88fff1555ee3277d82cf3f116f7be3b8",
+          'Authorization' => "Token token=5866004913cd47e452c042b3a2b4aff7",
           'Content-Type' => 'application/json',
           'Accept' => "application/json" } )
    
@@ -108,7 +108,7 @@ class Bill < ActiveRecord::Base
            }.to_json, 
         
         :headers => { 
-          'Authorization' => "Token token=88fff1555ee3277d82cf3f116f7be3b8",
+          'Authorization' => "Token token=5866004913cd47e452c042b3a2b4aff7",
           'Content-Type' => 'application/json',
           'Accept' => "application/json" } )
 
@@ -123,14 +123,14 @@ class Bill < ActiveRecord::Base
             'start_date' => self.duedate,
             'interval' => self.interval}, 
           'email' => { 
-            'email' => self.user.email,
+            'email_address' => self.user.email,
             'email_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not"
 
           }
            }.to_json, 
         
         :headers => { 
-          'Authorization' => "Token token=88fff1555ee3277d82cf3f116f7be3b8",
+          'Authorization' => "Token token=5866004913cd47e452c042b3a2b4aff7",
           'Content-Type' => 'application/json',
           'Accept' => "application/json" } )
     end
