@@ -16,30 +16,31 @@
   <!-- Drop Down menu for categories -->
   <%= f.label :category_id %><br>
   <%= select_tag "categories", options_for_select(Category.order(:name).map(&:name))%>
-</div>
+</div><br>
 <div class="field">
   <!-- Drop Down menu for providers -->
   <%= f.label :provider %><br>
   <%= f.grouped_collection_select :provider_id, Category.order(:name), :providers, :name, :id, :name%>
-</div>
+</div><br>
 <div class="field">
   <%= f.label :duedate %><br>
   <%= f.text_field :duedate %>
-</div>
+</div><br>
 <div class="field">
   <!-- Drop Down menu for recurrence options -->
   <%= f.label :Repeat %><br>
   <%= f.select :every, [["Once a Month", "month"],["Once a year", "year"],["Every Two Weeks","every two weeks"],["Every six Months","twice a year"]] %>
 </div>
+
 <div class="field">
   <!-- Drop Down menu for recurrence options -->
   <%= f.label :contact_method %><br>
   <%= f.select :contact_method, [["Text", "text"],["Phone Call", "phone call"],["Email", "email"]] %>
-</div>
+</div><br>
 <div class="field">
-  <%= f.label :"Add notes to your bill(Optional)" %><br>
+  <%= f.label :"Notes" %><br>
   <%= f.text_field :notes %>
-</div>
+</div><br>
 <div class="field">
   <%= f.hidden_field :paid, value: false %>
 </div>
