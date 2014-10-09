@@ -4,7 +4,8 @@ class Bill < ActiveRecord::Base
   belongs_to :provider
   has_one :event_recurrence, :dependent => :destroy
 
-
+  #create_event_recurrence creates the actual recurrence and 
+  #also calls on send_recurrence at the end of the method
   after_create :create_event_recurrence
   after_destroy :delete_recurrence
   after_update :update_recurrence
@@ -53,13 +54,12 @@ class Bill < ActiveRecord::Base
         start.yesterday
       end
 
-    event_recurrence.interval = 
-      case self.every
+    event_recurrence.interval = case self.every
         when 'every two weeks'
            2 #weeks
         when 'twice a year'
            6 #months 
-      end
+        end
 
       event_recurrence.save
 
@@ -79,8 +79,7 @@ class Bill < ActiveRecord::Base
             'object_id' => self.id,
             'end_date' => 1.year.from_now,
             'every' => self.every,
-            'start_date' => self.duedate,
-            'interval' => self.event_recurrence.interval}, 
+            'start_date' => self.duedate}, 
           'text' => { 
             'cell_phone' => self.user.cell_phone,
             'text_reminder' => "This is a reminder that your #{self.provider.name} bill is due tomorrow. #{self.provider.url}"
@@ -100,8 +99,7 @@ class Bill < ActiveRecord::Base
             'object_id' => self.id,
             'end_date' => 1.year.from_now,
             'every' => self.every,
-            'start_date' => self.duedate,
-            'interval' => self.event_recurrence.interval}, 
+            'start_date' => self.duedate}, 
           'call' => { 
             'cell_phone' => self.user.cell_phone,
             'call_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not. GoodBye!"
@@ -121,8 +119,7 @@ class Bill < ActiveRecord::Base
             'object_id' => self.id,
             'end_date' => 1.year.from_now,
             'every' => self.every,
-            'start_date' => self.duedate,
-            'interval' => self.event_recurrence.interval}, 
+            'start_date' => self.duedate}, 
           'email' => { 
             'email_address' => self.user.email,
             'email_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not"
@@ -175,8 +172,7 @@ class Bill < ActiveRecord::Base
     :body => {'object_id' => self.id,
     'end_date' => self.duedate + 1.year,
     'every' => self.every,
-    'start_date' => self.duedate,
-    'interval' => self.event_recurrence.interval, 
+    'start_date' => self.duedate, 
     'cell_phone' => self.user.cell_phone,
     'email' => self.user.email }.to_json, 
 
@@ -186,6 +182,8 @@ class Bill < ActiveRecord::Base
           'Accept' => "application/json" } )
   end
 
+  #if a bill is updated with a new contact method, 
+  #this method will delete the old instance and add a new one with the new contact 
   def update_contact_method
       delete_recurrence
       send_recurrence
