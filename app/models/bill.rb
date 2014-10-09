@@ -19,6 +19,7 @@ class Bill < ActiveRecord::Base
 
   attr_accessor :date
 
+  @@token = "553847b4acee36b1a82d8ade591ca51a"
 
   #search method
 	def self.search(search)
@@ -87,7 +88,7 @@ class Bill < ActiveRecord::Base
            }.to_json, 
         
         :headers => { 
-          'Authorization' => "Token token=c2b536c79715c3ac24429970ae949fa1",
+          'Authorization' => "Token token=#{@@token}",
           'Content-Type' => 'application/json',
           'Accept' => "application/json" } )
    
@@ -108,7 +109,7 @@ class Bill < ActiveRecord::Base
            }.to_json, 
         
         :headers => { 
-          'Authorization' => "Token token=c2b536c79715c3ac24429970ae949fa1",
+          'Authorization' => "Token token=#{@@token}",
           'Content-Type' => 'application/json',
           'Accept' => "application/json" } )
 
@@ -130,7 +131,7 @@ class Bill < ActiveRecord::Base
            }.to_json, 
         
         :headers => { 
-          'Authorization' => "Token token=c2b536c79715c3ac24429970ae949fa1",
+          'Authorization' => "Token token=#{@@token}",
           'Content-Type' => 'application/json',
           'Accept' => "application/json" } )
     end
@@ -155,7 +156,7 @@ class Bill < ActiveRecord::Base
     :body => {'object_id' => self.id }.to_json, 
 
     :headers => { 
-          'Authorization' => "Token token=c2b536c79715c3ac24429970ae949fa1",
+          'Authorization' => "Token token=#{@@token}",
           'Content-Type' => 'application/json',
           'Accept' => "application/json" } )
   end
@@ -180,7 +181,7 @@ class Bill < ActiveRecord::Base
     'email' => self.user.email }.to_json, 
 
     :headers => { 
-          'Authorization' => "Token token=c2b536c79715c3ac24429970ae949fa1",
+          'Authorization' => "Token token=#{@@token}",
           'Content-Type' => 'application/json',
           'Accept' => "application/json" } )
   end
