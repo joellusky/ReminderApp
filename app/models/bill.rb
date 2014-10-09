@@ -63,77 +63,78 @@ class Bill < ActiveRecord::Base
 
       event_recurrence.save
 
-      send_recurrence
+      SendWorker.perform_async(self.id)
   end
 
   def dates(options={})
     self.event_recurrence.dates(options)
   end
 
-  def send_recurrence
-    SendWorker.new.perform
-    # if self.contact_method == 'text'
+  # def send_recurrence
+  #   # SendWorker.perform(self.id)
+  #   # SendWorker.perform_async(@bill.id)
+  #   # if self.contact_method == 'text'
     
-    # HTTParty.post("http://localhost:8080/texts.json", 
-    #     :body => {
-    #       'event_recurrence' => {
-    #         'object_id' => self.id,
-    #         'end_date' => 1.year.from_now,
-    #         'every' => self.every,
-    #         'start_date' => self.duedate}, 
-    #       'text' => { 
-    #         'cell_phone' => self.user.cell_phone,
-    #         'text_reminder' => "This is a reminder that your #{self.provider.name} bill is due tomorrow. #{self.provider.url}"
-    #       }
-    #        }.to_json, 
+  #   # HTTParty.post("http://localhost:8080/texts.json", 
+  #   #     :body => {
+  #   #       'event_recurrence' => {
+  #   #         'object_id' => self.id,
+  #   #         'end_date' => 1.year.from_now,
+  #   #         'every' => self.every,
+  #   #         'start_date' => self.duedate}, 
+  #   #       'text' => { 
+  #   #         'cell_phone' => self.user.cell_phone,
+  #   #         'text_reminder' => "This is a reminder that your #{self.provider.name} bill is due tomorrow. #{self.provider.url}"
+  #   #       }
+  #   #        }.to_json, 
         
-    #     :headers => { 
-    #       'Authorization' => "Token token=#{@@token}",
-    #       'Content-Type' => 'application/json',
-    #       'Accept' => "application/json" } )
+  #   #     :headers => { 
+  #   #       'Authorization' => "Token token=#{@@token}",
+  #   #       'Content-Type' => 'application/json',
+  #   #       'Accept' => "application/json" } )
    
-    # elsif self.contact_method == 'phone call'
+  #   # elsif self.contact_method == 'phone call'
 
-    #   HTTParty.post("http://localhost:8080/calls.json", 
-    #     :body => {
-    #       'event_recurrence' => {
-    #         'object_id' => self.id,
-    #         'end_date' => 1.year.from_now,
-    #         'every' => self.every,
-    #         'start_date' => self.duedate}, 
-    #       'call' => { 
-    #         'cell_phone' => self.user.cell_phone,
-    #         'call_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not. GoodBye!"
-    #       }
-    #        }.to_json, 
+  #   #   HTTParty.post("http://localhost:8080/calls.json", 
+  #   #     :body => {
+  #   #       'event_recurrence' => {
+  #   #         'object_id' => self.id,
+  #   #         'end_date' => 1.year.from_now,
+  #   #         'every' => self.every,
+  #   #         'start_date' => self.duedate}, 
+  #   #       'call' => { 
+  #   #         'cell_phone' => self.user.cell_phone,
+  #   #         'call_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not. GoodBye!"
+  #   #       }
+  #   #        }.to_json, 
         
-    #     :headers => { 
-    #       'Authorization' => "Token token=#{@@token}",
-    #       'Content-Type' => 'application/json',
-    #       'Accept' => "application/json" } )
+  #   #     :headers => { 
+  #   #       'Authorization' => "Token token=#{@@token}",
+  #   #       'Content-Type' => 'application/json',
+  #   #       'Accept' => "application/json" } )
 
-    # elsif self.contact_method == 'email'
+  #   # elsif self.contact_method == 'email'
 
-    #   HTTParty.post("http://localhost:8080/emails.json", 
-    #     :body => {
-    #       'event_recurrence' => {
-    #         'object_id' => self.id,
-    #         'end_date' => 1.year.from_now,
-    #         'every' => self.every,
-    #         'start_date' => self.duedate}, 
-    #       'email' => { 
-    #         'email_address' => self.user.email,
-    #         'email_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not"
+  #   #   HTTParty.post("http://localhost:8080/emails.json", 
+  #   #     :body => {
+  #   #       'event_recurrence' => {
+  #   #         'object_id' => self.id,
+  #   #         'end_date' => 1.year.from_now,
+  #   #         'every' => self.every,
+  #   #         'start_date' => self.duedate}, 
+  #   #       'email' => { 
+  #   #         'email_address' => self.user.email,
+  #   #         'email_reminder' => "Hello #{self.user.first_name}. This is a friendly reminder that your #{self.provider.name}, #{self.category.name} bill is due tomorrow. Thank you for using Forget Me Not"
 
-    #       }
-    #        }.to_json, 
+  #   #       }
+  #   #        }.to_json, 
         
-    #     :headers => { 
-    #       'Authorization' => "Token token=#{@@token}",
-    #       'Content-Type' => 'application/json',
-    #       'Accept' => "application/json" } )
-    # end
-  end
+  #   #     :headers => { 
+  #   #       'Authorization' => "Token token=#{@@token}",
+  #   #       'Content-Type' => 'application/json',
+  #   #       'Accept' => "application/json" } )
+  #   # end
+  # end
 
   def delete_recurrence
     response = HTTParty.get("http://localhost:8080/event_recurrences.json")
