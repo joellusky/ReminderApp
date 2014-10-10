@@ -30,7 +30,7 @@
   <!-- Drop Down menu for recurrence options -->
   <%= f.label :Repeat %><br>
   <%= f.select :every, [["Once a Month", "month"],["Once a year", "year"],["Every Two Weeks","every two weeks"],["Every six Months","twice a year"]] %>
-</div>
+</div><br>
 
 <div class="field">
   <!-- Drop Down menu for recurrence options -->
@@ -45,7 +45,7 @@
   <%= f.hidden_field :paid, value: false %>
 </div>
 <div class="actions">
-  <%= f.submit "Create", class: 'btn btn-large btn-primary'%>
+  <%= f.submit "Create", class: 'btn btn-primary btn-block'%>
 </div> 
 <% end %>
 
