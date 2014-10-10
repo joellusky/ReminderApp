@@ -2,12 +2,21 @@ require 'rails_helper'
 
 describe Bill do 
 
+	 before :each do
+      User.create(first_name: "Joel", last_name: "Lusky", cell_phone: 1234567890, email: "joel@gmail.com", password: "12345678", password_confirmation: "12345678")
+      Category.create(name: "Electric")
+      Provider.create(category_id: 1, name: "FPL", url: "http://www.fpl.com")
+ 	 end
+
 	it 'should save when all fields are populated' do
+		expect(User.count).to eq(1)
+		expect(Category.count).to eq(1)
+		expect(Provider.count).to eq(1)
 		bill = Bill.new
-		bill.user_id = "1"
+		bill.user_id = User.last.id
+		bill.provider_id = Provider.last.id
 		bill.duedate = "2015-09-29"
 		bill.every = "month"
-		bill.provider_id = "1"
 		bill.contact_method = "text"
 		bill.save
 		expect(Bill.count).to eq(1)

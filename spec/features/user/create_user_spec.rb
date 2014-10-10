@@ -113,7 +113,7 @@ describe "Signing in" do
 		find(:css, "input[id$='user_email']").set("alfonsopintos@gmail.com")
 		find(:css, "input[id$='user_password']").set("12345678")
 		click_button("Sign in")
-		expect(page).to have_content("Hello")
+		expect(page).to have_content("Hi again,")
 	end
 
 	it "should display error when incorrect email submission" do

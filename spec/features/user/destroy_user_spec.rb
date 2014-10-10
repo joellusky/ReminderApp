@@ -13,7 +13,7 @@ describe 'deleting a user' do
     find(:css, "input[id$='user_email']").set("joel@gmail.com")
     find(:css, "input[id$='user_password']").set("12345678")
     click_button("Sign in")
-    expect(page).to have_content("Hello")
+    expect(page).to have_content("Hi again,")
     visit "/users/edit"
     click_button("Cancel my account")
     
