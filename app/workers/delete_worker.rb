@@ -13,16 +13,16 @@ sidekiq_options retry: false
     # a is an array of hashes. each hash being an event recurrence. 
     a = JSON.parse(response.body)
     # a.each iterates over every hash in the response array.
-    a.each do |hash|
-    # if the hash has a key 'bill_id' whos value is equal to that of bill.id
-    if hash['object_id'] == bill.id.to_s
-    # @match represents the hash of the event recurrence that needs to be deleted on reminderService, when a bill is deleted in ReminderApp
-    @match = hash
+      a.each do |hash|
+    # if the hash has a key 'object_id' whos value is equal to that of bill.id
+        if hash['object_id'] == bill.id.to_s
+    # @match represents the instance on the API that needs to be deleted, when a bill is deleted in ReminderApp
+          @match = hash
+        end
       end
-    end
   
 
-    #initiaes a delete request and interpolates the value of key[ID], and does converts it to integer.
+    #Does the delete by inputting the instance ID of the object we are attempting to delete
     HTTParty.delete("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
     :body => {'object_id' => bill.id }.to_json, 
 
