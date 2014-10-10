@@ -20,7 +20,7 @@ class Bill < ActiveRecord::Base
 
   attr_accessor :date
 
-  @@token = "553847b4acee36b1a82d8ade591ca51a"
+  @@token = "00fd8690272c3a53aa4ae8527b68b18d"
 
   #search method
 	def self.search(search)
@@ -41,29 +41,31 @@ class Bill < ActiveRecord::Base
     start = self.duedate
 
     # recurrence doesn't count now in the time period, so we need to go back 1 interval
-    event_recurrence.start_date = case self.every
-      when 'year'
-        start.last_year
-      when 'month'
-        start.last_month 
-      when 'twice a year'
-        start.last_month + 1.month
-      when 'every two weeks'
-        start - 14.days
-      when 'day'
-        start.yesterday
-      end
+    event_recurrence.start_date = 
+    case self.every
+    when 'year'
+    start.last_year
+    when 'month'
+    start.last_month 
+    when 'twice a year'
+    start.last_month + 1.month
+    when 'every two weeks'
+    start - 14.days
+    when 'day'
+    start.yesterday
+    end
 
-    event_recurrence.interval = case self.every
-        when 'every two weeks'
-           2 #weeks
-        when 'twice a year'
-           6 #months 
-        end
+    event_recurrence.interval = 
+    case self.every
+    when 'every two weeks'
+    2 #weeks
+    when 'twice a year'
+    6 #months 
+    end
 
-      event_recurrence.save
+    event_recurrence.save
 
-      SendWorker.perform_async(self.id)
+    SendWorker.perform_async(self.id)
   end
 
   def dates(options={})

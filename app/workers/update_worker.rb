@@ -1,9 +1,10 @@
 class UpdateWorker
 
 include Sidekiq::Worker
+sidekiq_options retry: false
 
 
-  @@token = "553847b4acee36b1a82d8ade591ca51a"
+  @@token = "00fd8690272c3a53aa4ae8527b68b18d"
 
   def perform(bill_id)
     bill = Bill.find(bill_id)
