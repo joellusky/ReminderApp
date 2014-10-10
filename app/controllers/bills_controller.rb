@@ -29,6 +29,7 @@ class BillsController < ApplicationController
     #Added search feature below
     @bills = Bill.search(params[:search])
 
+
   end
 
   def list

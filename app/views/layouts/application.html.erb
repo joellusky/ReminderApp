@@ -9,7 +9,8 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="background">
+<body <%== "class='background #{@body_class}'" %> >
+
 
   <nav class="navbar navbar-fmn" role="navigation">
     <div class="container">
