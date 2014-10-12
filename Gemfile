@@ -76,3 +76,5 @@ gem 'sidekiq'
 
 gem 'sinatra'
 
+gem 'redis'
+
