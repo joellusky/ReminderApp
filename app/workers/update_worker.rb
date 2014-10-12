@@ -4,12 +4,12 @@ include Sidekiq::Worker
 sidekiq_options retry: false
 
 
-  @@token = "00fd8690272c3a53aa4ae8527b68b18d"
+  @@token = "11bbad9f27d1494f8d8570db1ba4855a"
 
   def perform(bill_id)
     bill = Bill.find(bill_id)
 
-     response = HTTParty.get("http://localhost:8080/event_recurrences.json")
+     response = HTTParty.get("http://sleepy-citadel-7753.herokuapp.com/event_recurrences.json")
     a = JSON.parse(response.body)
     a.each do |hash|
       if hash['object_id'] == bill.id.to_s
@@ -17,7 +17,7 @@ sidekiq_options retry: false
       end
     end
     
-    HTTParty.patch("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
+    HTTParty.patch("http://sleepy-citadel-7753.herokuapp.com/event_recurrences/#{@match['id'].to_i}.json", 
     :body => {'object_id' => bill.id,
     'end_date' => bill.duedate + 1.year,
     'every' => bill.every,

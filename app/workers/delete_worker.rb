@@ -4,12 +4,12 @@ include Sidekiq::Worker
 sidekiq_options retry: false
 
 
-@@token = "d26f11c26ff5472f884e864f2d232f08"
+@@token = "11bbad9f27d1494f8d8570db1ba4855a"
 
   def perform(bill_id)
     # bill = Bill.find(bill_id)
 
-    response = HTTParty.get("http://localhost:8080/event_recurrences.json")
+    response = HTTParty.get("http://sleepy-citadel-7753.herokuapp.com/event_recurrences.json")
     # a is an array of hashes. each hash being an event recurrence. 
     a = JSON.parse(response.body)
     # a.each iterates over every hash in the response array.
@@ -23,7 +23,7 @@ sidekiq_options retry: false
   
 
     #Does the delete by inputting the instance ID of the object we are attempting to delete
-    HTTParty.delete("http://localhost:8080/event_recurrences/#{@match['id'].to_i}.json", 
+    HTTParty.delete("http://sleepy-citadel-7753.herokuapp.com/event_recurrences/#{@match['id'].to_i}.json", 
     :body => {'object_id' => bill_id }.to_json, 
 
     :headers => { 

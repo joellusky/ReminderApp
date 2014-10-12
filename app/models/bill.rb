@@ -20,8 +20,6 @@ class Bill < ActiveRecord::Base
 
   attr_accessor :date
 
-  @@token = "00fd8690272c3a53aa4ae8527b68b18d"
-
   #search method
 	def self.search(search)
   	unless search.blank?

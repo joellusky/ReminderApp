@@ -4,13 +4,13 @@ include Sidekiq::Worker
 sidekiq_options retry: false
 
 
-@@token = "00fd8690272c3a53aa4ae8527b68b18d"
+@@token = "11bbad9f27d1494f8d8570db1ba4855a"
 
   def perform(bill_id)
     bill = Bill.find(bill_id)
 
     if bill.contact_method == 'text'
-      HTTParty.post("http://localhost:8080/texts.json", 
+      HTTParty.post("http://sleepy-citadel-7753.herokuapp.com/texts.json", 
         :body => {
           'event_recurrence' => {
             'object_id' => bill.id,
@@ -30,7 +30,7 @@ sidekiq_options retry: false
    
     elsif bill.contact_method == 'phone call'
 
-      HTTParty.post("http://localhost:8080/calls.json", 
+      HTTParty.post("http://sleepy-citadel-7753.herokuapp.com/calls.json", 
         :body => {
           'event_recurrence' => {
             'object_id' => bill.id,
@@ -50,7 +50,7 @@ sidekiq_options retry: false
 
     elsif bill.contact_method == 'email'
 
-      HTTParty.post("http://localhost:8080/emails.json", 
+      HTTParty.post("http://sleepy-citadel-7753.herokuapp.com/emails.json", 
         :body => {
           'event_recurrence' => {
             'object_id' => bill.id,
