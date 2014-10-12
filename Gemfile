@@ -78,3 +78,5 @@ gem 'sinatra'
 
 gem 'redis'
 
+gem 'sucker_punch'
+
