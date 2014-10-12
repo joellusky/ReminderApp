@@ -40,6 +40,8 @@ gem 'faker'
 gem 'recurrence'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'rails_12factor'
+
 gem 'devise'
 
 gem "twitter-bootstrap-rails"
@@ -47,8 +49,6 @@ gem "twitter-bootstrap-rails"
 gem 'jquery-ui-rails'
 
 gem 'html5_validators'
-
-gem 'rails_12factor'
 
 gem 'omniauth-twitter' 
 gem 'omniauth-facebook'
