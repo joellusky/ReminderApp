@@ -74,3 +74,5 @@ gem 'httparty'
 
 gem 'sidekiq'
 
+gem 'sinatra'
+
