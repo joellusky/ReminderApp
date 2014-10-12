@@ -10,8 +10,8 @@
   </thead>
   <tr>
     <% @client.account.usage.records.list({:category => "sms"}).each do |record| %>
-    <td><%= record.count %></td>
-    <td>$<%= record.price %></td>
+    <td style="width: 70%"><%= record.count %></td>
+    <td style="width: 30%">$<%= record.price %></td>
 
   </tr>
   <% end %>
@@ -30,8 +30,8 @@
   </thead>
   <tr>
     <% @client.account.usage.records.list({:category => "calls-outbound"}).each do |record| %>
-    <td><%= record.count %></td>
-    <td>$<%= record.price %></td>
+    <td style="width: 70%"><%= record.count %></td>
+    <td style="width: 43%">$<%= record.price %></td>
   </tr>
   <% end %>
 </tbody>
