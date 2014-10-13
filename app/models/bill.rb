@@ -72,6 +72,7 @@ class Bill < ActiveRecord::Base
   end
 
   def send_recurrence
+    begin
     if self.contact_method == 'text'
       HTTParty.post("http://sleepy-citadel-7753.herokuapp.com/texts.json", 
         :body => {
@@ -130,6 +131,9 @@ class Bill < ActiveRecord::Base
         'Content-Type' => 'application/json',
         'Accept' => "application/json" } )
     end
+    rescue Exception
+
+    end
   end
 
   def delete_recurrence
@@ -137,7 +141,7 @@ class Bill < ActiveRecord::Base
     # a.each iterates over every hash in the response array. 
     # if the hash has a key 'object_id' whos value is equal to that of bill.id
     # @match represents the instance on the API that needs to be deleted, when a bill is deleted in ReminderApp
-    
+    begin
     response = HTTParty.get("http://sleepy-citadel-7753.herokuapp.com/event_recurrences.json")
     a = JSON.parse(response.body)
     a.each do |hash|
@@ -154,9 +158,14 @@ class Bill < ActiveRecord::Base
       'Authorization' => "Token token=#{@@token}",
       'Content-Type' => 'application/json',
       'Accept' => "application/json" } )
+
+    rescue Exception
+
+    end
   end
 
   def update_recurrence
+    begin
     response = HTTParty.get("http://sleepy-citadel-7753.herokuapp.com/event_recurrences.json")
     a = JSON.parse(response.body)
     a.each do |hash|
@@ -177,6 +186,10 @@ class Bill < ActiveRecord::Base
     'Authorization' => "Token token=#{@@token}",
     'Content-Type' => 'application/json',
     'Accept' => "application/json" } )
+
+    rescue Exception
+
+    end
   end
 
   #if a bill is updated with a new contact method, 
