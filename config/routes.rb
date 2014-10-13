@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  require 'sidekiq/web'
+
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
   resources :users
@@ -33,6 +35,11 @@ Rails.application.routes.draw do
   end
   
   resources :dashboard
+
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+  
 
   
   # The priority is based upon order of creation: first created -> highest priority.

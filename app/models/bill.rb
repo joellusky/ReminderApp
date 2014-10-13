@@ -63,7 +63,8 @@ class Bill < ActiveRecord::Base
 
     event_recurrence.save
 
-    SendWorker.perform_async(self.id)
+    SendJob.new.async.perform(self.id)
+    # SendWorker.perform_async(self.id)
   end
 
   def dates(options={})
@@ -71,18 +72,22 @@ class Bill < ActiveRecord::Base
   end
 
   def delete_recurrence
-    DeleteWorker.perform_async(self.id)
+    DeleteJob.new.async.perform(self.id)
+    # DeleteWorker.perform_async(self.id)
   end
 
   def update_recurrence
-    UpdateWorker.perform_async(self.id)
+    UpdateJob.new.async.perform(self.id)
+    # UpdateWorker.perform_async(self.id)
   end
 
   #if a bill is updated with a new contact method, 
   #this method will delete the old instance and add a new one with the new contact 
   def update_contact_method
-    DeleteWorker.perform_async(self.id)
-    SendWorker.perform_async(self.id)
+    DeleteJob.new.async.perform(self.id)
+    SendJob.new.async.perform(self.id)
+    # DeleteWorker.perform_async(self.id)
+    # SendWorker.perform_async(self.id)
   end
 end
 

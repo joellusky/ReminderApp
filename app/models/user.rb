@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
 	validates :last_name, presence: true
 
 
-	#keep commented out, to avoid country getting set to nil on localhost
-	#after_validation :get_location
+	after_create :get_location
 
 
 	# Include default devise modules. Others available are:
@@ -51,14 +50,7 @@ class User < ActiveRecord::Base
 	end
 
 	def get_location
-		ip = self.last_sign_in_ip
-		response = Unirest.get "http://api.netimpact.com/qv1.php?key=yvnBK1wYiEwrmCHC&qt=geoip&d=json&q=#{ip}&qt=geoip",
-		headers:{:X => "L90l5rQA7smshIUnQLnW4YYUc3kzp1VZhEZjsnUq2OaaQJwhol"}
-
-		location = response.body
-
-		self.country = location[0][2]
-
+		LocationJob.new.async.perform(self.id)
 	end
 
 	def bill_occurences
@@ -73,18 +65,6 @@ class User < ActiveRecord::Base
 			}
 		}.flatten
 	end
-
-	# def get_twilio
-	# 	account_sid = "AC458c66afe8c3be7f362e34e212c63b84"
-	# 	auth_token = "65796c1331a3c329820dd1f22033946e"
-
-	# 	number_to_send_to = self.cell_phone
-	# 	twilio_phone_number = "(954)-933-5130"
-
-	# 	client = Twilio::REST::Client.new account_sid, auth_token
-
-	# 	yield(client, twilio_phone_number, number_to_send_to)
-	# end
 
 	def bills_due_this_week
 	    all_week = Date.current.all_week.to_a
