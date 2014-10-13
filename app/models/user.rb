@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	validates :last_name, presence: true
 
 
-	# after_create :get_location
+	after_create :get_location
 
 
 	# Include default devise modules. Others available are:
