@@ -50,7 +50,11 @@ class User < ActiveRecord::Base
 	end
 
 	def get_location
-		LocationJob.new.async.perform(self.id)
+    ip = self.last_sign_in_ip
+    response = HTTParty.get("http://www.freegeoip.net/json/#{ip}")
+    a = JSON.parse(response.body)
+    self.country = a["country_name"]
+    self.save
 	end
 
 	def bill_occurences
