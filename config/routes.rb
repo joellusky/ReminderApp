@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  require 'sidekiq/web'
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
@@ -35,10 +34,6 @@ Rails.application.routes.draw do
   end
   
   resources :dashboard
-
-  authenticate :user, lambda { |u| u.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
-  end
   
 
   

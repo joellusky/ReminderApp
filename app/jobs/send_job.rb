@@ -1,12 +1,13 @@
 class SendJob
 
-include SuckerPunch::Job
+  include SuckerPunch::Job
+  workers 4
 
-
-@@token = "11bbad9f27d1494f8d8570db1ba4855a"
+  @@token = "11bbad9f27d1494f8d8570db1ba4855a"
 
   def perform(bill_id)
 
+  ActiveRecord::Base.connection_pool.with_connection do
     bill = Bill.find(bill_id)
 
     if bill.contact_method == 'text'
@@ -70,5 +71,5 @@ include SuckerPunch::Job
           'Accept' => "application/json" } )
     end
   end
-  
+  end
 end
