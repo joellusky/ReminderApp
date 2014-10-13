@@ -14,12 +14,12 @@ end
 
 task :bills => :environment do 
 
-  users = User.all
-  users.each do |user|
+  @users = User.all
+  @users.each do |user|
 
     5.times do 
       Bill.create(
-      user_id: user.id,
+      user_id: @user.id,
       duedate: Time.now.strftime("%Y-%m-%d"),
       every: every_choice,
       contact_method: contact_choice,
