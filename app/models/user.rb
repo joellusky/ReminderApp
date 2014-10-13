@@ -50,14 +50,15 @@ class User < ActiveRecord::Base
 	end
 
 	def get_location
-		ip = self.last_sign_in_ip
-		response = Unirest.get "http://api.netimpact.com/qv1.php?key=yvnBK1wYiEwrmCHC&qt=geoip&d=json&q=#{ip}&qt=geoip",
-		headers:{:X => "L90l5rQA7smshIUnQLnW4YYUc3kzp1VZhEZjsnUq2OaaQJwhol"}
+		LocationJob.new.async.perform(self.id)
+		# ip = self.last_sign_in_ip
+		# response = Unirest.get "http://api.netimpact.com/qv1.php?key=yvnBK1wYiEwrmCHC&qt=geoip&d=json&q=#{ip}&qt=geoip",
+		# headers:{:X => "L90l5rQA7smshIUnQLnW4YYUc3kzp1VZhEZjsnUq2OaaQJwhol"}
 
-		location = response.body
+		# location = response.body
 
-		self.country = location[0][2]
-		self.save
+		# self.country = location[0][2]
+		# self.save
 
 	end
 
