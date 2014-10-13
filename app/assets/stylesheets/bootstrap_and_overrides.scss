@@ -11,6 +11,7 @@
   $container-color: #f8f8f8;
 
 
+
 .or {text-align:center;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 100;
@@ -30,10 +31,20 @@
   }
 
   .homepage {
-    width: absolute;
-    height: absolute;
+    background: url('/assets/homepage-5104cace88ea773a57344fdd6b6f7497.jpg');
+    height: 85vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(19, 21, 31);
   }
 
+   .alert + .homepage {
+    margin-top: -20px;  
+  }
+
+  .alert {
+    border-radius: 0px;
+  }
   .errors {
     color: #A60000;
   }
