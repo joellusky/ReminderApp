@@ -46,6 +46,10 @@ $secondary-color: #f1c40f;
       color: #009cde;
       background-color: #fff; 
     }
+
+    .today a {
+      color: #009cde;
+    }
   }
 }
 
@@ -53,11 +57,13 @@ $secondary-color: #f1c40f;
   margin: 0;
   padding-bottom: 10px;
   text-align: center;
-  font-size: 22px;
+  font-size: 32px;
+  color: #FFFFFF;
+  font-weight: 100;
   a {
     text-decoration: none;
     padding: 0 10px;
-    color: #999;
+    color: #FFFFFF;
   }
 }
 
@@ -68,8 +74,4 @@ $secondary-color: #f1c40f;
 
 li {
   color: #68ff68
-}
-
-a{
-  color: red;
 }
