@@ -11,12 +11,15 @@
     </div>
     <div ><i class="icon-heart"></i></div>
     <%= f.submit 'Sign in', class:'btn btn-primary btn-block' %>
-    <div class="text-center">
-      <%= link_to 'Facebook', user_omniauth_authorize_path(:facebook), class:'btn btn-facebook btn-block'%>
-    </div>
-    <div align="center"> 
+     <div align="center"> 
       <%= link_to "Forgot your password?", new_password_path(:user) %>
     </div>
+    <div class='or'> OR </div>
+    <div class="text-center">
+      <%= link_to 'Connect with Facebook', user_omniauth_authorize_path(:facebook), class:'btn btn-facebook btn-block'%>
+    </div>
+   
+    Don't have an account? <%= link_to "Sign up", new_user_registration_path %>.
     <% end %>
   </div>
 
