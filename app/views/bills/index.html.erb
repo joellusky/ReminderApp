@@ -7,7 +7,7 @@
 
     <%= link_to "<", date: @date.prev_month %>
   
-    <%= @date.strftime("%B %Y") %>
+    <span class='bounceIn' ><%= @date.strftime("%B %Y") %></span>
     <%= link_to ">", date: @date.next_month %>
   </h2>
   <%= calendar @date do |date| %>
