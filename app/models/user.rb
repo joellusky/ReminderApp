@@ -57,6 +57,7 @@ class User < ActiveRecord::Base
 		location = response.body
 
 		self.country = location[0][2]
+		self.save
 
 	end
 
