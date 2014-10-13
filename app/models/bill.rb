@@ -64,7 +64,6 @@ class Bill < ActiveRecord::Base
     event_recurrence.save
 
     SendJob.new.async.perform(self.id)
-    # SendWorker.perform_async(self.id)
   end
 
   def dates(options={})
@@ -73,12 +72,10 @@ class Bill < ActiveRecord::Base
 
   def delete_recurrence
     DeleteJob.new.async.perform(self.id)
-    # DeleteWorker.perform_async(self.id)
   end
 
   def update_recurrence
     UpdateJob.new.async.perform(self.id)
-    # UpdateWorker.perform_async(self.id)
   end
 
   #if a bill is updated with a new contact method, 
@@ -86,8 +83,6 @@ class Bill < ActiveRecord::Base
   def update_contact_method
     DeleteJob.new.async.perform(self.id)
     SendJob.new.async.perform(self.id)
-    # DeleteWorker.perform_async(self.id)
-    # SendWorker.perform_async(self.id)
   end
 end
 

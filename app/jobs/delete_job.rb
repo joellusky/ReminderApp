@@ -8,7 +8,6 @@ include SuckerPunch::Job
 @@token = "11bbad9f27d1494f8d8570db1ba4855a"
 
   def perform(bill_id)
-    # bill = Bill.find(bill_id)
 
     response = HTTParty.get("http://sleepy-citadel-7753.herokuapp.com/event_recurrences.json")
     # a is an array of hashes. each hash being an event recurrence. 

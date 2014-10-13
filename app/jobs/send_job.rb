@@ -1,8 +1,6 @@
 class SendJob
 
 include SuckerPunch::Job
-# include Sidekiq::Worker
-# sidekiq_options retry: false
 
 
 @@token = "11bbad9f27d1494f8d8570db1ba4855a"
