@@ -24,6 +24,7 @@
     <%end%>
   <% end %>
 </p>
+
 <p class = "billshow">
   <strong class = "billshowcolor">Payment Status</strong> 
     <% if @bill.paid %>
@@ -33,6 +34,11 @@
      <div class = "billshow"> <%= render 'form_paid' %></div>
   <% end %> 
 </p> 
+
+
+<p class = "billshow">
+  <%= link_to "Click Here to Pay Now", @bill.provider.url %>
+</p>
 <!-- End of Show page
 
 Edit Modal -->
