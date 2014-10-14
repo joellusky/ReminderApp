@@ -13,11 +13,11 @@
   <!-- Paid checkbox when showing bill to mark as paid -->
   <% if @bill.paid == false %>
      <div class="field">
-      <%= f.check_box :paid %> Pay Now
+      <%= f.check_box :paid %> Already Paid?
     </div>
      <div class="actions">
       <br>
-    <%= f.submit "Update", class: 'btn btn-large btn-primary'%>
+    <%= f.submit "Update", class: 'btn btn-default btn-xs'%>
     </div>
     <% end %>
   <% end %>
