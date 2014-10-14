@@ -46,11 +46,10 @@ Edit Modal -->
 <p class = "billshow">
 <%= link_to '', edit_bill_path(@bill), class: "fa fa-pencil-square-o" %> |
 <%= link_to @bill, method: :delete do%>
-  <span class="fa fa-trash-o"></span>|
-          <% end %>
+  <span class="fa fa-trash-o"></span>
+          <% end %>|
 <%= link_to "", @bill.provider.url, class: "fa fa-credit-card" %>
 <br>
-<%= link_to 'Calendar', bills_path %> 
 </p>
       
 
