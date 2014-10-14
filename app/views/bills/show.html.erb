@@ -35,9 +35,10 @@
   <% end %> 
 </p> 
 
+<i ></i>
 
 <p class = "billshow">
-  <%= link_to "Click Here to Pay Now", @bill.provider.url %>
+ 
 </p>
 <!-- End of Show page
 
@@ -45,10 +46,11 @@ Edit Modal -->
 <p class = "billshow">
 <%= link_to '', edit_bill_path(@bill), class: "fa fa-pencil-square-o" %> |
 <%= link_to @bill, method: :delete do%>
-  <span class="fa fa-trash-o"></span>
+  <span class="fa fa-trash-o"></span>|
           <% end %>
-          <br>
-  <%= link_to 'Back to Calendar', bills_path %> 
+<%= link_to "", @bill.provider.url, class: "fa fa-credit-card" %>
+<br>
+<%= link_to 'Calendar', bills_path %> 
 </p>
       
 
