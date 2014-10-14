@@ -22,7 +22,7 @@ categories = [
 
 Provider.find_or_create_by(name: "Miami-Dade-County").update_attributes(category: categories["Water"], url: "http://www.miamidade.gov/water/pay-bill.asp")	
 Provider.find_or_create_by(name: "FPL").update_attributes(category: categories["Electric"], url: "https://app.fpl.com/eca/EcaController")
-Provider.find_or_create_by(name: "AT&T").update_attributes(category: categories["Cell Phone"], url: "https://www.att.com/olam/loginAction.olamexecute")
+Provider.find_or_create_by(name: "AT & T").update_attributes(category: categories["Cell Phone"], url: "https://www.att.com/olam/loginAction.olamexecute")
 Provider.find_or_create_by(name: "Boost Mobile").update_attributes(category: categories["Cell Phone"], url: "https://www.boostmobile.com")
 Provider.find_or_create_by(name: "Cricket").update_attributes(category: categories["Cell Phone"], url: "https://www.cricketwireless.com/my-account.html")
 Provider.find_or_create_by(name: "Metro PCS").update_attributes(category: categories["Cell Phone"], url: "https://www.metropcs.com/bill-pay.html")
