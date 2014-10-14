@@ -22,8 +22,7 @@ categories = [
 
 Provider.find_or_create_by(name: "Miami-Dade-County").update_attributes(category: categories["Water"], url: "http://www.miamidade.gov/water/pay-bill.asp")	
 Provider.find_or_create_by(name: "FPL").update_attributes(category: categories["Electric"], url: "https://app.fpl.com/eca/EcaController")
-
-Provider.find_or_create_by(name: "AT&T").update_attributes(category: categories["Cell Phone"], url: "https://www.att.com/olam/loginAction.olamexecute")
+Provider.find_or_create_by(name: "AT & T").update_attributes(category: categories["Cell Phone"], url: "https://www.att.com/olam/loginAction.olamexecute")
 Provider.find_or_create_by(name: "Boost Mobile").update_attributes(category: categories["Cell Phone"], url: "https://www.boostmobile.com")
 Provider.find_or_create_by(name: "Cricket").update_attributes(category: categories["Cell Phone"], url: "https://www.cricketwireless.com/my-account.html")
 Provider.find_or_create_by(name: "Metro PCS").update_attributes(category: categories["Cell Phone"], url: "https://www.metropcs.com/bill-pay.html")
@@ -31,15 +30,22 @@ Provider.find_or_create_by(name: "Sprint").update_attributes(category: categorie
 Provider.find_or_create_by(name: "T-Mobile").update_attributes(category: categories["Cell Phone"], url: "https://my.t-mobile.com/Login/?rc=&dest=https%3a%2f%2fmy.t-mobile.com%3a443%2fbilling%2fonetimepaysignup.aspx")
 Provider.find_or_create_by(name: "Verizon").update_attributes(category: categories["Cell Phone"], url: "https://www.verizon.com/foryourhome/MyAccount/ngen/upr/nlogin.aspx")
 Provider.find_or_create_by(name: "Virgin Mobile").update_attributes(category: categories["Cell Phone"], url: "https://www2.virginmobileusa.com/myaccount/home.do")
-
-
-
 Provider.find_or_create_by(name: "American Express").update_attributes(category: categories["Credit Card"], url: "https://www.americanexpress.com/")
+Provider.find_or_create_by(name: "Bank of America").update_attributes(category: categories["Credit Card"], url: "https://www.bankofamerica.com/")
+Provider.find_or_create_by(name: "Banana Republic").update_attributes(category: categories["Credit Card"], url: "www3.onlinecreditcenter6.com/consumergen2/login.do?accountType=plcc&clientId=br&subActionId=1000")
+Provider.find_or_create_by(name: "Barclays").update_attributes(category: categories["Credit Card"], url: "www.barclaycardus.com")
+Provider.find_or_create_by(name: "Capital One").update_attributes(category: categories["Credit Card"], url: "www.capitalone.com")
+Provider.find_or_create_by(name: "Chase").update_attributes(category: categories["Credit Card"], url: "www.chase.com/online-banking/online-bill-pay")
+Provider.find_or_create_by(name: "Citi").update_attributes(category: categories["Credit Card"], url: "online.citibank.com/US/Welcome.c")
 Provider.find_or_create_by(name: "Discover").update_attributes(category: categories["Credit Card"], url: "http://www.discovercard.com")
+Provider.find_or_create_by(name: "GM Cards").update_attributes(category: categories["Credit Card"], url: "http://www.discovercard.com")
+Provider.find_or_create_by(name: "Home Depot").update_attributes(category: categories["Credit Card"], url: "http://www.homedepot.com/c/Credit_Center")
+Provider.find_or_create_by(name: "Macy's").update_attributes(category: categories["Credit Card"], url: "www.macys.com/credit/paybill/paybillhome?cm_sp=navigation-_-bottom_nav-_-pay_bill_online")
+Provider.find_or_create_by(name: "PNC Bank").update_attributes(category: categories["Credit Card"], url: "www.pnc.com/en/personal-banking/banking/credit-cards.htm")
+Provider.find_or_create_by(name: "Sears").update_attributes(category: categories["Credit Card"], url: "www.citibank.com/us/cards/srs/")
+Provider.find_or_create_by(name: "Victoria's Secret").update_attributes(category: categories["Credit Card"], url: "c.comenity.net/victoriassecret/")
 Provider.find_or_create_by(name: "Visa").update_attributes(category: categories["Credit Card"], url: "http://www.discovercard.com")
-Provider.find_or_create_by(name: "Discover").update_attributes(category: categories["Credit Card"], url: "http://www.discovercard.com")
-
-
+Provider.find_or_create_by(name: "Wells Fargo").update_attributes(category: categories["Credit Card"], url: "www.wellsfargo.com")
 Provider.find_or_create_by(name: "21st Century").update_attributes(category: categories["Insurance"], url: "www.21st.com/esauth/QuickPayLanding.do?method=initPaymentLogin")
 Provider.find_or_create_by(name: "Allstate").update_attributes(category: categories["Insurance"], url: "http://www.allstate.com/support/payment-and-billing.aspx")
 Provider.find_or_create_by(name: "Estrella").update_attributes(category: categories["Insurance"], url: "http://www.estrellainsurance.com/Make-A-Payment-United-Auto")
@@ -49,21 +55,13 @@ Provider.find_or_create_by(name: "Liberty Mutual").update_attributes(category: c
 Provider.find_or_create_by(name: "MetLife").update_attributes(category: categories["Insurance"], url: "www.metlife.com/about/corporate-profile/pay-a-bill/index.html")
 Provider.find_or_create_by(name: "Progressive").update_attributes(category: categories["Insurance"], url: "http:www.progressive.com")
 Provider.find_or_create_by(name: "State Farm").update_attributes(category: categories["Insurance"], url: "www.statefarm.com/finances/banking/online-banking-demo/bill-pay")
-
-
-
 Provider.find_or_create_by(name: "Atlantic Broadband").update_attributes(category: categories["Internet / TV"], url: "atlanticbb.com/support/account")
 Provider.find_or_create_by(name: "AT&T").update_attributes(category: categories["Internet / TV"], url: "www.att.com/olam/loginAction.olamexecute")
 Provider.find_or_create_by(name: "Comcast").update_attributes(category: categories["Internet / TV"], url: "www.comcast.com")
 Provider.find_or_create_by(name: "DIRECTV").update_attributes(category: categories["Internet / TV"], url: "www.directv.com/DTVAPP/login/login.jsp")
 Provider.find_or_create_by(name: "Dish").update_attributes(category: categories["Internet / TV"], url: "my.dish.com/customercare/paymybill/populateBillingDetails.do")
 Provider.find_or_create_by(name: "HotWire Communications").update_attributes(category: categories["Internet / TV"], url: "gethotwired.com/my-account/first-visit")
-
-
 Provider.find_or_create_by(name: "Rent Payment").update_attributes(category: categories["Mortgage / Rent"], url: "www.rentpayment.com/")
-
-
-
 Provider.find_or_create_by(name: "Acura").update_attributes(category: categories["Car Payment"], url: "www.acurafinancialservices.com/account-management/payment-options")
 Provider.find_or_create_by(name: "Audi").update_attributes(category: categories["Car Payment"], url: "www.audiusa.com/help/account-management")
 Provider.find_or_create_by(name: "BMW").update_attributes(category: categories["Car Payment"], url: "www.bmwusa.com/secured/content/forms/login.aspx")
@@ -92,7 +90,3 @@ Provider.find_or_create_by(name: "Suzuki").update_attributes(category: categorie
 Provider.find_or_create_by(name: "Toyota").update_attributes(category: categories["Car Payment"], url: "m.toyotafinancial.com/pub/payby/paymentoption.htm")
 Provider.find_or_create_by(name: "Volkswagen").update_attributes(category: categories["Car Payment"], url: "http://www.vw.com/financial-services/")
 Provider.find_or_create_by(name: "Volvo").update_attributes(category: categories["Car Payment"], url: "www.volvocarfinancialservices.com/sb.cn")
-
-
-
-
