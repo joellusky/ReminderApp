@@ -9,8 +9,15 @@
   <% user.save %>
 <% end %>
 <%end %>
-<h4> Sign Up Provider</h4>
+<h4> Sign Up Distribution</h4>
   <%= pie_chart @users.group(:sprovider).count %>
+<br>
+<h4> Recurrence </h4>
+  <%= pie_chart @bills.group(:every).count %>
+<br> 
+<h4>Communication Methods</h4>
+  <%= bar_chart @bills.group(:contact_method).count %>
+
 <br>
 <h4> User Location </h4>
   <%= geo_chart @users.group(:country).count %>
