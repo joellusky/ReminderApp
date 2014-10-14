@@ -22,7 +22,13 @@
 <tr onclick='location.href="<%= bill_path(bill) %>"'>
 <td><%= bill.provider.name %></td>
 <td><%= bill.provider.category.name %></td>
-<td><%= bill.paid %></td>
+<td>
+  <% if bill.paid %>
+  <%= "Paid" %>
+  <% else %>
+  <%= "Not Paid" %>
+  <% end %>
+</td>
 <td><%= bill.every %></td>
 <td><%= bill.contact_method %></td>
 </tr>
