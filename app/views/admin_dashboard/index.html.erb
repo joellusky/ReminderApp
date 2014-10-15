@@ -1,6 +1,6 @@
-<h2 class='admin'>Admin Dashboard</h2>
-
-<h4> Users Created By Day</h4>
+<h2 class='adash'>Admin Dashboard</h2>
+<hr>
+<h4 class='or'> Users Created By Day</h4>
   <%= line_chart @users.group_by_day(:created_at, format: "%B %d, %Y").count, discrete: true %>
 <br>
   <% @users.each do |user| %>
@@ -9,17 +9,17 @@
   <% user.save %>
 <% end %>
 <%end %>
-<h4> Sign Up Distribution</h4>
+<h4 class='or'> Sign Up Distribution</h4>
   <%= pie_chart @users.group(:sprovider).count %>
 <br>
-<h4> Recurrence </h4>
+<h4 class='or'> Reminder Interval </h4>
   <%= pie_chart @bills.group(:every).count %>
 <br> 
-<h4>Communication Methods</h4>
+<h4 class='or'>Reminder Methods</h4>
   <%= bar_chart @bills.group(:contact_method).count %>
 
 <br>
-<h4> User Location </h4>
+<h4 class='or'> User Location </h4>
   <%= geo_chart @users.group(:country).count %>
 
 
