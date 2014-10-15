@@ -11,7 +11,7 @@
 <p class = "billshow">
   <% if @bill.notes.empty? %>
   <% else %>
-      <strong class = "billshowcolor">Notes (optional)</strong>
+      <strong class = "billshowcolor">Notes</strong>
       <%= @bill.notes %>
 </p>
   <% end %>
@@ -30,6 +30,7 @@
     <% if @bill.paid %>
       <%= "Paid" %>
     <% else %>
+      <%= "Not Paid" %>
      <div class = "billshow"> <%= render 'form_paid' %></div>
   <% end %> 
 </p> 
@@ -37,7 +38,7 @@
 <i ></i>
 
 <p class = "billshow">
-  <%= link_to "", @bill.provider.url, class: "fa fa-credit-card fa-2x" %>
+ 
 </p>
 <!-- End of Show page
 
@@ -46,7 +47,8 @@ Edit Modal -->
 <%= link_to '', edit_bill_path(@bill), class: "fa fa-pencil-square-o" %> |
 <%= link_to @bill, method: :delete do%>
   <span class="fa fa-trash-o"></span>
-          <% end %>
+          <% end %>|
+<%= link_to "", @bill.provider.url, class: "fa fa-credit-card" %>
 <br>
 </p>
       

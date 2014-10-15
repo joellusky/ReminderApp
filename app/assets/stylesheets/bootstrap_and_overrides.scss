@@ -4,148 +4,145 @@
   Use Font Awesome icons (default)
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   = require twitter-bootstrap-static/fontawesome
-  */
+*/
 
-  $primary-color: #009cde;
-  $secondary-color: #1a2937; 
-  $container-color: #f8f8f8;
+$primary-color: #009cde;
+$secondary-color: #1a2937; 
+$container-color: #f8f8f8;
 
-
-
-.or {text-align:center;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 100;
-    font-size: 20px;
+.or {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 20px;
 } 
 
-.home {font-size:100px;
-      text-align: center;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-weight: 100;
+.home {
+  font-size: 100px;
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
 }
 
- .calender{
-    .container{
-      background: none;
-    }
+.calender{
+  .container{
+    background: none;
   }
+}
 
-  .homepage {
-    background: url('/assets/homepage-5104cace88ea773a57344fdd6b6f7497.jpg');
-    height: 85vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-color: rgb(19, 21, 31);
-  }
+.homepage {
+  background: url('/assets/homepage-5104cace88ea773a57344fdd6b6f7497.jpg');
+  height: 85vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgb(19, 21, 31);
+}
 
-   .alert + .homepage {
-    margin-top: -20px;  
-  }
+ .alert + .homepage {
+  margin-top: -20px;  
+}
 
-  .alert {
-    border-radius: 0px;
-  }
-  .errors {
-    color: #A60000;
-  }
+.alert {
+  border-radius: 0px;
+}
+.errors {
+  color: #A60000;
+}
 
-  .admin {
-    text-align: center;
-  }
+.admin {
+  text-align: center;
+}
 
-  .background_admin {
-    background-color: $primary-color;
-  }
+.background_admin {
+  background-color: $primary-color;
+}
 
-  .btn-primary {
-    border-color: #FFFFFF;
-    background-color: #009cde;
-  }
+.btn-primary {
+  border-color: #FFFFFF;
+  background-color: $primary-color;
+}
 
-  .btn-primary:hover {
-    background-color: #00A8F0;
-    border-color: #FFFFFF;
-    font-weight: bold;
-  }
+.btn-primary:hover {
+  background-color: #00A8F0;
+  border-color: #FFFFFF;
+  font-weight: bold;
+}
 
-  .btn-facebook {
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-    background-color: #3b5998;
-  }
+.btn-facebook {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  background-color: #3b5998;
+}
 
-  .btn-facebook:hover {
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-    background-color: #315CB5;
-  }
+.btn-facebook:hover {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  background-color: #315CB5;
+}
 
-  #Cancel {
-    background-color: #A60000;
-    border-color: #A60000;
-  }
+#Cancel {
+  background-color: #A60000;
+  border-color: #A60000;
+}
 
-  .billshow {
-    text-align: center;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px; 
-  }
+.billshow {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px; 
+}
 
-  .billshowcolor {
-    color: #428bca;
-  }
+.billshowcolor {
+  color: #428bca;
+}
 
-  .center_bill_list_h {
-    text-align: center;
-  }
+.center_bill_list_h {
+  text-align: center;
+}
 
-  h1 {
-    color: black;
-    font-weight: lighter;
-  }
+h1 {
+  color: black;
+  font-weight: lighter;
+}
 
-  h4 {
-    color: black;
-  }
+h4 {
+  color: #000000;
+}
 
-  h3 {
-    color: #e50000;
-  }
+h3 {
+  color: #e50000;
+}
 
-  #danger {
-    color: #A60000;
-  }
+#danger {
+  color: #A60000;
+}
 
-  p {
-    color: black;
-  }
+p {
+  color: black;
+}
 
-  a {
-    color: $primary-color;
-  }
+a {
+  color: $primary-color;
+}
 
-  a:hover{
-    color: $primary-color;
-    text-decoration: none;
-    font-weight: 700;
-  }
+a:hover{
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 700;
+}
 
-
-  .modal-content {
-    border-style: solid;
-    border-width: 10px;
-    border-color: white; 
-/*  width: ;
-height: ;*/
+.modal-content {
+  border-style: solid;
+  border-width: 10px;
+  border-color: white; 
 }
 
 body {
-  font-family: 'Myriad Set Pro','Helvetica Neue', Helvetica, Arial, sans-serif;;
+  font-family: 'Myriad Set Pro','Helvetica Neue', Helvetica, Arial, sans-serif;
   > .container  {
-    background-color: $container-color;
-    padding-bottom: 80px;
-    border-radius: 10px 10px;
-    min-height: 70vh;
+      background-color: $container-color;
+      padding-bottom: 80px;
+      border-radius: 10px 10px;
+      min-height: 70vh;
   }
 }
 
@@ -162,7 +159,6 @@ body {
   width: 100%;
 
   td, th {
-    /*font-family: "Lucida Grande", arial, helvetica, sans-serif;*/
     font-size: 10px;
     padding: 6px;
     border: 1px solid #999;
@@ -250,8 +246,8 @@ img {
   font-size: 1.50em;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
   font-weight: 100;
-  font-size: 2.14285714285714rem;
-  line-height: 1.875em;
+  font-size: 3.74285714285714rem;
+  line-height: 1.075em;
 }
 
 .navbar-inverse .navbar-brand {
@@ -400,12 +396,12 @@ img {
 
 /*footer*/
 
-footer.navbar{
+footer.navbar {
   margin-bottom: 0;
   margin-top: 30px;
 }
 
-footer.navbar-home{
+footer.navbar-home {
   margin-bottom: 0;
   margin-top: 8px;
 }
@@ -440,12 +436,12 @@ footer.navbar-home{
 }
 
 .navbar-fmn-footer .navbar-nav>li>a:hover,.navbar-fmn-footer .navbar-nav>li>a:focus {
-  color: white;
+  color: #FFFFFF;
   background-color: transparent
 }
 
 .navbar-fmn-footer .navbar-nav>.active>a,.navbar-fmn-footer .navbar-nav>.active>a:hover,.navbar-fmn-footer .navbar-nav>.active>a:focus {
-  color: #fff;
+  color: #FFFFFF;
   background-color: #080808
 }
 
@@ -455,7 +451,7 @@ footer.navbar-home{
 }
 
 .navbar-fmn-footer .navbar-toggle {
-  border-color: white
+  border-color: #FFFFFF
 }
 
 .navbar-fmn-footer .navbar-toggle:hover,.navbar-fmn-footer .navbar-toggle:focus {
@@ -537,11 +533,11 @@ select {
 }
 
 label {
-display: inline-block;
-max-width: 100%;
-margin-bottom: 5px;
-font-weight: 200;
-color: #1a2937;
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 200;
+  color: $secondary-color;
 }
 
 .form-control {
