@@ -10,6 +10,14 @@ $primary-color: #009cde;
 $secondary-color: #1a2937; 
 $container-color: #f8f8f8;
 
+#brand {
+  text-align: center;
+  font-size: 140px;
+  padding-top: 220px;
+  font-weight: 100;
+  color: $primary-color;
+}
+
 .or {
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -45,7 +53,7 @@ $container-color: #f8f8f8;
 }
 
 .homepage {
-  background: url('/assets/homepage-5104cace88ea773a57344fdd6b6f7497.jpg');
+  background: url('/assets/background-homepage.jpg');
   height: 85vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -261,8 +269,8 @@ img {
   font-size: 1.50em;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
   font-weight: 100;
-  font-size: 3.74285714285714rem;
-  line-height: 1.075em;
+  font-size: 2.74285714285714rem;
+  line-height: 1.375em;
 }
 
 .navbar-inverse .navbar-brand {
@@ -270,8 +278,8 @@ img {
   font-size: 1.50em;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
   font-weight: 100;
-  font-size: 2.14285714285714rem;
-  line-height: 1.875em;
+  font-size: 2.74285714285714rem;
+  line-height: 1.375em;
 }
 
 .navbar-fmn .navbar-brand:hover,.navbar-fmn .navbar-brand:focus {
@@ -418,11 +426,11 @@ footer.navbar {
 
 footer.navbar-home {
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-top: 0px;
 }
 
 .navbar-fmn-footer {
-  background-color: transparent;
+  background-color: #FFFFFF;
   right: 0;
   left: 0;
   bottom: 0;
@@ -432,26 +440,26 @@ footer.navbar-home {
 }
 
 .navbar-fmn-footer .navbar-brand {
-  color: #777
+  color: #777;
 }
 
 .navbar-fmn-footer .navbar-brand:hover,.navbar-fmn-footer .navbar-brand:focus {
-  color: white;
+  color: #FFFFFF;
   background-color: transparent
 }
 
 .navbar-fmn-footer .navbar-text {
-  color: #FFFFFF;
-  font-weight: 100;
+  color: #000000;
+  font-weight: 300;
 }
 
 .navbar-fmn-footer .navbar-nav>li>a {
-  color: #FFFFFF;
+  color: #000000;
   font-weight: 100;
 }
 
 .navbar-fmn-footer .navbar-nav>li>a:hover,.navbar-fmn-footer .navbar-nav>li>a:focus {
-  color: #FFFFFF;
+  color: $primary-color;
   background-color: transparent
 }
 
