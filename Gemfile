@@ -80,3 +80,6 @@ gem 'redis'
 
 gem 'sucker_punch'
 
+gem 'github-markup', require: 'github/markup'
+gem 'gollum'
+
